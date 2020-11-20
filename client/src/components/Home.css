@@ -1,0 +1,67 @@
+#Home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffeb95;
+  padding: 50px;
+}
+#logo {
+  color: #6d244a;
+  font-size: 7rem;
+  float: left;
+  margin: 100px;
+}
+#login-card {
+  flex-grow: 2;
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  background-color: #6d244a;
+  color: burlywood;
+  align-items: center;
+  width: 300px;
+  border-radius: 20px;
+  padding-bottom: 50px;
+}
+#login-card label {
+  padding: 30px;
+  color: #ffeb95;
+  font-size: 100px;
+}
+button {
+  margin: 10px;
+  padding: 10px;
+  font-size: larger;
+  width: 250px;
+  border-radius: 50px;
+  border: none;
+  background-color: white;
+  color: #6d244a;
+}
+button:hover {
+  cursor: pointer;
+  background-color: #ffeb95;
+  width: 270px;
+}
+button:active {
+  transform: translateY(4px);
+}
+button:focus {
+  outline: none;
+}
+@media (max-width: 768px) {
+  #Home {
+    flex-flow: column;
+  }
+  #logo{
+    font-size: 4rem;
+    margin: 20px;
+  }
+}
+
+@media (max-width: 380px) {
+    #logo{
+        font-size: 3.5rem;
+        margin: 2 0px;
+      }
+}
