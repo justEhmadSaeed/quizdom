@@ -2,14 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./OneTimeDashboard.css";
 
-const OneTimeDashboard = ({ uid }) => {
+const OneTimeDashboard = ({ user }) => {
   return (
     <div id="one-time-dashboard">
-      <Link to={uid + "create-quiz"}>
+      <Link to={user.id + "create-quiz"}>
         <button id="create-quiz">Create Quiz</button>
       </Link>
       <span id="line" />
-      <Link to={uid + "/join-quiz"}>
+      <Link to={user.id + "/join-quiz"}>
         <button id="join-quiz">Join Quiz</button>
       </Link>
     </div>

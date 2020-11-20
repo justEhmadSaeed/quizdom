@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CreateQuiz = ({uid}) => {
+const CreateQuiz = ({user}) => {
     return (
         <div>
             
