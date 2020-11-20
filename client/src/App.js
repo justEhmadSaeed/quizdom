@@ -7,7 +7,7 @@ import { Switch, Route } from "react-router-dom";
 import React , {useState} from 'react';
 
 const App = () => {
-  const [User, setUser] = useState({name:"",id=""});
+  const [User, setUser] = useState({name:"",id:""});
   return (
     <div className="App">
       <Switch>
