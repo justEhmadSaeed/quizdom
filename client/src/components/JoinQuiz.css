@@ -1,4 +1,4 @@
-#join-quiz {
+#join-quiz-div {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,10 +21,10 @@ input:focus{
     outline: none;
     text-align: center;
 }
-button{
+.join-button{
     background-color: #404A5E;
     color: white;
 }
-button:hover{
+.join-button:hover{
     background-color: #20293b;
 }
