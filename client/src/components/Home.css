@@ -31,7 +31,7 @@
   margin: 50px;
   display: flex;
   flex-direction: column;
-  background-color: var(--dark);
+  background-color: var(--secondary);
   align-items: center;
   width: 250px;
   border-radius: 20px;
@@ -40,7 +40,7 @@
 }
 #login-card label {
   padding: 30px;
-  color: white;
+  color: var(--primary);
   font-size: 100px;
 }
 .signIn-btn {
@@ -50,13 +50,13 @@
   width: 250px;
   border-radius: 50px;
   border: none;
-  background-color: white;
-  color:  var(--dark);
+  background-color: var(--primary);
+  color:  var(--secondary);
   /*box-shadow: #E1E4EB 1px 1px 2px;*/
 }
 .signIn-btn:hover {
   cursor: pointer;
-  background-color: var(--dark);
+  background-color: var(--secondary);
   color: white;
   border: solid 2px white;
   box-shadow: none;
@@ -76,7 +76,7 @@
     margin: 10px;
   }
   #description{
-    color: var(--dark);
+    color: var(--secondary);
     font-weight: 400;
     font-size: 1.2rem;
     width: 300px;

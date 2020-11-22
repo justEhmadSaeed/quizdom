@@ -8,6 +8,7 @@ import React , {useState} from 'react';
 
 const App = () => {
   const [User, setUser] = useState({name:"",id:""});
+  const [isLoggedIn, setisLoggedIn] = useState(false);
   return (
     <div className="App">
       <Switch>

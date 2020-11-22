@@ -1,5 +1,8 @@
+@import "./components/reuseable-components/colors.css";
+
 .App {
   text-align: center;
   align-items: center;
   overflow: hidden;
+  color: var(--secondary);
 }

@@ -2,7 +2,7 @@
 .appbar{
   overflow: hidden;
   height: 64px;
-  background:var(--dark);
+  background:var(--secondary);
   box-shadow: 2px 2px 4px grey;
   position: relative;
   display: flex;
@@ -15,11 +15,11 @@
   padding: 10px;
   font-size: 30px;
   font-weight: 300;
-  color: white;
+  color: var(--primary);
 }
 
 .fa-user-circle{
-  color: white;
+  color: var(--primary);
   width: 30px;
   height: 30px;
 }
