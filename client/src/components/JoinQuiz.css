@@ -27,6 +27,7 @@ input:focus{
     width: 500px;
     outline: none;
     text-align: center;
+    border-color: var(--accent-pink);
 }
 .join-button{
   margin: 10px;
@@ -35,17 +36,19 @@ input:focus{
   width: 250px;
   border-radius: 50px;
   border: none;
-  background-color: var(--dark);
-  color:  var(--light-shadow);
+  background-color: var(--secondary);
+  color:  var(--primary);
   
   box-shadow: #E1E4EB 1px 1px 2px;
 }
 .join-button:hover{
   cursor: pointer;
-  background-color: #ffffff;
-  color: var(--dark);
-  border: solid 2px var(--dark);
+  background-color: var(--accent-pink);
+  color: var(--primary);
 }
 .join-button:focus{
   outline: none;
+}
+.join-button:active{
+  transform: translateY(4px);
 }
