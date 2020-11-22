@@ -1,0 +1,45 @@
+@import '../reuseable-components/colors.css';
+
+.quiz-card{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary);
+    color: var(--secondary);
+    box-shadow: var(--dark-shadow) 2px 3px 4px 1px;
+    width: 300px;
+    margin: 30px;
+    border-radius: 20px;
+    padding: 20px;
+    padding-top: 100px;
+}
+.quiz-card:hover{
+    background-color: var(--light-shadow);
+}
+#quiz-title{
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 5px;
+}
+#horizontal-line{
+    width: 300px;
+    height: 2px;
+    background-color: var(--secondary);
+}
+#row{
+    display: flex;
+    justify-content: space-between;
+}
+#responses{
+    float: left;
+}
+#questions{
+    float: right;
+}
+#questions, #responses{
+    padding: 10px;
+}
+#open-status{
+    align-self: flex-end;
+    padding: 10px;
+    font-style: italic;
+}
