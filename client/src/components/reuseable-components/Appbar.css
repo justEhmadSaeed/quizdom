@@ -1,0 +1,25 @@
+.appbar{
+  overflow: hidden;
+  height: 64px;
+  background: #3D457D;
+  box-shadow: 2px 2px 4px grey;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.home{
+  text-align: center;
+  font-family: Roboto;
+  font-style: normal;
+  padding: 10px;
+  font-size: 30px;
+  color: white;
+}
+
+.fa-user-circle{
+  color: white;
+  width: 30px;
+  height: 30px;
+}
+
+

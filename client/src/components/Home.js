@@ -9,7 +9,7 @@ const Home = () => {
         <b>Quiz</b>dom
       </span>
       <span id="login-card">
-        <label>Q</label>
+        <label><b>Q</b></label>
         <Link to="/new-user-dashboard">
           <button>Sign-in with Google</button>
         </Link>

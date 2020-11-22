@@ -1,0 +1,10 @@
+.dashboard-content{
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.vertical-line{
+  border-left: 4px solid #4b42f5;
+  height: 200px;
+}
