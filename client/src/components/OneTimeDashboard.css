@@ -1,10 +1,39 @@
-.dashboard-content{
+@import "./reuseable-components//colors.css";
+#dashboard-content{
   height: 80vh;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 .vertical-line{
-  border-left: 4px solid #4b42f5;
+  border-left: 4px solid  var(--dark);
   height: 200px;
+}
+.create-quiz, .join-quiz{
+  margin: 10px;
+  padding: 10px;
+  font-size: 20px;
+  width: 250px;
+  border-radius: 50px;
+  border: none;
+  background-color: var(--dark);
+  color:  var(--light-shadow);
+  box-shadow: #E1E4EB 1px 1px 2px;
+}
+.create-quiz:hover, .join-quiz:hover{
+  background-color: #ffffff;
+  color: var(--dark);
+  border: solid var(--dark);
+}
+.create-quiz:focus, .join-quiz:active{
+  outline: none;
+}
+@media (max-width: 768px) {
+  #dashboard-content {
+    flex-flow: column;
+    justify-content: center;
+  }
+  .vertical-line{
+    display: none;
+  }
 }

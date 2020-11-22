@@ -11,10 +11,10 @@ const Home = () => {
       <span id="login-card">
         <label><b>Q</b></label>
         <Link to="/new-user-dashboard">
-          <button>Sign-in with Google</button>
+          <button className="signIn-btn">Sign-in with Google</button>
         </Link>
-        <button>Sign-in with Facebook</button>
-        <button>Sign-in with Email</button>
+        <button className="signIn-btn">Sign-in with Facebook</button>
+        <button className="signIn-btn">Sign-in with Email</button>
       </span>
     </div>
   );

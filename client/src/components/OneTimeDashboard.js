@@ -8,13 +8,13 @@ const OneTimeDashboard = ({ user }) => {
   return (
     <div className="one-time-dashboard">
       <Appbar />
-      <div className="dashboard-content">
+      <div id="dashboard-content">
       <Link to={user.id + "create-quiz"}>
-        <button id="create-quiz">Create Quiz</button>
+        <button className="create-quiz">Create Quiz</button>
       </Link>
-        <span class="vertical-line"></span>
+        <span className="vertical-line"></span>
       <Link to={user.id + "/join-quiz"}>
-        <button id="join-quiz">Join Quiz</button>
+        <button className="join-quiz">Join Quiz</button>
       </Link>
       </div>
     </div>

@@ -1,7 +1,8 @@
+@import "./colors.css";
 .appbar{
   overflow: hidden;
   height: 64px;
-  background: #3D457D;
+  background:var(--dark);
   box-shadow: 2px 2px 4px grey;
   position: relative;
   display: flex;

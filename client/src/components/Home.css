@@ -1,12 +1,14 @@
+@import "./reuseable-components/colors.css";
+
 #Home {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #ffeb95;
-  padding: 50px;
+  background-color: white;
+  padding: 40px;
 }
 #logo {
-  color: #6d244a;
+  color: var(--dark);
   font-size: 7rem;
   float: left;
   margin: 100px;
@@ -16,38 +18,39 @@
   margin: 50px;
   display: flex;
   flex-direction: column;
-  background-color: #6d244a;
+  background-color: var(--dark);
   align-items: center;
-  width: 300px;
+  width: 250px;
   border-radius: 20px;
   padding-bottom: 50px;
-  box-shadow: #cab764 5px 7px 10px;
+  box-shadow: var(--light-shadow);
 }
 #login-card label {
   padding: 30px;
-  color: #ffeb95;
+  color: white;
   font-size: 100px;
 }
-button {
+.signIn-btn {
   margin: 10px;
   padding: 10px;
-  font-size: larger;
+  font-size: 20px;
   width: 250px;
   border-radius: 50px;
   border: none;
   background-color: white;
-  color: #6d244a;
-  box-shadow: #3b0e25 2px 2px 3px;
+  color:  var(--dark);
+  /*box-shadow: #E1E4EB 1px 1px 2px;*/
 }
-button:hover {
+.signIn-btn:hover {
   cursor: pointer;
-  background-color: #ffeb95;
-  width: 270px;
+  background-color:var(--dark);
+  color: white;
+  border: solid white;
+  box-shadow: none;
+  
 }
-button:active {
-  transform: translateY(4px);
-}
-button:focus {
+
+.signIn-btn:focus {
   outline: none;
 }
 
@@ -57,7 +60,14 @@ button:focus {
   }
   #logo{
     font-size: 4rem;
-    margin: 20px;
+    margin: 10px;
+  }
+  #login-card{
+    width: 300px;
+  }
+  .signIn-btn{
+    width: 200px;
+    font-size: 1.01rem;
   }
 }
 
@@ -66,4 +76,12 @@ button:focus {
         font-size: 3.5rem;
         margin: 2 0px;
       }
+      #login-card{
+        width: 300px;
+      }
+      .signIn-btn{
+        width: 200px;
+        font-size: 1.01rem;
+      }
+      
 }
