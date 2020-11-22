@@ -23,11 +23,13 @@
 .create-quiz:hover, .join-quiz:hover{
   cursor: pointer;
   background-color: var(--accent-pink);
-  padding: 20px;
   color: var(--primary);
 }
-.create-quiz:focus, .join-quiz:active{
+.create-quiz:focus, .join-quiz:focus{
   outline: none;
+}
+.create-quiz:active,.join-quiz:active{
+  transform: translateY(4px);
 }
 @media (max-width: 768px) {
   #dashboard-content {

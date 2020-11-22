@@ -28,6 +28,7 @@ input:focus{
     outline: none;
     text-align: center;
     border-color: var(--accent-pink);
+    color: var(--accent-pink);
 }
 .join-button{
   margin: 10px;
