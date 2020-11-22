@@ -10,10 +10,11 @@
     margin: 30px;
     border-radius: 20px;
     padding: 20px;
-    padding-top: 100px;
+    padding-top: 70px;
 }
 .quiz-card:hover{
-    background-color: var(--light-shadow);
+    cursor: pointer;
+    background-color: rgb(233, 240, 255);
 }
 #quiz-title{
     font-size: 3rem;
@@ -42,4 +43,5 @@
     align-self: flex-end;
     padding: 10px;
     font-style: italic;
+    color: var(--accent-pink);
 }

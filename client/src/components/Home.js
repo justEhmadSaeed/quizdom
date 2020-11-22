@@ -20,7 +20,9 @@ const Home = ({user}) => {
         <Link to={user.id+"/new-user-dashboard"}>
           <button className="signIn-btn">Sign-in with Google</button>
         </Link>
+        <Link to ={user.id+"/dashboard"}>
         <button className="signIn-btn">Sign-in with Facebook</button>
+        </Link>
         <button className="signIn-btn">Sign-in with Email</button>
       </span>
     </div>
