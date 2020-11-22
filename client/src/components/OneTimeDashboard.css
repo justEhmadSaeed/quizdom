@@ -22,9 +22,9 @@
 }
 .create-quiz:hover, .join-quiz:hover{
   cursor: pointer;
-  background-color: #ffffff;
-  color: var(--secondary);
-  border: solid 0.5px var(--secondary);
+  background-color: var(--accent-pink);
+  padding: 20px;
+  color: var(--primary);
 }
 .create-quiz:focus, .join-quiz:active{
   outline: none;

@@ -56,9 +56,8 @@
 }
 .signIn-btn:hover {
   cursor: pointer;
-  background-color: var(--secondary);
+  background-color: var(--accent-pink);
   color: white;
-  border: solid 2px white;
   box-shadow: none;
   
 }
