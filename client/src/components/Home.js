@@ -1,8 +1,9 @@
 import React from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
+import UserDashboard from "./UserDashboard";
 
-const Home = () => {
+const Home = ({user}) => {
   return (
     <div id="Home">
       <div id="logo">
@@ -16,7 +17,7 @@ const Home = () => {
       
       <span id="login-card">
         <label><b>Q</b></label>
-        <Link to="/new-user-dashboard">
+        <Link to={user.id+"/new-user-dashboard"}>
           <button className="signIn-btn">Sign-in with Google</button>
         </Link>
         <button className="signIn-btn">Sign-in with Facebook</button>

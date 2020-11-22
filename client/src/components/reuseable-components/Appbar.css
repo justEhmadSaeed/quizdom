@@ -16,6 +16,10 @@
   font-size: 30px;
   font-weight: 300;
   color: var(--primary);
+  text-decoration: none;
+}
+.home:hover{
+  color: var(--accent-mustard);
 }
 
 .fa-user-circle{
@@ -24,4 +28,10 @@
   height: 30px;
 }
 
-
+#username{
+  position: absolute;
+  color: var(--primary);
+  right: 0px;
+  top: 0px;
+  padding: 10px;
+}

@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./OneTimeDashboard.css";
-
 import Appbar from "./reuseable-components/Appbar";
 
 const OneTimeDashboard = ({ user }) => {
   return (
     <div className="one-time-dashboard">
-      <Appbar />
+      <Appbar user = {user} />
       <div id="dashboard-content">
       <Link to={user.id + "create-quiz"}>
         <button className="create-quiz">Create Quiz</button>
