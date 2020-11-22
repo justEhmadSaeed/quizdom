@@ -1,13 +1,17 @@
 import React from 'react';
 import './JoinQuiz.css';
+import Appbar from "./reuseable-components/Appbar";
 import {Link} from 'react-router-dom'
 
 const JoinQuiz = () => {
     return (
-        <div id = "join-quiz-div">
-            <label>Enter Quiz Code</label>
-            <input type="text"/>
+        <div id="join-quiz">
+            <Appbar />  
+            <div id = "join-quiz-div">
+            <div id="logo-name"><b style={{fontweight : 600}}>Quiz</b>dom</div>
+            <input type="text" placeholder="Enter Quiz Code" />
             <button className = "join-button">Join Quiz</button>
+            </div>
         </div>
     );
 };

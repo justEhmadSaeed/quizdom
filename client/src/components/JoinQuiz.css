@@ -1,3 +1,8 @@
+@import "./reuseable-components/colors.css";
+#join-quiz{
+  width: 100%;
+  height: 100vh;
+}
 #join-quiz-div {
   display: flex;
   flex-direction: column;
@@ -9,22 +14,38 @@ label{
   color: #404A5E;
 }
 input {
-  width: 300px;
+  width: 400px;
   margin: 10px;
   padding: 10px;
+  text-align: center;
   font-size: larger;
   border-radius: 50px;
+  transition: width 0.4s ease-in-out;
   border: 2px solid #404A5E;
 }
 input:focus{
-    width: 400px;
+    width: 500px;
     outline: none;
     text-align: center;
 }
 .join-button{
-    background-color: #404A5E;
-    color: white;
+  margin: 10px;
+  padding: 10px;
+  font-size: 20px;
+  width: 250px;
+  border-radius: 50px;
+  border: none;
+  background-color: var(--dark);
+  color:  var(--light-shadow);
+  
+  box-shadow: #E1E4EB 1px 1px 2px;
 }
 .join-button:hover{
-    background-color: #20293b;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: var(--dark);
+  border: solid 2px var(--dark);
+}
+.join-button:focus{
+  outline: none;
 }
