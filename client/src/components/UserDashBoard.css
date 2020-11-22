@@ -1,0 +1,25 @@
+@import './reuseable-components/colors.css';
+
+.dash-body{
+    padding: 50px;
+}
+
+.card-holder{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.heading{
+    color: var(--light-shadow);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.line{
+    justify-self: flex-end;
+    margin: 12px;
+    height: 1px;
+    width: 100%;
+    background-color: var(--light-shadow);
+}

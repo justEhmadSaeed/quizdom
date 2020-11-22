@@ -7,14 +7,16 @@
     color: var(--secondary);
     box-shadow: var(--dark-shadow) 2px 3px 4px 1px;
     width: 300px;
-    margin: 30px;
+    margin: 20px;
     border-radius: 20px;
     padding: 20px;
     padding-top: 70px;
+    padding-bottom: 10px;
 }
 .quiz-card:hover{
     cursor: pointer;
     background-color: rgb(233, 240, 255);
+    transform: scale(1.02);
 }
 #quiz-title{
     font-size: 3rem;
@@ -38,6 +40,7 @@
 }
 #questions, #responses{
     padding: 10px;
+    font-size: 1.1rem;
 }
 #open-status{
     align-self: flex-end;
