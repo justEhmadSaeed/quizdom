@@ -24,6 +24,8 @@
   cursor: pointer;
   background-color: var(--accent-pink);
   color: var(--primary);
+  transition: 0.4s;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
 }
 .create-quiz:focus, .join-quiz:focus{
   outline: none;
