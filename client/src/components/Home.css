@@ -53,7 +53,7 @@
   background-size: 200% auto;
   border-radius: 50px;
   border: none;
-  background-image: linear-gradient(to right, var(--secondary) -10% ,var(--accent-pink)  30%, var(--accent-mustard)  100%);
+  background-image: linear-gradient(to right, var(--secondary) -30% ,var(--accent-pink)  30%, var(--accent-mustard)  100%);
   color:  var(--primary);
   
 }
