@@ -14,7 +14,7 @@ const UserDashboard = ({ user }) => {
         </div>
         <div className="card-holder">
           <CreatedQuizCard
-            title="Quiz Title"
+            title="Quiz 1"
             responses="23"
             questions="50"
             isOpen="open"

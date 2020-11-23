@@ -18,10 +18,10 @@ const App = () => {
         <Route exact path="/">
           <Home user = {User}/>
         </Route>
-        <Route exact path = {User.id+"/new-user-dashboard"}>
+        <Route exact path = {User.id + "/new-user-dashboard"}>
           <OneTimeDashBoard user = {User}/>
         </Route>
-        <Route exact path = {User.id+"/dashboard"}>
+        <Route exact path = {User.id + "/dashboard"}>
           <UserDashboard user = {User}/>
         </Route>
         <Route exact path = {User.id+"/create-quiz"}>

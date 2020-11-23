@@ -17,9 +17,7 @@ const Appbar = ({ user }) => {
           <b>Quiz</b>dom
       </Link>
 
-      <div className="user">
-        <label id="username">{username}</label>
-      </div>
+      
     </div>
   );
 };

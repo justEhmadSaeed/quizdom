@@ -15,7 +15,7 @@
 }
 .quiz-card:hover{
     cursor: pointer;
-    background-color: rgb(233, 240, 255);
+    background-color: rgb(234, 236, 240);
     transform: scale(1.02);
 }
 #quiz-title{

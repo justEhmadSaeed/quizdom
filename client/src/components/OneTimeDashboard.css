@@ -11,21 +11,24 @@
 }
 .create-quiz, .join-quiz{
   margin: 10px;
-  padding: 10px;
+  padding: 12px;
   font-size: 20px;
-  width: 250px;
+  width: 255px;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
   border-radius: 50px;
   border: none;
-  background-color: var(--secondary);
+  background-image: linear-gradient(to right, var(--secondary) 0%, var(--accent-pink)  31%, var(--accent-mustard)  100%);
   color:  var(--primary);
-  box-shadow: #E1E4EB 1px 1px 2px;
+  box-shadow: 0 0 20px #eee;
 }
 .create-quiz:hover, .join-quiz:hover{
+  
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
   cursor: pointer;
-  background-color: var(--accent-pink);
-  color: var(--primary);
-  transition: 0.4s;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  text-decoration: none;
 }
 .create-quiz:focus, .join-quiz:focus{
   outline: none;
