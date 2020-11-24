@@ -1,5 +1,5 @@
 import React from 'react';
-import Appbar from './reuseable-components/Appbar';
+import Appbar from '../components/Appbar';
 
 const CreateQuiz = ({user}) => {
     return (

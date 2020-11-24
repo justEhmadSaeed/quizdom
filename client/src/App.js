@@ -3,12 +3,12 @@ import React , {useState} from 'react';
 // Stylesheet
 import "./App.css";
 // Components
-import Home from "./components/Home";
-import OneTimeDashBoard from './components/OneTimeDashboard';
-import CreateQuiz from './components/CreateQuiz';
-import JoinQuiz from './components/JoinQuiz';
-import UserDashboard from './components/UserDashboard';
-import CreatedSuccesfully from './components/CreatedSuccesfully';
+import Home from "./screens/Home";
+import OneTimeDashBoard from './screens/OneTimeDashboard';
+import CreateQuiz from './screens/CreateQuiz';
+import JoinQuiz from './screens/JoinQuiz';
+import UserDashboard from './screens/UserDashboard';
+import CreatedSuccesfully from './screens/CreatedSuccesfully';
 
 const App = () => {
   const [User, setUser] = useState({name:"",id:""});

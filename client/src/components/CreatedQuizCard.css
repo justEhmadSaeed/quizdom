@@ -1,4 +1,4 @@
-@import '../reuseable-components/colors.css';
+@import 'colors.css';
 
 .quiz-card{
     display: flex;

@@ -1,4 +1,4 @@
-@import "./reuseable-components//colors.css";
+@import "../components//colors.css";
 
 #dashboard-content{
   height: 80vh;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./OneTimeDashboard.css";
-import Appbar from "./reuseable-components/Appbar";
+import Appbar from "../components/Appbar";
 
 const OneTimeDashboard = ({ user }) => {
   return (

@@ -1,4 +1,5 @@
-@import "./reuseable-components/colors.css";
+@import "../components/colors.css";
+
 #join-quiz{
   width: 100%;
   height: 100vh;

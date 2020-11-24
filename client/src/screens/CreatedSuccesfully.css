@@ -1,4 +1,4 @@
-@import "./reuseable-components/colors.css";
+@import "../components/colors.css";
 #created-quiz{
   background-color: var(--secondary);
   display: flex;

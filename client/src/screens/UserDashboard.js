@@ -1,7 +1,7 @@
 import React from "react";
 import "./UserDashBoard.css";
-import Appbar from "./reuseable-components/Appbar";
-import CreatedQuizCard from "./reuseable-components/CreatedQuizCard";
+import Appbar from "../components/Appbar";
+import CreatedQuizCard from "../components/CreatedQuizCard";
 
 const UserDashboard = ({ user }) => {
   return (
