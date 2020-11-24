@@ -1,51 +1,57 @@
-@import "../components//colors.css";
+@import "../components/colors.css";
 
-#dashboard-content{
-  height: 80vh;
-  width: 100%;
-  
-  background-color: var(--gradient);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+#dashboard-content {
+	height: 80vh;
+	width: 100%;
+
+	background-color: var(--gradient);
+	display: flex;
+	align-items: center;
+  justify-content: space-evenly;
+
 }
-.vertical-line{
-  border-left: 4px solid  var(--secondary);
-  height: 200px;
+.vertical-line {
+	border-left: 3px solid var(--secondary);
+	border-image: linear-gradient(to bottom, var(--secondary), var(--accent-pink))
+		1 100%;
+	height: 200px;
 }
-.create-quiz, .join-quiz{
-  margin: 10px;
-  padding: 12px;
-  font-size: 20px;
-  width: 255px;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto;
-  border-radius: 50px;
-  border: none;
-  background-image: var(--gradient);
-  color:  var(--primary);
-  box-shadow: 0 0 20px #eee;
+.create-quiz,
+.join-quiz {
+	margin: 10px;
+	padding: 12px;
+	font-size: 20px;
+	width: 255px;
+	text-transform: uppercase;
+	transition: 0.5s;
+	background-size: 200% auto;
+	border-radius: 50px;
+	border: none;
+	background-image: var(--gradient);
+	color: var(--primary);
+	box-shadow: 0 0 20px #eee;
 }
-.create-quiz:hover, .join-quiz:hover{
-  
-  background-position: right center; /* change the direction of the change here */
-  color: #fff;
-  cursor: pointer;
-  text-decoration: none;
+.create-quiz:hover,
+.join-quiz:hover {
+	background-position: right center; /* change the direction of the change here */
+	color: #fff;
+	cursor: pointer;
+	text-decoration: none;
 }
-.create-quiz:focus, .join-quiz:focus{
-  outline: none;
+.create-quiz:focus,
+.join-quiz:focus {
+	outline: none;
 }
-.create-quiz:active,.join-quiz:active{
-  transform: translateY(4px);
+.create-quiz:active,
+.join-quiz:active {
+	transform: translateY(4px);
 }
 @media (max-width: 768px) {
-  #dashboard-content {
-    flex-flow: column;
-    justify-content: center;
-  }
-  .vertical-line{
-    display: none;
-  }
+	#dashboard-content {
+		flex-flow: column;
+		justify-content: center;
+	}
+	.vertical-line {
+		display: none;
+	}
 }
