@@ -1,6 +1,10 @@
 @import "./reuseable-components//colors.css";
+
 #dashboard-content{
   height: 80vh;
+  width: 100%;
+  
+  background-color: var(--gradient);
   display: flex;
   align-items: center;
   justify-content: space-around;

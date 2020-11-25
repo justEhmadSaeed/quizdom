@@ -45,6 +45,7 @@ input:focus{
   color:  var(--primary);
   box-shadow: 0 0 20px #eee;
 }
+
 .join-button:hover{
   background-position: right center; /* change the direction of the change here */
   color: #fff;

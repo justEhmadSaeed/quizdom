@@ -8,6 +8,7 @@ import OneTimeDashBoard from './components/OneTimeDashboard';
 import CreateQuiz from './components/CreateQuiz';
 import JoinQuiz from './components/JoinQuiz';
 import UserDashboard from './components/UserDashboard';
+import CreatedSuccesfully from './components/CreatedSuccesfully';
 
 const App = () => {
   const [User, setUser] = useState({name:"",id:""});
@@ -18,6 +19,9 @@ const App = () => {
         <Route exact path="/">
           <Home user = {User}/>
         </Route>
+        <Route exact path ={User.id + "/created-succesfully"}>
+          <CreatedSuccesfully user = {User}/>
+        </Route> 
         <Route exact path = {User.id + "/new-user-dashboard"}>
           <OneTimeDashBoard user = {User}/>
         </Route>
