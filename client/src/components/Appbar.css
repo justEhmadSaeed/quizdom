@@ -1,8 +1,7 @@
 @import "./colors.css";
+
 .appbar{
   overflow: hidden;
-  position: -webkit-sticky;
-  position: relative;
   height: 64px;
   background:var(--secondary);
   box-shadow: 2px 2px 4px grey;
@@ -15,9 +14,12 @@
   font-style: normal;
   padding: 10px;
   font-size: 30px;
-  font-weight: 300;
   color: var(--primary);
   text-decoration: none;
+}
+.home b{
+  font-family: Roboto;
+  font-size: 30px;
 }
 .home:hover{
   color: var(--accent-mustard);

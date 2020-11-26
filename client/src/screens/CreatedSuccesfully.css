@@ -54,6 +54,7 @@ b{
 }
 .copy-btn:active{
   transform: translateY(4px);
+  box-shadow: var(--dark-shadow) 2px 2px 3px;
 }
 #copy-code{
   width: 400px;

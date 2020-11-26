@@ -6,8 +6,3 @@
   overflow: hidden;
   color: var(--secondary);
 }
-.appheader{
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0px;
-}
