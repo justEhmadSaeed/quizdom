@@ -56,7 +56,13 @@ b{
   transform: translateY(4px);
   box-shadow: var(--dark-shadow) 2px 2px 3px;
 }
-#copy-code{
+
+#copied{
+  font-weight: 500;
+  border-color: var(--accent-pink);
+  color: var(--accent-pink);
+}
+#copy{
   width: 400px;
   margin: 20px;
   margin: 10px;
@@ -67,7 +73,7 @@ b{
   transition: width 0.4s ease-in-out;
   border: 2px solid #404A5E;
 }
-#copy-code:focus{
+#copy:focus{
   outline: none;
   text-align: center;
   font-weight: 500;
@@ -79,10 +85,10 @@ b{
     width: 150px;
     padding: 10px;
   }
-  #copy-code{
+  #copy{
     width: 300px;
   }
-  #copy-code:focus{
+  #copy:focus{
     width: 300px;
   }
   b{
