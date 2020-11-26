@@ -10,7 +10,7 @@ const CreatedQuizCard = ({ title, responses, questions, isOpen }) => {
         <div id="responses">Responses : {responses}</div>
         <div id="questions">Questions : {questions}</div>
       </div>
-      <div id="open-status">{isOpen}</div>
+      <div id={isOpen}>{isOpen}</div>
     </div>
   );
 };

@@ -42,7 +42,13 @@
     padding: 10px;
     font-size: 1.1rem;
 }
-#open-status{
+#open{
+    align-self: flex-end;
+    padding: 10px;
+    font-style: italic;
+    color: green;
+}
+#closed{
     align-self: flex-end;
     padding: 10px;
     font-style: italic;

@@ -25,7 +25,7 @@ const UserDashboard = ({ user }) => {
             title="Quiz Title"
             responses="23"
             questions="50"
-            isOpen="open"
+            isOpen="closed"
           />
           <CreatedQuizCard
             title="Quiz Title"
@@ -37,7 +37,7 @@ const UserDashboard = ({ user }) => {
             title="Quiz Title"
             responses="23"
             questions="50"
-            isOpen="open"
+            isOpen="closed"
           />
           <CreatedQuizCard
             title="Quiz Title"
