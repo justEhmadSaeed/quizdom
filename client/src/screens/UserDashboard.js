@@ -15,36 +15,56 @@ const UserDashboard = ({ user }) => {
           <div className="line"></div>
         </div>
         <div className="card-holder">
-          <CreatedQuizCard
-            title="Quiz 1"
-            responses="23"
-            questions="50"
-            isOpen="open"
+        <CreatedQuizCard
+            quiz={
+              {title : "Quiz 1",
+              responses : "23",
+              questions : "50",
+              isOpen : "open"}
+            }
           />
           <CreatedQuizCard
-            title="Quiz Title"
-            responses="23"
-            questions="50"
-            isOpen="closed"
+            quiz={
+              {title : "Quiz 2",
+              responses : "23",
+              questions : "50",
+              isOpen : "closed"}
+            }
           />
           <CreatedQuizCard
-            title="Quiz Title"
-            responses="23"
-            questions="50"
-            isOpen="open"
+            quiz={
+              {title : "Quiz 3",
+              responses : "23",
+              questions : "50",
+              isOpen : "open"}
+            }
           />
           <CreatedQuizCard
-            title="Quiz Title"
-            responses="23"
-            questions="50"
-            isOpen="closed"
+            quiz={
+              {title : "Quiz 4",
+              responses : "23",
+              questions : "50",
+              isOpen : "closed"}
+            }
           />
           <CreatedQuizCard
-            title="Quiz Title"
-            responses="23"
-            questions="50"
-            isOpen="open"
+            quiz={
+              {title : "Quiz 5",
+              responses : "23",
+              questions : "50",
+              isOpen : "open"}
+            }
           />
+          <CreatedQuizCard
+            quiz={
+              {title : "Quiz 6",
+              responses : "23",
+              questions : "50",
+              isOpen : "closed"}
+            }
+          />
+          
+          
         </div>
       </div>
     </div>
