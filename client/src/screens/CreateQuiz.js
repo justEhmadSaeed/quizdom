@@ -3,7 +3,7 @@ import Appbar from '../components/Appbar';
 
 const CreateQuiz = ({user}) => {
     return (
-        <div>
+        <div className = "appheader">
             <Appbar user = {user}/>
         </div>
     );

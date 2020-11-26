@@ -1,7 +1,14 @@
 @import "../components/colors.css";
-
+.appheader{
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+  }
+  
 .dash-body{
     padding: 50px;
+    margin-top: 60px;
 }
 
 .card-holder{

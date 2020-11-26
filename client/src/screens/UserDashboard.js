@@ -6,7 +6,9 @@ import CreatedQuizCard from "../components/CreatedQuizCard";
 const UserDashboard = ({ user }) => {
   return (
     <div>
-      <Appbar user={user} />
+      <div className="appheader">
+        <Appbar user={user} />
+      </div>
       <div className="dash-body">
         <div className="heading">
           <div>Created </div>

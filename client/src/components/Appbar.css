@@ -1,10 +1,11 @@
 @import "./colors.css";
 .appbar{
   overflow: hidden;
+  position: -webkit-sticky;
+  position: relative;
   height: 64px;
   background:var(--secondary);
   box-shadow: 2px 2px 4px grey;
-  position: relative;
   display: flex;
   align-items: center;
 }
