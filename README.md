@@ -8,7 +8,7 @@ QUIZDOM is a web application for all kinds of users. Users can simply log in to 
 
 ## 💡Live Preview
 
-Take a look at the live [Preview of the Site](https://quizdom-quiz.netlify.app/).
+Take a look at the live <a href="https://quizdom-quiz.netlify.app/" target="_blank">Preview of the app.</a>.
 
 ## ✨Functional Requirements
 
