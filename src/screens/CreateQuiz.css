@@ -1,0 +1,44 @@
+@import '../components/colors.css';
+
+#main-body{
+    display: flex;
+    flex-direction: column;
+}
+#create-quiz-body{
+    margin: 100px 200px;
+    display: flex;
+    flex-direction: column;
+}
+#add-btn{
+    background-color: var(--secondary);
+    color: var(--primary);
+    font-size: 3rem;
+    width: 60px;
+    border-radius: 50px;
+    border: none;
+    box-shadow: var(--light-shadow) 2px 3px 5px;
+    align-self: flex-end;
+}
+#add-btn:hover, #create-btn:hover{
+    background-color: var(--accent-pink);
+    cursor: pointer;
+}
+#add-btn:focus, #create-btn:focus{
+    outline: none;
+}
+#add-btn:active, #create-btn:active{
+    transform: translateY(4px);
+}
+
+#create-btn{
+    background-color: var(--secondary);
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    color: var(--primary);
+    border-radius: 50px;
+    border: none;
+    box-shadow: var(--light-shadow) 2px 3px 5px;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}

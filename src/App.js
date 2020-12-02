@@ -19,9 +19,6 @@ const App = () => {
         <Route exact path="/">
           <Home user = {User}/>
         </Route>
-        <Route exact path ={User.id + "/created-succesfully"}>
-          <CreatedSuccesfully user = {User}/>
-        </Route> 
         <Route exact path = {User.id + "/new-user-dashboard"}>
           <OneTimeDashBoard user = {User}/>
         </Route>
@@ -31,6 +28,9 @@ const App = () => {
         <Route exact path = {User.id+"/create-quiz"}>
           <CreateQuiz user = {User}/>
         </Route>
+        <Route exact path ={User.id + "/created-succesfully"}>
+          <CreatedSuccesfully user = {User}/>
+        </Route> 
         <Route exact path = {User.id+"/join-quiz"}>
           <JoinQuiz user = {User}/>
         </Route>

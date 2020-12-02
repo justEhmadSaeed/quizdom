@@ -14,7 +14,7 @@ label{
   font-size: xx-large;
   color: #404A5E;
 }
-input {
+#q-code {
   width: 400px;
   margin: 10px;
   padding: 10px;
@@ -24,7 +24,7 @@ input {
   transition: width 0.4s ease-in-out;
   border: 2px solid #404A5E;
 }
-input:focus{
+#q-code:focus{
     width: 500px;
     outline: none;
     text-align: center;
@@ -65,10 +65,10 @@ input:focus{
     width: 200px;
     padding: 10px;
   }
-  input{
+  #q-code{
     width: 300px;
   }
-  input:focus{
+  #q-code:focus{
     width: 350px;
   }
 }

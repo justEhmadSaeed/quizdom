@@ -13,7 +13,7 @@ const JoinQuiz = ({ user }) => {
         <div id="logo-name">
           <b style={{ fontweight: 600 }}>Quiz</b>dom
         </div>
-        <input type="text" placeholder="Enter Quiz Code" />
+        <input id = "q-code"type="text" placeholder="Enter Quiz Code" />
         <button className="join-button">Join Quiz</button>
       </div>
     </div>

@@ -1,0 +1,80 @@
+@import './colors.css';
+
+.questionCard{
+    padding: 20px;
+    box-shadow: var(--light-shadow) 2px 3px 5px;
+    margin: 20px 0px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+#title{
+    margin: 10px;
+    text-align: left;
+    font-size: 1.5rem;
+}
+#question, #select{
+    margin: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    
+}
+#question{
+    border: var(--secondary) 1px solid;
+}
+#select{
+    padding: 10px;
+    width: 150px;
+    background-color: var(--secondary);
+    color: var(--primary);
+}
+.selectOp{
+    padding: 50px;
+}
+.selectOp:hover{
+    background-color: var(--accent-pink);
+}
+.check-in, .radio-in{
+    margin: 5px;
+}
+.add-btn{
+    text-align: center;
+    border-radius: 70px;
+    background-color: transparent;
+    border: var(--secondary) 1px solid;
+    font-weight: bolder;
+}
+.add-btn:hover{
+    background-color: var(--accent-pink);
+    color: var(--primary);
+    border-color: var(--primary);
+    cursor: pointer;
+}
+.add-btn:focus{
+    outline: none;
+}
+.op{
+    width: 200px;
+    font-size: 1rem;
+}
+.option{
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+.options{
+    display: flex;
+    flex-direction: column;
+}
+.option-div{
+    display: flex;
+    flex-direction: column;
+}
+.add-op{
+    align-self: flex-start;
+    margin: 5px;
+}
+.op-label{
+    margin: 5px;
+    font-size: 1rem;
+}
