@@ -15,12 +15,12 @@
 }
 #question, #select{
     margin: 5px;
-    border-radius: 5px;
+    border-radius: 7px;
     padding: 5px;
-    
 }
 #question{
     border: var(--secondary) 1px solid;
+    padding: 10px;
 }
 #select{
     padding: 10px;
@@ -35,7 +35,7 @@
     background-color: var(--accent-pink);
 }
 .check-in, .radio-in{
-    margin: 5px;
+    margin: 10px 5px;
 }
 .add-btn{
     text-align: center;
@@ -55,7 +55,9 @@
 }
 .op{
     width: 200px;
-    font-size: 1rem;
+    padding: 5px;
+    border-radius: 5px;
+    border: var(--secondary) 1px solid  ;
 }
 .option{
     display: flex;

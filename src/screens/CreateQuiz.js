@@ -29,7 +29,7 @@ const CreateQuiz = ({ user }) => {
         <input id="add-btn" type="submit" onClick={handleAdd} value="+" />
       </div>
       <Link to={user.id + "/created-succesfully"}>
-        <input id="create-btn" type="submit" />
+        <input id="create-btn" type="submit" value="Create" />
       </Link>
     </div>
   );
