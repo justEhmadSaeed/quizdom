@@ -5,18 +5,20 @@
     flex-direction: column;
 }
 #create-quiz-body{
-    margin: 100px 200px;
+    margin-top: 30px;
+    align-items: center;
     display: flex;
     flex-direction: column;
 }
 .quiz-header{
     padding: 20px;
+    margin-top: 50px;
     border: none;
-    border-top: 15px solid var(--accent-pink);
-    box-shadow: var(--light-shadow) 3px 3px 5px 2px;
-    margin: 20px 0px;
+    border-top: 25px solid var(--accent-pink);
+    box-shadow: var(--light-shadow) 1px 1px 2px 1px;
     border-radius: 10px;
     display: flex;
+    width: 900px;
     flex-direction: column;
 }
 #quiz-title{
@@ -35,7 +37,6 @@
 #quiz-title:focus{
     transition: all 0.5s ease;
     border-bottom: 2px solid var(--dark-shadow);
-    
 }
 
 #add-btn{
@@ -70,4 +71,9 @@
     position: fixed;
     bottom: 50px;
     right: 50px;
+}
+@media (max-width: 768px){
+    .quiz-header{
+        width: 420px;
+    }
 }

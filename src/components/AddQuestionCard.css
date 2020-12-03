@@ -2,8 +2,9 @@
 
 .questionCard{
     padding: 20px;
-    box-shadow: var(--light-shadow) 3px 3px 5px 2px;
+    box-shadow: var(--light-shadow) 1px 1px 1px 1px;
     margin: 20px 0px;
+    width: 900px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -58,6 +59,7 @@
 }
 .check-in:focus{
     outline: none;
+    
 }
 .add-btn{
     text-align: center;
@@ -81,10 +83,12 @@
     width: 200px;
     padding: 5px;
     border: none;
+    width: 600px;
     border-bottom: 2px solid var(--light-shadow);
 }
 .op[type="text"]:focus{
-    transition: all 0.5s ease;
+    transition: all 0.7s ease;
+    width: 700px;
     border-color: var(--dark-shadow);
     outline: none;
 }
@@ -109,4 +113,9 @@
 .op-label{
     margin: 5px;
     font-size: 1rem;
+}
+@media (max-width: 768px){
+    .questionCard{
+        width: 420px;
+    }
 }
