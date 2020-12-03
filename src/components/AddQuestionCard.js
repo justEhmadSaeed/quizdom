@@ -71,7 +71,7 @@ const AddQuestionCard = ({ qNo }) => {
           </div>
           <div className="add-op">
             <input type="submit" className="add-btn" value="+" onClick={addOption}/>
-            <label className="op-label">Add Option</label>
+            <label className="op-label">  Add Option</label>
           </div>
         </div>
       ) : null}

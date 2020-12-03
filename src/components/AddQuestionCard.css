@@ -53,7 +53,9 @@
 }
 .add-btn{
     text-align: center;
-    border-radius: 70px;
+    padding: 5px 5px;
+    border-radius: 20%;
+    margin: 5px;
     background-color: transparent;
     border: var(--secondary) 1px solid;
     font-weight: bolder;
@@ -73,9 +75,10 @@
     border: none;
     border-bottom: 2px solid var(--light-shadow);
 }
-.op:focus{
+.op[type="text"]:focus{
     transition: all 0.5s ease;
-    border-bottom: 2px solid var(--dark-shadow);
+    border-color: var(--dark-shadow);
+    outline: none;
 }
 .option{
     display: flex;
@@ -94,6 +97,7 @@
     align-self: flex-start;
     margin: 5px;
 }
+
 .op-label{
     margin: 5px;
     font-size: 1rem;

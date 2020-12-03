@@ -9,8 +9,37 @@
     display: flex;
     flex-direction: column;
 }
+.quiz-header{
+    padding: 20px;
+    border: none;
+    border-top: 15px solid var(--accent-pink);
+    box-shadow: var(--light-shadow) 3px 3px 5px 2px;
+    margin: 20px 0px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+#quiz-title{
+    border: var(--secondary) 1px solid;
+    margin: 10px;
+    padding: 10px;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--secondary);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    outline: none;
+    border-radius: none;
+    border: none;
+    border-bottom: 2px solid var(--light-shadow);
+}
+#quiz-title:focus{
+    transition: all 0.5s ease;
+    border-bottom: 2px solid var(--dark-shadow);
+    
+}
+
 #add-btn{
-    background-color: var(--secondary);
+    background-color: var(--accent-pink);
     color: var(--primary);
     font-size: 3rem;
     width: 60px;
@@ -20,7 +49,7 @@
     align-self: flex-end;
 }
 #add-btn:hover, #create-btn:hover{
-    background-image: var(--gradient);
+    background-color: var(--secondary);
     cursor: pointer;
 }
 #add-btn:focus, #create-btn:focus{
@@ -31,7 +60,7 @@
 }
 
 #create-btn{
-    background-color: var(--secondary);
+    background-color: var(--accent-pink);
     font-size: 1.5rem;
     padding: 10px 20px;
     color: var(--primary);

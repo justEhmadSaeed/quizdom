@@ -5,4 +5,5 @@
   align-items: center;
   overflow: hidden;
   color: var(--secondary);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
