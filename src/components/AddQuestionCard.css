@@ -30,17 +30,25 @@
     
 }
 #select{
-    padding: 10px;
+    padding: 10px 15px;
     width: 150px;
     margin: 5px;
     border-radius: 7px;
+    border: 1px solid var(--light-shadow);
     font-size: 16px;
     font-weight: 500;
-    background-color: var(--secondary);
-    color: var(--primary);
+    color: var(--secondary);
+}
+#select:focus{
+    outline: none;
+}
+#select-styled{
+    padding: 80px 15px;
+  
 }
 .selectOp{
-    padding: 50px;
+    padding: 100px;
+    margin: 10px;
 }
 .selectOp:hover{
     background-color: var(--gradient);
@@ -53,16 +61,16 @@
 }
 .add-btn{
     text-align: center;
-    padding: 5px 5px;
+    color: var(--light-shadow);
     border-radius: 20%;
     margin: 5px;
+    border: none;
     background-color: transparent;
-    border: var(--secondary) 1px solid;
+    font-size: 25px;
     font-weight: bolder;
 }
-.add-btn:hover{
-    background-color: var(--accent-pink);
-    color: var(--primary);
+.add-btn:hover{ 
+    color: var(--dark-shadow);
     border-color: var(--primary);
     cursor: pointer;
 }
