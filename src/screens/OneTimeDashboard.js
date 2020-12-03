@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./OneTimeDashboard.css";
+import CreateQuiz from "./CreateQuiz.js";
 import Appbar from "../components/Appbar";
 
 const OneTimeDashboard = ({ user }) => {

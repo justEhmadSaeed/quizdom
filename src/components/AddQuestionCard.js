@@ -20,8 +20,8 @@ const AddQuestionCard = ({ qNo }) => {
     setType(type);
   };
   var fullForms = {
-    oneOp: "One Option Only",
-    mulOp: "Multiple Options",
+    oneOp: "Checkboxes",
+    mulOp: "Multiple choice",
   };
   return (
     <div className="questionCard">
@@ -51,7 +51,7 @@ const AddQuestionCard = ({ qNo }) => {
           </div>
           <div className="add-op">
             <input type="submit" className="add-btn" value="+" onClick={addOption}/>
-            <label className="op-label">Add Option</label>
+            <label className="op-label">  Add Option</label>
           </div>
         </div>
       ) : Type === "mulOp" ? (

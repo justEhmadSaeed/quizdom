@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {Link} from 'react-router-dom';
 import "./Appbar.css";
 import Hamburger from "hamburger-react";
-
 const Appbar = ({ user }) => {
   const [username, setUsername] = useState("UserName");
   if (user.name) {

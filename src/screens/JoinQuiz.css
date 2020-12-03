@@ -21,7 +21,7 @@ label{
   text-align: center;
   font-size: larger;
   border-radius: 50px;
-  transition: width 0.4s ease-in-out;
+  transition: width 0.8s ease-in-out;
   border: 2px solid #404A5E;
 }
 #q-code:focus{

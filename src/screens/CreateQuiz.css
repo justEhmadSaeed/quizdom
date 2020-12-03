@@ -20,7 +20,7 @@
     align-self: flex-end;
 }
 #add-btn:hover, #create-btn:hover{
-    background-color: var(--accent-pink);
+    background-image: var(--gradient);
     cursor: pointer;
 }
 #add-btn:focus, #create-btn:focus{

@@ -12,19 +12,30 @@
     margin: 10px;
     text-align: left;
     font-size: 1.5rem;
-}
-#question, #select{
-    margin: 5px;
-    border-radius: 7px;
-    padding: 5px;
+    font-weight: 700;
 }
 #question{
     border: var(--secondary) 1px solid;
+    margin: 10px;
     padding: 10px;
+    font-size: 16px;
+    outline: none;
+    border-radius: none;
+    border: none;
+    border-bottom: 2px solid var(--light-shadow);
+}
+#question:focus{
+    transition: all 0.5s ease;
+    border-bottom: 2px solid var(--dark-shadow);
+    
 }
 #select{
     padding: 10px;
     width: 150px;
+    margin: 5px;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: 500;
     background-color: var(--secondary);
     color: var(--primary);
 }
@@ -32,10 +43,13 @@
     padding: 50px;
 }
 .selectOp:hover{
-    background-color: var(--accent-pink);
+    background-color: var(--gradient);
 }
 .check-in, .radio-in{
-    margin: 10px 5px;
+    margin: 10px 10px;
+}
+.check-in:focus{
+    outline: none;
 }
 .add-btn{
     text-align: center;
@@ -56,8 +70,12 @@
 .op{
     width: 200px;
     padding: 5px;
-    border-radius: 5px;
-    border: var(--secondary) 1px solid  ;
+    border: none;
+    border-bottom: 2px solid var(--light-shadow);
+}
+.op:focus{
+    transition: all 0.5s ease;
+    border-bottom: 2px solid var(--dark-shadow);
 }
 .option{
     display: flex;

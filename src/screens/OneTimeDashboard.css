@@ -3,7 +3,6 @@
 #dashboard-content {
 	height: 80vh;
 	width: 100%;
-
 	background-color: var(--gradient);
 	display: flex;
 	align-items: center;

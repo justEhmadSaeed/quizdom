@@ -1,7 +1,6 @@
 import React from "react";
 import "./JoinQuiz.css";
 import Appbar from "../components/Appbar";
-import { Link } from "react-router-dom";
 
 const JoinQuiz = ({ user }) => {
   return (
