@@ -6,8 +6,8 @@
 	background-color: var(--gradient);
 	display: flex;
 	align-items: center;
-  justify-content: space-evenly;
-
+	justify-content: space-evenly;
+	
 }
 .vertical-line {
 	border-left: 3px solid var(--secondary);

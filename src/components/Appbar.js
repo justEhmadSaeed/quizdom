@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import {Link} from 'react-router-dom';
-import "./Appbar.css";
+import Sidebar from "./Sidebar";
 import Hamburger from "hamburger-react";
+
 const Appbar = ({ user }) => {
   const [username, setUsername] = useState("UserName");
   if (user.name) {
@@ -9,14 +10,9 @@ const Appbar = ({ user }) => {
   }
   return (
     <div className="appbar">
-      <div className="hamburger-menu">
-        <Hamburger rounded color="#FFFFFF" distance="sm" />
+      <div className="hamburger-menu-sidebar">
+      <Sidebar />
       </div>
-      <Link to={user.id + "/new-user-dashboard"} className = "home">
-          <b>Quiz</b>dom
-      </Link>
-
-      
     </div>
   );
 };

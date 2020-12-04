@@ -1,0 +1,86 @@
+ @import '../components/colors.css';
+ .navbar{
+  background-color: var(--secondary);
+  height: 70px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+ }
+ .menu-bars{
+   margin-left: 2rem;
+   color: white;
+   font-size: 2rem;
+   background: none;
+ }
+ .home{
+  text-align: center;
+  font-family: Roboto;
+  font-style: normal;
+  padding: 10px;
+  font-size: 30px;
+  color: var(--primary);
+  text-decoration: none;
+}
+.home b{
+  font-family: Roboto;
+  font-size: 30px;
+}
+.home:hover{
+  color: var(--accent-mustard);
+}
+ .nav-menu{
+   width: 250px;
+   height: 100vh;
+   background-color: var(--secondary);
+   display: flex;
+   justify-content: center;
+   position: fixed;
+   top: 0;
+   left: -100%;
+   transition: 850ms;
+ }
+ .nav-menu.active{
+  left: 0;
+  transition: 350ms;
+ }
+ .nav-text{
+   display: flex;
+   margin-left: 0px;
+   margin-right: 15px;
+   justify-content: start;
+  align-items: flex-start;
+   padding: 8px 0px 8px 16px;
+   list-style: none;
+   height: 60px;
+ }
+ .nav-text a{
+   text-decoration: none;
+   color: white;
+   font-size: 18px;
+   width: 95%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   padding:0 16px;
+   border-radius: 4px;
+ }
+ .nav-text a:hover{
+   
+   background-color: var(--accent-pink);
+ }
+ .nav-menu-items{
+   width: 100%;
+   margin-left: 0px;
+
+ }
+ .navbar-toggle{
+   background-color: var(--secondary);
+   width: 100%;
+   height: 80px;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+ }
+ span{
+   margin-left: 16px;
+ }
