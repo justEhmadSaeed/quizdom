@@ -76,7 +76,7 @@
 }
 @media (max-width: 768px){
     .quiz-header{
-        width: 420px;
+        width: 420px; 
     }
     #add-btn{
         margin-right: 30px;
@@ -84,5 +84,13 @@
     #create-btn{
         position: relative;
         margin-right: 200px;
+    }
+    #quiz-title{
+        font-size: 20px;
+    }
+    #add-btn{
+        width: 50px;
+        font-size: 2rem;
+        
     }
 }

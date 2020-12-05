@@ -116,6 +116,12 @@
 }
 @media (max-width: 768px){
     .questionCard{
-        width: 420px;
+        width: 400px;
+    }
+    #question{
+        font-size: 14px;
+    }
+    #title{
+        font-size: 1rem;
     }
 }

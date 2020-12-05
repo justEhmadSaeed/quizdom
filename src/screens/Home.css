@@ -92,7 +92,8 @@
     font-weight: 400;
     font-size: 1.2rem;
     width: 300px;
-    text-align: justify;
+    text-align: left;
+    margin-left: 50px;
   }
 
   #login-card{
