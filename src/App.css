@@ -1,9 +1,16 @@
 @import "./components/colors.css";
 
 .App {
-  text-align: center;
-  align-items: center;
-  overflow: hidden;
-  color: var(--secondary);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+	text-align: center;
+	align-items: center;
+	overflow: hidden;
+	color: var(--secondary);
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+::-webkit-scrollbar {
+	width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#ffffff,var(--accent-mustard), var(--accent-pink), var(--secondary));
+  border-radius: 7px;
 }
