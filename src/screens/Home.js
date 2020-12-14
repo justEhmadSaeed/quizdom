@@ -17,7 +17,7 @@ const Home = ({user}) => {
       
       <span id="login-card">
         <label><b>Q</b></label>
-        <Link to={user.id+"/new-user-dashboard"}>
+        <Link to="/new-user-dashboard">
           <button className="signIn-btn">Sign-in with Google</button>
         </Link>
         <button className="signIn-btn">Sign-in with Facebook</button>
