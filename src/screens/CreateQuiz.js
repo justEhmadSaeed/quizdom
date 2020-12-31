@@ -23,7 +23,7 @@ const CreateQuiz = ({ user }) => {
         <Appbar user={user} />
       </div>
       <div id="create-quiz-body">
-        <div class="quiz-header">
+        <div className="quiz-header">
         <input id = "quiz-title" type="text" placeholder="Untitled Quiz" />
         </div>
         {tempArray.map((n) => (
