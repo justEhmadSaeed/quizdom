@@ -1,13 +1,10 @@
 import { Switch, Route } from "react-router-dom";
-import React , {useState} from 'react';
-import firebaseConfig from './firebase/firebaseConfig.js';
+import React, { useState } from "react";
+import firebaseConfig from "./firebase/firebaseConfig.js";
 import firebase from "firebase/app";
 import "firebase/auth";
 
-import {
-  CSSTransition,
-  TransitionGroup,
-} from 'react-transition-group';
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 // Stylesheet
 import "./App.css";
 // Components
@@ -22,13 +19,14 @@ const App = () => {
   const [User, setUser] = useState({ name: "", id: "" });
   const [isLoggedIn, setisLoggedIn] = useState(false);
   
+  
   return (
-    
     <div className="App">
       <Switch>
         <Route exact path="/">
           <Home user={User} />
         </Route>
+
         <Route path="/new-user-dashboard">
           <OneTimeDashBoard user={User} />
         </Route>
