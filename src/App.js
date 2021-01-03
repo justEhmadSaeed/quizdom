@@ -1,5 +1,4 @@
 import { Switch, Route } from "react-router-dom";
-<<<<<<< HEAD
 import React , {useState} from 'react';
 import firebaseConfig from './firebase/firebaseConfig.js';
 import firebase from "firebase/app";
@@ -9,10 +8,6 @@ import {
   CSSTransition,
   TransitionGroup,
 } from 'react-transition-group';
-=======
-import React, { useState } from "react";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
->>>>>>> e22297a4829cf0dbe6d9eee82e2abe1b49d539e8
 // Stylesheet
 import "./App.css";
 // Components
