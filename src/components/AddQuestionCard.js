@@ -28,7 +28,7 @@ const AddQuestionCard = ({ qNo }) => {
       <div id="title">Question no {qNo}:</div>
       <input id = 'question'type="text" placeholder="Type Question Here" />
       <select id = "select" placeholder="Select" onChange={handleTypeChange}>
-        <option dataIcons="fa fa-check-square" className = "selectOp" value="oneOp">{fullForms["oneOp"]}</option>
+        <option className = "selectOp" value="oneOp">{fullForms["oneOp"]}</option>
         <option className = "selectOp" value="mulOp">{fullForms["mulOp"]}</option>
       </select>
       {

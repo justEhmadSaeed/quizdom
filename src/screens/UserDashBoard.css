@@ -1,69 +1,45 @@
 @import "../components/colors.css";
-.one-time-dashboard{
-    height: 100vh;
-    background-color: var(--secondary);
-}
-#dashboard-content {
-	height: 100vh;
+
+.appheader{
+	position: fixed;
 	width: 100%;
+	top: 0;
+	z-index: 1;
+}
+.dash-body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 80px;
+}
+.line-left{
+	height: 1px;
+	background-color: var(--light-shadow);
+	margin: 10px;
+	width: 50px;
+}
+.heading{
+	margin: 10px 80px;
 	display: flex;
 	flex-direction: row;
-	align-items: center;
+	justify-content: space-between;
 }
-.blob-svg{
-    flex: 1;
-	display: flex;
-	flex-direction: column;
-	align-content: flex-end;
-}
-
-
-.dash-btns{
-    flex: 1;
-	margin-left: 140px;
-	display: flex;
-	text-align: left;
-	flex-direction: column;
-	align-content: space-between;
-	align-items: stretch;
-}
-
-.wlcm-msg{
-	color:var(--primary);
-    font-size: 35px;
-	font-weight: 500;
-	margin: 40px 0px;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.dash-btns .create-quiz,
-.dash-btns .join-quiz{
+.line{
+	height: 1px;
+	background-color: var(--light-shadow);
+	flex-grow: 3;
 	margin: 10px;
-	padding: 12px;
-	font-size: 20px;
-	width: 230px;
-	transition: 0.5s;
-	border-radius: 50px;
-	border: 3px solid var(--accent-pink);
-	background: none;
-    color: var(--primary);
-    box-shadow: none;
 }
-.create-quiz:hover,
-.join-quiz:hover {
-	background-position: right center; /* change the direction of the change here */
-	color: #fff;
-	background: var(--accent-pink);
-	cursor: pointer;
-	text-decoration: none;
+.quizzes{
+	margin: 20px;
 }
-.create-quiz:focus,
-.join-quiz:focus {
-	outline: none;
+.card-holder{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
 }
-.create-quiz:active,
-.join-quiz:active {
-	transform: translateY(4px);
-}
+
 @media (max-width: 768px) {
 	#dashboard-content {
 		flex-flow: column;

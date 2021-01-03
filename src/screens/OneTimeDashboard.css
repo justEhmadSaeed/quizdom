@@ -7,7 +7,10 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
-	
+}
+.one-time-dashboard {
+	height: 100vh;
+	background-color: var(--secondary);
 }
 .vertical-line {
 	border-left: 3px solid var(--secondary);
@@ -15,20 +18,40 @@
 		1 100%;
 	height: 200px;
 }
+.dash-btns {
+	flex: 1;
+	margin-left: 140px;
+	display: flex;
+	text-align: left;
+	flex-direction: column;
+	align-content: space-between;
+	align-items: stretch;
+}
+@media (max-width: 500px) {
+	.dash-btns {
+		margin-left: 0px;
+	}
+}
+.blob-svg {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-content: flex-end;
+}
 .create-quiz,
 .join-quiz {
 	margin: 10px;
 	padding: 12px;
 	font-size: 20px;
-	width: 255px;
-	text-transform: uppercase;
+	width: 230px;
 	transition: 0.5s;
-	background-size: 200% auto;
 	border-radius: 50px;
 	border: none;
-	background-image: var(--gradient);
 	color: var(--primary);
-	box-shadow: 0 0 20px #eee;
+	padding: 12px;
+	text-transform: uppercase;
+	background-size: 200% auto;
+	background-image: var(--gradient);
 }
 .create-quiz:hover,
 .join-quiz:hover {
@@ -44,6 +67,13 @@
 .create-quiz:active,
 .join-quiz:active {
 	transform: translateY(4px);
+}
+.wlcm-msg {
+	color: var(--primary);
+	font-size: 35px;
+	font-weight: 500;
+	margin: 40px 0px;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 @media (max-width: 768px) {
 	#dashboard-content {

@@ -40,7 +40,7 @@
 }
 #questions, #responses{
     padding: 10px;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 #open{
     align-self: flex-end;
