@@ -1,5 +1,9 @@
 import { Switch, Route } from "react-router-dom";
 import React , {useState} from 'react';
+import firebaseConfig from './firebase/firebaseConfig.js';
+import firebase from "firebase/app";
+import "firebase/auth";
+
 import {
   CSSTransition,
   TransitionGroup,
@@ -17,7 +21,9 @@ import CreatedSuccesfully from './screens/CreatedSuccesfully';
 const App = () => {
   const [User, setUser] = useState({name:"",id:""});
   const [isLoggedIn, setisLoggedIn] = useState(false);
+  
   return (
+    
     <div className="App">
       <Switch>
         <Route exact path="/">
@@ -38,7 +44,6 @@ const App = () => {
         <Route exact path = {User.id+"/join-quiz"}>
           <JoinQuiz user = {User}/>
         </Route>
-        
       </Switch>
     </div>
   );
