@@ -7,7 +7,7 @@
 .pnp.js
 # testing
 /coverage
-
+.vscode/
 # production
 /build
 

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./CreatedSuccesfully.css";
-import { CopyToClipboard } from "react-copy-to-clipboard";
+import React, { useState } from "react"
+import { Link } from "react-router-dom"
+import "./CreatedSuccesfully.css"
+import { CopyToClipboard } from "react-copy-to-clipboard"
 
 const CreatedSuccesfully = ({ user }) => {
-	const [Code, setCode] = useState("AsdqweRfgZ");
-	const [Copy, setCopy] = useState("copy");
+	const [Code, setCode] = useState("AsdqweRfgZ")
+	const [Copy, setCopy] = useState("copy")
 	return (
 		<div id="created-quiz">
 			<div id="created-quiz-div">
@@ -22,18 +22,18 @@ const CreatedSuccesfully = ({ user }) => {
 				<CopyToClipboard
 					text={Code}
 					onCopy={() => {
-						setCopy("copied");
+						setCopy("copied")
 					}}
 				>
 					<button className="copy-btn">
 						{Copy === "copy" ? "Copy Code" : "Code Copied!"}
 					</button>
 				</CopyToClipboard>
-				<Link to={user.id + "/dashboard"}>
+				<Link to={"/dashboard"}>
 					<button className="copy-btn">Dashboard</button>
 				</Link>
 			</div>
 		</div>
-	);
-};
-export default CreatedSuccesfully;
+	)
+}
+export default CreatedSuccesfully

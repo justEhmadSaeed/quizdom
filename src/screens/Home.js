@@ -19,12 +19,12 @@ const Home = (props) => {
       signInSuccessWithAuthResult: () => false,
     },
   };
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
-      props.setIsLoggedIn(!!user);
-      setHomeUser(firebase.auth().currentUser);
-    });
-  }, [homeUser]);
+  // useEffect(() => {
+  //   firebase.auth().onAuthStateChanged((user) => {
+  //     props.setIsLoggedIn(!!user);
+  //     setHomeUser(firebase.auth().currentUser);
+  //   });
+  // }, [homeUser]);
   return (
     <div id="Home">
       <div id="logo">

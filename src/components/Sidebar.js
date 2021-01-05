@@ -5,6 +5,8 @@ import * as AiIcons from "react-icons/ai";
 import "./Sidebar.css";
 import "./colors.css";
 import { IconContext } from 'react-icons';
+import firebase from "../firebase/firebase"
+
 function Sidebar() {
 
   const SidedbarData =[
@@ -21,14 +23,14 @@ function Sidebar() {
       CName: 'nav-text',
     },
     {
-      title: 'Creat Quiz',
+      title: 'Create Quiz',
       path: '/create-quiz',
       icon: <AiIcons.AiFillFolderAdd />,
       CName: 'nav-text',
     },
     {
       title: 'Logout',
-      path: '/join-quiz',
+      path: '/',
       icon: <FaIcons.FaUser />,
       CName: 'nav-text',
     },
@@ -50,9 +52,7 @@ function Sidebar() {
       <nav className={sidebar ? 'nav-menu active': 'nav-menu'}>
         <ul className='nav-menu-items' onClick={showSidebar}>
           <li className='navbar-toggle'>
-            <Link to="#" className="menu-bars">
               <AiIcons.AiOutlineClose />
-            </Link>
           </li>
           {SidedbarData.map((item, index) => {
             return ( 

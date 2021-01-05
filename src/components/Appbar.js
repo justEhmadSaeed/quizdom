@@ -4,10 +4,10 @@ import Sidebar from "./Sidebar";
 import Hamburger from "hamburger-react";
 
 const Appbar = ({ user }) => {
-  const [username, setUsername] = useState("UserName");
-  if (user.name) {
-    setUsername(user.name);
-  }
+  const [username, setUsername] = useState(user);
+  // if (user.name) {
+  //   setUsername(user.name);
+  // }
   return (
     <div className="appbar">
       <div className="hamburger-menu-sidebar">
