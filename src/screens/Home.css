@@ -79,12 +79,12 @@
   outline: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   #Home {
     flex-flow: column;
   }
   #logo-name{
-    font-size: 4rem;
+    font-size: 3rem;
     margin: 10px;
   }
   #description{
