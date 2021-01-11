@@ -5,13 +5,13 @@
   justify-content: center;
   align-items: center;
   background-color: var(--primary);
-  padding: 40px;
+  padding: 30px;
 }
 #logo{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin: 10px 100px;
+  margin: 10px 5%;
 }
 #logo-name {
   color: var(--secondary);
@@ -35,13 +35,13 @@
 
 }
 #login-card {
-  flex-grow: 2;
+  /* flex-grow: 2; */
   margin: 50px;
   display: flex;
   flex-direction: column;
   background-color: var(--secondary);
   align-items: center;
-  width: 250px;
+  width: 300px;
   transition: 0.3s;
   border-radius: 20px;
   padding-bottom: 50px;

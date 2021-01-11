@@ -1,9 +1,11 @@
-import React, { useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import "./Home.css"
 import { StyledFirebaseAuth } from "react-firebaseui"
 import firebase from "../firebase/firebase"
+import LoadingScreen from "./LoadingScreen"
 
 const Home = ({ setUser }) => {
+	const [loading, setLoading] = useState(true)
 	var uiConfig = {
 		signInflow: "popup",
 		signInOptions: [
@@ -16,6 +18,7 @@ const Home = ({ setUser }) => {
 		},
 	}
 	useEffect(() => {
+		let isMounted = true
 		firebase.auth().onAuthStateChanged((user) => {
 			// setIsLoggedIn(!!user)
 			if (user) {
@@ -28,34 +31,42 @@ const Home = ({ setUser }) => {
 				console.log("User Signed Out")
 				setUser({})
 			}
+			if (isMounted) setLoading(false)
 		})
+		return () => (isMounted = false)
 	}, [setUser])
 	return (
-		<div id="Home">
-			<div id="logo">
-				<div id="logo-name">
-					<b>Quiz</b>dom
-				</div>
-				<div id="description">
-					Now create and join quiz at a single platform.You can create trivia
-					quizzes, personality test, polls and survays. Share out your quiz with
-					your students with a unique code.
-				</div>
-			</div>
+		<>
+			{loading ? (
+				<LoadingScreen />
+			) : (
+				<div id="Home">
+					<div id="logo">
+						<div id="logo-name">
+							<b>Quiz</b>dom
+						</div>
+						<div id="description">
+							Now create and join quiz at a single platform.You can create
+							trivia quizzes, personality test, polls and survays. Share out
+							your quiz with your students with a unique code.
+						</div>
+					</div>
 
-			<span id="login-card">
-				<label>
-					<b>Q</b>
-				</label>
-				<div className="Home">
-					<StyledFirebaseAuth
-						borderRadius="40px"
-						uiConfig={uiConfig}
-						firebaseAuth={firebase.auth()}
-					/>
+					<div id="login-card">
+						<label>
+							<b>Q</b>
+						</label>
+						<div className="Home">
+							<StyledFirebaseAuth
+								borderRadius="40px"
+								uiConfig={uiConfig}
+								firebaseAuth={firebase.auth()}
+							/>
+						</div>
+					</div>
 				</div>
-			</span>
-		</div>
+			)}
+		</>
 	)
 }
 

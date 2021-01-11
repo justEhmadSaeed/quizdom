@@ -4,7 +4,7 @@ import firebase from "./firebase/firebase"
 
 // Stylesheet
 import "./App.css"
-
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 // Components
 import Home from "./screens/Home"
 import OneTimeDashBoard from "./screens/OneTimeDashboard"
