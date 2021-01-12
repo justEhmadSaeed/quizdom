@@ -4,7 +4,7 @@ import "./CreatedQuizCard.css";
 const CreatedQuizCard = ({ title, responses, questions, isOpen }) => {
 	return (
 		<div className="quiz-card">
-			<div id="quiz-title">{title}</div>
+			<h1 id="created-quiz-title">{title}</h1>
 			<div id="horizontal-line"></div>
 			<div id="row">
 				<div id="responses">Responses : {responses}</div>

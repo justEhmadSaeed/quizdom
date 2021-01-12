@@ -35,9 +35,7 @@ function Sidebar() {
 		<>
 			<IconContext.Provider value={{ color: "white" }}>
 				<div className="navbar">
-					<Link to="#" className="menu-bars">
-						<FaIcons.FaBars onClick={showSidebar} />
-					</Link>
+					<FaIcons.FaBars className="menu-bars" onClick={showSidebar} />
 					<Link to="/" className="home">
 						<b>Quiz</b>dom
 					</Link>
@@ -56,8 +54,8 @@ function Sidebar() {
 									</Link>
 								</li>
 							)
-            })}
-            {/* Sign Out Button */}
+						})}
+						{/* Sign Out Button */}
 						<li className="nav-text">
 							<button onClick={() => firebase.auth().signOut()}>
 								<FaIcons.FaSignOutAlt />

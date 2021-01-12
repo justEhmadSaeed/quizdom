@@ -18,7 +18,7 @@
     background-color: rgb(234, 236, 240);
     transform: scale(1.02);
 }
-#quiz-title{
+#created-quiz-title{
     font-size: 3rem;
     font-weight: bold;
     padding: 5px;

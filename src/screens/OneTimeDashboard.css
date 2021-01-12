@@ -1,5 +1,8 @@
 @import "../components/colors.css";
-
+#one-time-h1 {
+	color: white;
+	margin: 20px;
+}
 #dashboard-content {
 	height: 80vh;
 	width: 100%;
@@ -29,6 +32,7 @@
 }
 @media (max-width: 500px) {
 	.dash-btns {
+		margin-top: 130px;
 		margin-left: 0px;
 	}
 }

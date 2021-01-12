@@ -2,7 +2,6 @@ import React from "react"
 import Typical from "react-typical"
 import { Link } from "react-router-dom"
 import "./OneTimeDashboard.css"
-import CreateQuiz from "./CreateQuiz.js"
 import Appbar from "../components/Appbar"
 
 const OneTimeDashboard = ({ user }) => {
@@ -15,6 +14,7 @@ const OneTimeDashboard = ({ user }) => {
             loop={Infinity}
             wrapper="p"
           /> */}
+					<h1 id="one-time-h1">Quizdom</h1>
 					<Link to="/create-quiz">
 						<button className="create-quiz">Create Quiz</button>
 					</Link>
