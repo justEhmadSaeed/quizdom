@@ -1,16 +1,13 @@
 @import "../components/colors.css";
-.navbar {
-	background-color: var(--secondary);
-	height: 70px;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-}
+
 .menu-bars {
 	margin-left: 1rem;
 	color: white;
 	font-size: 2rem;
 	background: none;
+}
+.menu-bars svg{
+	font-size: 2rem;
 }
 .home {
 	text-align: center;
@@ -43,6 +40,11 @@
 	left: 0;
 	transition: 350ms;
 }
+.nav-menu-items {
+	padding-left: 0px;
+	width: 100%;
+	list-style-type: none;
+}
 .nav-text {
 	display: flex;
 	margin-left: 0px;
@@ -65,6 +67,9 @@
 	padding: 0 16px;
 	border-radius: 4px;
 }
+.nav-text span{
+	margin-left: 5px;
+}
 .nav-text button {
 	background-color: transparent;
 	color: white;
@@ -85,20 +90,15 @@
 .nav-text a:hover {
 	background-color: var(--accent-pink);
 }
-.nav-menu-items {
-	width: 100%;
-	margin-left: 0px;
-}
+
 .navbar-toggle {
 	background-color: var(--secondary);
-	width: 40%;
-	height: 80px;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
+	margin: 7px 25px;
+	text-align: start;
 }
-span {
-	margin-left: 16px;
+.sign-out{
+	position: absolute;
+	bottom: 0;
 }
 @media (max-width: 768px) {
 	.menu-bars {
@@ -109,7 +109,7 @@ span {
 		font-size: 20px;
 	}
 	.nav-menu {
-		width: 200px;
+		width: 100%;
 	}
 	.nav-text {
 		padding: 0 10px;

@@ -1,8 +1,6 @@
 import React from "react"
-import Typical from "react-typical"
 import { Link } from "react-router-dom"
 import "./OneTimeDashboard.css"
-import Appbar from "../components/Appbar"
 
 const OneTimeDashboard = ({ user }) => {
 	return (
@@ -15,11 +13,14 @@ const OneTimeDashboard = ({ user }) => {
             wrapper="p"
           /> */}
 					<h1 id="one-time-h1">Quizdom</h1>
+					<Link to="/dashboard">
+						<button className="one-time-button">Dashboard</button>
+					</Link>
 					<Link to="/create-quiz">
-						<button className="create-quiz">Create Quiz</button>
+						<button className="one-time-button">Create Quiz</button>
 					</Link>
 					<Link to="/join-quiz">
-						<button className="join-quiz">Join Quiz</button>
+						<button className="one-time-button">Join Quiz</button>
 					</Link>
 				</div>
 				<div className="blob-svg">

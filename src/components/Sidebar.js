@@ -1,30 +1,35 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import * as FaIcons from "react-icons/fa"
-import * as AiIcons from "react-icons/ai"
 import "./Sidebar.css"
-import "./colors.css"
-import { IconContext } from "react-icons"
 import firebase from "../firebase/firebase"
+import { Icon } from "@material-ui/core"
+import {
+	CreateNewFolder,
+	Dashboard,
+	ExitToApp,
+	MeetingRoom,
+	MenuOpenRounded,
+	MenuRounded,
+} from "@material-ui/icons"
 
 function Sidebar() {
 	const SidedbarData = [
 		{
 			title: "Dashboard",
 			path: "/dashboard",
-			icon: <AiIcons.AiFillDashboard />,
+			icon: <Dashboard />,
 			CName: "nav-text",
 		},
 		{
 			title: "Join Quiz",
 			path: "/join-quiz",
-			icon: <FaIcons.FaPencilAlt />,
+			icon: <MeetingRoom />,
 			CName: "nav-text",
 		},
 		{
 			title: "Create Quiz",
 			path: "/create-quiz",
-			icon: <AiIcons.AiFillFolderAdd />,
+			icon: <CreateNewFolder />,
 			CName: "nav-text",
 		},
 	]
@@ -33,38 +38,38 @@ function Sidebar() {
 
 	return (
 		<>
-			<IconContext.Provider value={{ color: "white" }}>
-				<div className="navbar">
-					<FaIcons.FaBars className="menu-bars" onClick={showSidebar} />
-					<Link to="/" className="home">
-						<b>Quiz</b>dom
-					</Link>
-				</div>
-				<nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-					<ul className="nav-menu-items" onClick={showSidebar}>
-						<li className="navbar-toggle">
-							<AiIcons.AiOutlineClose />
-						</li>
-						{SidedbarData.map((item, index) => {
-							return (
-								<li key={index} className={item.CName}>
-									<Link to={item.path}>
-										{item.icon}
-										<span className="nav-item-title">{item.title}</span>
-									</Link>
-								</li>
-							)
-						})}
-						{/* Sign Out Button */}
-						<li className="nav-text">
-							<button onClick={() => firebase.auth().signOut()}>
-								<FaIcons.FaSignOutAlt />
-								<span className="nav-item-title">{"Sign Out"}</span>
-							</button>
-						</li>
-					</ul>
-				</nav>
-			</IconContext.Provider>
+			<Icon className="menu-bars" onClick={showSidebar}>
+				<MenuRounded />
+			</Icon>
+			{/* <FaIcons.FaBars  onClick={} /> */}
+			<nav className={sidebar ? "nav-menu active" : "nav-menu"}>
+				<ul className="nav-menu-items" onClick={showSidebar}>
+					<li className="navbar-toggle">
+						<Icon>
+							<MenuOpenRounded fontSize="large" />
+						</Icon>
+					</li>
+					{SidedbarData.map((item, index) => {
+						return (
+							<li key={index} className="nav-text">
+								<Link to={item.path}>
+									<Icon>{item.icon}</Icon>
+									<span className="nav-item-title">{item.title}</span>
+								</Link>
+							</li>
+						)
+					})}
+					{/* Sign Out Button */}
+					<li className="nav-text sign-out">
+						<button onClick={() => firebase.auth().signOut()}>
+							<Icon>
+								<ExitToApp />
+							</Icon>
+							<span className="nav-item-title">{"SignOut"}</span>
+						</button>
+					</li>
+				</ul>
+			</nav>
 		</>
 	)
 }

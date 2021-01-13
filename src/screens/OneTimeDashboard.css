@@ -42,8 +42,7 @@
 	flex-direction: column;
 	align-content: flex-end;
 }
-.create-quiz,
-.join-quiz {
+.one-time-button{
 	margin: 10px;
 	padding: 12px;
 	font-size: 20px;
@@ -57,19 +56,16 @@
 	background-size: 200% auto;
 	background-image: var(--gradient);
 }
-.create-quiz:hover,
-.join-quiz:hover {
+.one-time-button:hover {
 	background-position: right center; /* change the direction of the change here */
 	color: #fff;
 	cursor: pointer;
 	text-decoration: none;
 }
-.create-quiz:focus,
-.join-quiz:focus {
+.one-time-button:focus {
 	outline: none;
 }
-.create-quiz:active,
-.join-quiz:active {
+.one-time-button:active {
 	transform: translateY(4px);
 }
 .wlcm-msg {
