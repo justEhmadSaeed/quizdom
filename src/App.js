@@ -12,6 +12,7 @@ import CreateQuiz from "./screens/CreateQuiz"
 import JoinQuiz from "./screens/JoinQuiz"
 import UserDashboard from "./screens/UserDashboard"
 import CreatedSuccesfully from "./screens/CreatedSuccesfully"
+import NotFoundPage from "./screens/NotFoundPage"
 
 const App = () => {
 	const [User, setUser] = useState({})
@@ -37,6 +38,7 @@ const App = () => {
 					<Route path="/join-quiz">
 						<JoinQuiz user={User} />
 					</Route>
+					<Route component={NotFoundPage} />
 				</Switch>
 			)}
 		</div>
