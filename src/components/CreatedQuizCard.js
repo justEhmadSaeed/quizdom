@@ -1,5 +1,5 @@
 import React from "react";
-import "./CreatedQuizCard.css";
+import "./QuizCard.css";
 
 const CreatedQuizCard = ({ title, responses, questions, isOpen }) => {
 	return (
