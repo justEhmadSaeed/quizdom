@@ -32,7 +32,7 @@
 }
 #select{
     padding: 10px 15px;
-    width: 150px;
+    width: 200px;
     margin: 5px;
     border-radius: 7px;
     border: 1px solid var(--light-shadow);
@@ -108,11 +108,14 @@
 .add-op{
     align-self: flex-start;
     margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .op-label{
     margin: 5px;
-    font-size: 1rem;
+    font-size: 15px;
 }
 @media (max-width: 768px){
     .questionCard{
