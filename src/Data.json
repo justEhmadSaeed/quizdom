@@ -1,0 +1,72 @@
+{
+    "title" :"Quiz 01",
+    "code":"quiz code",
+    "isOpen":true,
+    "questions":[
+        {
+            "title":"question no 01",
+            "optionType":"mulOP",
+            "options":[
+                {
+                    "text":"option 01",
+                    "isCorrect":true
+                },
+                {
+                    "text":"option 02",
+                    "isCorrect":false
+                },
+                {
+                    "text":"option 03",
+                    "isCorrect":true
+                },
+                {
+                    "text":"option 04",
+                    "isCorrect":false
+                }
+            ]
+        },
+        {
+            "title":"question no 02",
+            "optionType":"oneOp",
+            "options":[
+                {
+                    "text":"option 01",
+                    "isCorrect":true
+                },
+                {
+                    "text":"option 02",
+                    "isCorrect":false
+                },
+                {
+                    "text":"option 03",
+                    "isCorrect":false
+                },
+                {
+                    "text":"option 04",
+                    "isCorrect":false
+                }
+            ]
+        },{
+            "title":"question no 03",
+            "optionType":"mulOP",
+            "options":[
+                {
+                    "text":"option 01",
+                    "isCorrect":true
+                },
+                {
+                    "text":"option 02",
+                    "isCorrect":false
+                },
+                {
+                    "text":"option 03",
+                    "isCorrect":true
+                },
+                {
+                    "text":"option 04",
+                    "isCorrect":false
+                }
+            ]
+        }
+    ]
+}
