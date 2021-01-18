@@ -10,15 +10,48 @@
 	background-color: var(--secondary);
 	height: 70px;
 	display: flex;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
 }
-.appbar-user{
-    display: flex;
-    justify-content:space-between;
-	align-items: center;
-    padding: 5px;
+.home {
+	text-align: center;
+	font-family: Roboto;
+	font-style: normal;
+	padding: 10px;
+	font-size: 30px;
+	color: var(--primary);
+	text-decoration: none;
 }
-.appbar-user p{
-    font-size: 40;
+.home b {
+	font-family: Roboto;
+	font-size: 30px;
+}
+.home:hover {
+	color: var(--accent-mustard);
+}
+.appbar-user {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px;
+}
+.appbar-user p {
+	font-size: 40;
+}
+@media (max-width: 768px) {
+	.home{
+		padding: 0;
+	}
+	.slider {
+		height: 50px;
+	}
+	.appbar-user p {
+		margin: 0;
+	}
+	.home {
+		font-size: 20px;
+	}
+	.home b {
+		font-size: 20px;
+	}
 }

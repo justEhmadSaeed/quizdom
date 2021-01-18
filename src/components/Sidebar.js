@@ -37,7 +37,7 @@ function Sidebar() {
 	const showSidebar = () => setSidebar(!sidebar)
 
 	return (
-		<>
+		<div>
 			<Icon className="menu-bars" onClick={showSidebar}>
 				<MenuRounded />
 			</Icon>
@@ -70,7 +70,7 @@ function Sidebar() {
 					</li>
 				</ul>
 			</nav>
-		</>
+		</div>
 	)
 }
 

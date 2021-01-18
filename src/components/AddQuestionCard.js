@@ -1,20 +1,19 @@
+import { Paper } from "@material-ui/core"
 import React, { useState } from "react"
 import "./AddQuestionCard.css"
 
 const AddQuestionCard = () => {
-	const [Type, setType] = useState("oneOp")
+	const [optionType, setOptionType] = useState("oneOp")
 	const [optionsArray, setOptionsArray] = useState([""])
 
 	const addOption = () => {
 		let arr = [...optionsArray]
 		arr.push("")
 		setOptionsArray(arr)
-		console.log(optionsArray)
 	}
-	const handleTypeChange = (e) => {
-		let type = e.target.value
-		setType(type)
-	}
+	console.log(optionsArray)
+	const handleTypeChange = (e) => setOptionType(e.target.value)
+
 	var fullForms = {
 		oneOp: "Single Choice",
 		mulOp: "Multiple choices",
@@ -22,7 +21,11 @@ const AddQuestionCard = () => {
 	return (
 		<div className="questionCard">
 			<div id="title">Question:</div>
-			<input id="question" type="text" placeholder="Type Question Here" />
+			<input
+				className="question"
+				type="text"
+				placeholder="Type Question Here"
+			/>
 			<select id="select" placeholder="Select" onChange={handleTypeChange}>
 				<option className="selectOp" value="oneOp">
 					{fullForms["oneOp"]}
@@ -38,7 +41,7 @@ const AddQuestionCard = () => {
 				<div className="options" id="one-op">
 					{optionsArray.map((option, key) => (
 						<div className="option" key={key}>
-							{Type === "oneOp" ? (
+							{optionType === "oneOp" ? (
 								<input
 									className="radio-in"
 									type="radio"

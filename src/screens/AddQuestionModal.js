@@ -15,9 +15,11 @@ const useStyles = makeStyles((theme) => ({
 	},
 	paper: {
 		backgroundColor: theme.palette.background.paper,
-		// border: "2px solid #000",
 		boxShadow: theme.shadows[5],
 		padding: theme.spacing(2, 4, 3),
+		outline: 0,
+		width: "80%",
+		borderRadius: "10px",
 	},
 	buttons: {
 		display: "flex",
@@ -50,13 +52,8 @@ export default function AddQuestionModal() {
 				aria-describedby="transition-modal-description"
 				className={classes.modal}
 				open={open}
-				onClose={handleClose}
-				// closeAfterTransition
+				// onClose={handleClose}
 				disableEnforceFocus={true}
-				// BackdropComponent={Backdrop}
-				BackdropProps={{
-					timeout: 500,
-				}}
 			>
 				<div className={classes.paper}>
 					<AddQuestionCard />

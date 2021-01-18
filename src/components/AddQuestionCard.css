@@ -1,130 +1,131 @@
-@import './colors.css';
+@import "./colors.css";
 
-.questionCard{
-    padding: 20px;
-    box-shadow: var(--light-shadow) 1px 1px 1px 1px;
-    margin: 20px 0px;
-    width: 900px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
+.questionCard {
+	padding: 20px;
+	box-shadow: var(--light-shadow) 1px 1px 1px 1px;
+	margin: 20px 0px;
+	width: 90%;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
 }
-#title{
-    margin: 10px;
-    text-align: left;
-    font-size: 1.5rem;
-    font-weight: 700;
+#title {
+	margin: 10px;
+	text-align: left;
+	font-size: 1.5rem;
+	font-weight: 700;
 }
-#question{
-    border: var(--secondary) 1px solid;
-    margin: 10px;
-    padding: 10px;
-    font-size: 16px;
-    outline: none;
-    border-radius: none;
-    border: none;
-    border-bottom: 2px solid var(--light-shadow);
+.question {
+	border: var(--secondary) 1px solid;
+	margin: 10px;
+	padding: 10px;
+	font-size: 16px;
+	outline: none;
+	border-radius: none;
+	border: none;
+	border-bottom: 2px solid var(--light-shadow);
 }
-#question:focus{
-    transition: all 0.5s ease;
-    border-bottom: 2px solid var(--dark-shadow);
-    
+.question:focus {
+	transition: all 0.5s ease;
+	border-bottom: 2px solid var(--dark-shadow);
 }
-#select{
-    padding: 10px 15px;
-    width: 200px;
-    margin: 5px;
-    border-radius: 7px;
-    border: 1px solid var(--light-shadow);
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--secondary);
+#select {
+	padding: 10px 15px;
+	width: 40%;
+	margin: 5px;
+	border-radius: 7px;
+	border: 1px solid var(--light-shadow);
+	font-size: 16px;
+	font-weight: 500;
+	color: var(--secondary);
 }
-#select:focus{
-    outline: none;
+#select:focus {
+	outline: none;
 }
-#select-styled{
-    padding: 80px 15px;
-  
+#select-styled {
+	padding: 80px 15px;
 }
-.selectOp{
-    padding: 100px;
-    margin: 10px;
+.selectOp {
+	padding: 100px;
+	margin: 10px;
 }
-.selectOp:hover{
-    background-color: var(--gradient);
+.selectOp:hover {
+	background-color: var(--gradient);
 }
-.check-in, .radio-in{
-    margin: 10px 10px;
+.check-in,
+.radio-in {
+	margin: 10px 10px;
 }
-.check-in:focus{
-    outline: none;
-    
+.check-in:focus {
+	outline: none;
 }
-.add-btn{
-    text-align: center;
-    color: var(--light-shadow);
-    border-radius: 20%;
-    margin: 5px;
-    border: none;
-    background-color: transparent;
-    font-size: 25px;
-    font-weight: bolder;
+.add-btn {
+	text-align: center;
+	color: var(--light-shadow);
+	border-radius: 20%;
+	margin: 5px;
+	border: none;
+	background-color: transparent;
+	font-size: 25px;
+	font-weight: bolder;
 }
-.add-btn:hover{ 
-    color: var(--dark-shadow);
-    border-color: var(--primary);
-    cursor: pointer;
+.add-btn:hover {
+	color: var(--dark-shadow);
+	border-color: var(--primary);
+	cursor: pointer;
 }
-.add-btn:focus{
-    outline: none;
+.add-btn:focus {
+	outline: none;
 }
-.op{
-    width: 200px;
-    padding: 5px;
-    border: none;
-    width: 600px;
-    border-bottom: 2px solid var(--light-shadow);
+.op {
+	/* width: 200px; */
+	padding: 5px;
+	border: none;
+	/* width: 600px; */
+	border-bottom: 2px solid var(--light-shadow);
 }
-.op[type="text"]:focus{
-    transition: all 0.7s ease;
-    width: 700px;
-    border-color: var(--dark-shadow);
-    outline: none;
+.op[type="text"]:focus {
+	transition: all 0.7s ease;
+	/* width: 700px; */
+	border-color: var(--dark-shadow);
+	outline: none;
 }
-.option{
-    display: flex;
-    flex-direction: row;
-    margin: 5px;
+.option {
+	display: flex;
+	flex-direction: row;
+	margin: 5px;
 }
-.options{
-    display: flex;
-    flex-direction: column;
+.options {
+	display: flex;
+	flex-direction: column;
 }
-.option-div{
-    display: flex;
-    flex-direction: column;
+.option-div {
+	display: flex;
+	flex-direction: column;
 }
-.add-op{
-    align-self: flex-start;
-    margin: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.add-op {
+	align-self: flex-start;
+	margin: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.op-label{
-    margin: 5px;
-    font-size: 15px;
+.op-label {
+	margin: 5px;
+	font-size: 15px;
 }
-@media (max-width: 768px){
-    .questionCard{
-        width: 400px;
-    }
-    #question{
-        font-size: 14px;
-    }
-    #title{
-        font-size: 1rem;
-    }
+@media (max-width: 768px) {
+	/* .questionCard {
+		width: 400px;
+	} */
+	#select{
+		width: 60%;
+	}
+	/* .question {
+		font-size: 14px;
+	} */
+	/* #title {
+		font-size: 1rem;
+	} */
 }

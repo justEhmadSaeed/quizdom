@@ -6,25 +6,10 @@
 	font-size: 2rem;
 	background: none;
 }
-.menu-bars svg{
+.menu-bars svg {
 	font-size: 2rem;
 }
-.home {
-	text-align: center;
-	font-family: Roboto;
-	font-style: normal;
-	padding: 10px;
-	font-size: 30px;
-	color: var(--primary);
-	text-decoration: none;
-}
-.home b {
-	font-family: Roboto;
-	font-size: 30px;
-}
-.home:hover {
-	color: var(--accent-mustard);
-}
+
 .nav-menu {
 	width: 250px;
 	height: 100vh;
@@ -67,7 +52,7 @@
 	padding: 0 16px;
 	border-radius: 4px;
 }
-.nav-text span{
+.nav-text span {
 	margin-left: 5px;
 }
 .nav-text button {
@@ -96,7 +81,7 @@
 	margin: 7px 25px;
 	text-align: start;
 }
-.sign-out{
+.sign-out {
 	position: absolute;
 	bottom: 0;
 }
@@ -105,9 +90,7 @@
 		margin-left: 1rem;
 		font-size: 1.5rem;
 	}
-	.home {
-		font-size: 20px;
-	}
+	
 	.nav-menu {
 		width: 100%;
 	}
