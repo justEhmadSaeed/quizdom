@@ -1,10 +1,10 @@
-import { Paper } from "@material-ui/core"
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import "./AddQuestionCard.css"
 
 const AddQuestionCard = () => {
-	const [optionType, setOptionType] = useState("oneOp")
+	const [optionType, setOptionType] = useState("radio")
 	const [optionsArray, setOptionsArray] = useState([""])
+	const titleField = useRef(null)
 
 	const addOption = () => {
 		let arr = [...optionsArray]
@@ -15,44 +15,43 @@ const AddQuestionCard = () => {
 	const handleTypeChange = (e) => setOptionType(e.target.value)
 
 	var fullForms = {
-		oneOp: "Single Choice",
-		mulOp: "Multiple choices",
+		radio: "Single Choice",
+		check: "Multiple choices",
 	}
 	return (
 		<div className="questionCard">
 			<div id="title">Question:</div>
 			<input
+				ref={titleField}
 				className="question"
 				type="text"
 				placeholder="Type Question Here"
 			/>
 			<select id="select" placeholder="Select" onChange={handleTypeChange}>
-				<option className="selectOp" value="oneOp">
-					{fullForms["oneOp"]}
+				<option className="selectOp" value="radio">
+					{fullForms["radio"]}
 				</option>
-				<option className="selectOp" value="mulOp">
-					{fullForms["mulOp"]}
+				<option className="selectOp" value="check">
+					{fullForms["check"]}
 				</option>
 			</select>
-			{
-				// Render According to the choices
-			}
+
 			<div className="option-div">
 				<div className="options" id="one-op">
 					{optionsArray.map((option, key) => (
 						<div className="option" key={key}>
-							{optionType === "oneOp" ? (
+							{optionType === "radio" ? (
 								<input
 									className="radio-in"
 									type="radio"
-									name="oneOp"
+									name="radio"
 									value={option}
 								/>
 							) : (
 								<input
 									className="check-in"
 									type="checkbox"
-									name="mulOp"
+									name="check"
 									value={option}
 								/>
 							)}

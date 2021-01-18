@@ -4,7 +4,7 @@
 	padding: 20px;
 	box-shadow: var(--light-shadow) 1px 1px 1px 1px;
 	margin: 20px 0px;
-	width: 90%;
+	/* width: 90%; */
 	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
@@ -77,14 +77,14 @@
 .add-btn:focus {
 	outline: none;
 }
-.op {
+.op-text {
 	/* width: 200px; */
 	padding: 5px;
 	border: none;
 	/* width: 600px; */
 	border-bottom: 2px solid var(--light-shadow);
 }
-.op[type="text"]:focus {
+.op-text:focus {
 	transition: all 0.7s ease;
 	/* width: 700px; */
 	border-color: var(--dark-shadow);
@@ -119,7 +119,7 @@
 	/* .questionCard {
 		width: 400px;
 	} */
-	#select{
+	#select {
 		width: 60%;
 	}
 	/* .question {

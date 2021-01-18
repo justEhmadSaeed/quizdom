@@ -1,17 +1,15 @@
-import React, { createRef, useState } from "react"
+import React, { useRef, useState } from "react"
 import { Link } from "react-router-dom"
 import "./CreateQuiz.css"
 import Appbar from "../components/Appbar"
-import AddQuestionCard from "../components/AddQuestionCard"
-import AddQuestionModal from "./AddQuestionModal"
-import { Paper } from "@material-ui/core"
+import AddQuestionModal from "../components/AddQuestionModal"
 
 const CreateQuiz = ({ user }) => {
 	const [questionArray, setQuestionArray] = useState([])
-	const [titleRef, setTitleRef] = useState(createRef())
-	const addQuestionHandle = () => {
+	const titleRef = useRef(null)
+	const addQuestionHandle = (title, opType, optionsArray) => {
 		let arr = [...questionArray]
-		arr.push({})
+		arr.push({ title, opType, optionsArray })
 		setQuestionArray(arr)
 	}
 	console.log(questionArray)
@@ -21,14 +19,14 @@ const CreateQuiz = ({ user }) => {
 				<Appbar user={user} />
 			</div>
 			<div id="create-quiz-body">
-				<Paper className="quiz-header">
+				<div className="quiz-header">
 					<input
 						ref={titleRef}
 						id="quiz-title"
 						type="text"
 						placeholder="Untitled Quiz"
 					/>
-				</Paper>
+				</div>
 				{/* {questionArray.map((question, key) => (
 					<AddQuestionCard
 						key={key}
@@ -43,7 +41,12 @@ const CreateQuiz = ({ user }) => {
 					onClick={addQuestionHandle}
 					value="+"
 				/> */}
-				<AddQuestionModal />
+				<AddQuestionModal addQuestionHandle={addQuestionHandle} />
+				{questionArray.map((quest, key) => (
+					<div
+						key={key}
+					>{`${quest.title} ${quest.opType}`}</div>
+				))}
 			</div>
 
 			<Link to="/created-succesfully">
