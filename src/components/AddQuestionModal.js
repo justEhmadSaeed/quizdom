@@ -77,6 +77,7 @@ export default function AddQuestionModal({
     const temp = [...optionsArray];
     temp.splice(index, 1);
     setOptionsArray(temp);
+    setIndex(-1);
   };
 
   const handleEdit = (ind) => {
@@ -163,7 +164,7 @@ export default function AddQuestionModal({
                 {optionsArray.map((option, ind) => (
                   <div className="option" key={ind}>
                     <input
-                      disabled={index === -1}
+                      disabled={index === -1 || index !== ind}
                       className="radio-in"
                       type={optionType === "radio" ? "radio" : "checkbox"}
                       name="option"
