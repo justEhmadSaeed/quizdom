@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Modal, Button, Icon } from "@material-ui/core";
 // import AddQuestionCard from "./AddQuestionCard"
 import "./AddQuestionCard.css";
-import { DeleteRounded } from "@material-ui/icons";
+import { DeleteRounded, EditRounded, SaveAltRounded } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,16 +34,18 @@ const useStyles = makeStyles((theme) => ({
 export default function AddQuestionModal({
   titleRef = "",
   opType = "radio",
-  opArray = [""],
+  opArray = [],
   addQuestionHandle,
 }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-
   const [optionType, setOptionType] = useState(opType);
-  const optionsRef = useRef(null);
-
   const [optionsArray, setOptionsArray] = useState([]);
+  const [editedOption, setEditedOption] = useState(null);
+  const [index, setIndex] = useState(-1);
+
+  const optionsRef = useRef(null);
+  const checkBoxRef = useRef(null);
   const titleField = useRef(titleRef);
 
   const handleOpen = () => {
@@ -62,17 +64,57 @@ export default function AddQuestionModal({
 
   const addOption = () => {
     const arr = [...optionsArray];
-    arr.push(optionsRef.current.value);
+    arr.push({
+      text: optionsRef.current.value,
+      isCorrect: checkBoxRef.current.checked,
+    });
     optionsRef.current.value = "";
     setOptionsArray(arr);
   };
   const handleTypeChange = (e) => setOptionType(e.target.value);
+
   const deleteHandler = (index) => {
-    console.log("Index : ", index);
-    const temp = [...optionsArray]; /* .filter((op, i) => index !== i)] */
+    const temp = [...optionsArray];
     temp.splice(index, 1);
     setOptionsArray(temp);
   };
+
+  const handleEdit = (ind) => {
+    if (index === -1) {
+      setIndex(ind);
+      setEditedOption(optionsArray[ind].text);
+    }
+  };
+
+  const saveEdited = () => {
+    const temp = [...optionsArray];
+    temp[index] = {
+      text: editedOption,
+      isCorrect: checkBoxRef.current.checked,
+    };
+    setOptionsArray(temp);
+    setIndex(-1);
+  };
+
+  useEffect(() => {
+    if (optionsArray.length > 0) {
+      const temp = [...optionsArray];
+      temp[index] = {
+        text: (
+          <input
+            className="op-text"
+            type="text"
+            value={editedOption}
+            onChange={(e) => {
+              setEditedOption(e.target.value);
+            }}
+          />
+        ),
+        isCorrect: temp[index].isCorrect,
+      };
+      setOptionsArray(temp);
+    }
+  }, [editedOption]);
 
   useEffect(() => {
     if (!open) {
@@ -81,7 +123,6 @@ export default function AddQuestionModal({
     }
   }, [open]);
 
-  console.log("OPtions Array : ", optionsArray);
   return (
     <div className={classes.root}>
       <Button color="secondary" variant="contained" onClick={handleOpen}>
@@ -119,32 +160,44 @@ export default function AddQuestionModal({
 
             <div className="option-div">
               <div className="options" id="one-op">
-                {optionsArray.length > 0
-                  ? optionsArray.map((option, ind) => (
-                      <div className="option" key={ind}>
-                        <input
-                          disabled={true}
-                          className="radio-in"
-                          type={optionType === "radio" ? "radio" : "checkbox"}
-                          name="option"
-                        />
-                        <div className="add-op">{option}</div>
-                        <Icon
-                          className="delete-icon"
-                          onClick={() => {
-                            deleteHandler(ind);
-                          }}
-                        >
-                          <DeleteRounded />
-                        </Icon>
-                      </div>
-                    ))
-                  : null}
+                {optionsArray.map((option, ind) => (
+                  <div className="option" key={ind}>
+                    <input
+                      disabled={index === -1}
+                      className="radio-in"
+                      type={optionType === "radio" ? "radio" : "checkbox"}
+                      name="option"
+                      checked={option.isCorrect}
+                    />
+                    <div className="add-op">{option.text}</div>
+                    {index === ind ? (
+                      <Icon className="save-icon" onClick={() => saveEdited()}>
+                        <SaveAltRounded />
+                      </Icon>
+                    ) : (
+                      <Icon
+                        className="edit-icon"
+                        onClick={() => handleEdit(ind)}
+                      >
+                        <EditRounded />
+                      </Icon>
+                    )}
+                    <Icon
+                      className="delete-icon"
+                      onClick={() => {
+                        deleteHandler(ind);
+                      }}
+                    >
+                      <DeleteRounded />
+                    </Icon>
+                  </div>
+                ))}
               </div>
             </div>
 
             <div className="add-op">
               <input
+                ref={checkBoxRef}
                 className="radio-in"
                 type={optionType === "radio" ? "radio" : "checkbox"}
                 name="option"
