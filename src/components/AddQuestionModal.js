@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react"
 import { makeStyles } from "@material-ui/core/styles"
-import Modal from "@material-ui/core/Modal"
-import { Button } from "@material-ui/core"
+import { Modal, Button, Icon } from "@material-ui/core"
 // import AddQuestionCard from "./AddQuestionCard"
 import "./AddQuestionCard.css"
+import { DeleteRounded } from "@material-ui/icons"
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -66,6 +66,15 @@ export default function AddQuestionModal({
 		setOptionsArray(arr)
 	}
 	const handleTypeChange = (e) => setOptionType(e.target.value)
+	const deleteHandler = (index) => {
+		console.log("index: " + index)
+		if (optionsArray.length > 1) {
+			const temp = [...optionsArray] /* .filter((op, i) => index !== i)] */
+			temp.splice(index, 1)
+			temp[temp.length - 1] = optionsRef.current.value
+			setOptionsArray(temp)
+		}
+	}
 
 	useEffect(() => {
 		if (!open) {
@@ -73,6 +82,8 @@ export default function AddQuestionModal({
 			setOptionType("radio")
 		}
 	}, [open])
+	console.log(optionsRef.current)
+	console.log(optionsArray)
 	return (
 		<div className={classes.root}>
 			<Button color="secondary" variant="contained" onClick={handleOpen}>
@@ -89,6 +100,7 @@ export default function AddQuestionModal({
 					<div className="questionCard">
 						<div id="title">Question:</div>
 						<input
+							autoFocus
 							ref={titleField}
 							className="question"
 							type="text"
@@ -111,28 +123,27 @@ export default function AddQuestionModal({
 							<div className="options" id="one-op">
 								{optionsArray.map((option, key) => (
 									<div className="option" key={key}>
-										{optionType === "radio" ? (
-											<input
-												className="radio-in"
-												type="radio"
-												name="radio"
-												value={option}
-											/>
-										) : (
-											<input
-												className="check-in"
-												type="checkbox"
-												name="check"
-												value={option}
-											/>
-										)}
+										<input
+											className="radio-in"
+											type={optionType === "radio" ? "radio" : "checkbox"}
+											name="option"
+											value={option}
+										/>
 										<input
 											disabled={optionsArray.length !== key + 1}
-											ref={optionsRef}
+											ref={optionsArray.length === key + 1 ? optionsRef : null}
 											className="op-text"
 											type="text"
 											placeholder={`Option ${key + 1}`}
 										/>
+										<Icon
+											onClick={() => {
+												deleteHandler(key)
+											}}
+											className="delete-icon"
+										>
+											<DeleteRounded />
+										</Icon>
 									</div>
 								))}
 							</div>
