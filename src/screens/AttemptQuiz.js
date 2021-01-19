@@ -1,6 +1,6 @@
 import React from "react";
-import AttemptQuestionCard from "../components/AttemptQuestionCard";
 import Appbar from "../components/Appbar";
+import "./AttemptQuiz.css";
 
 const AttemptQuiz = (props) => {
   return (
@@ -10,15 +10,26 @@ const AttemptQuiz = (props) => {
       </div>
       <div id="create-quiz-body">
         <div className="quiz-header">
-          <input id="quiz-title" type="text" value={props.quizTitle} />
+          <label id="quiz-title">{props.quizTitle}</label>
         </div>
         {props.questions.map((question) => (
-          <AttemptQuestionCard
-            title={question.title}
-            optionType={question.optionType}
-            options={question.options}
-          />
+          <div className="questionCard">
+            <div id="title">{question.title}</div>
+            <div className="option-div">
+              {question.options.map((option, ind) => (
+                <div className="option" key={ind}>
+                  {question.optionType === "oneOp" ? (
+                    <input className="radio-in" type="radio" name="oneOp" />
+                  ) : (
+                    <input className="check-in" type="checkbox" name="mulOp" />
+                  )}
+                  <label className="option-text">{option.text}</label>
+                </div>
+              ))}
+            </div>
+          </div>
         ))}
+        <button>Submit</button>
       </div>
     </div>
   );
