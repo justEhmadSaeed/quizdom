@@ -73,9 +73,9 @@ export default function AddQuestionModal({
   };
   const handleTypeChange = (e) => setOptionType(e.target.value);
 
-  const deleteHandler = (index) => {
+  const deleteHandler = (ind) => {
     const temp = [...optionsArray];
-    temp.splice(index, 1);
+    temp.splice(ind, 1);
     setOptionsArray(temp);
     setIndex(-1);
   };
@@ -98,7 +98,7 @@ export default function AddQuestionModal({
   };
 
   useEffect(() => {
-    if (optionsArray.length > 0) {
+    if (index > -1 ) {
       const temp = [...optionsArray];
       temp[index] = {
         text: (
@@ -115,7 +115,7 @@ export default function AddQuestionModal({
       };
       setOptionsArray(temp);
     }
-  }, [editedOption]);
+  }, [index, editedOption, optionsArray]);
 
   useEffect(() => {
     if (!open) {
