@@ -32,7 +32,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function AddQuestionModal({
-	titleRef = "",
+	type = "add",
+	title = "",
 	opType = "radio",
 	opArray = [],
 	addQuestionHandle,
@@ -46,7 +47,7 @@ export default function AddQuestionModal({
 
 	const optionsRef = useRef(null);
 	const checkBoxRef = useRef(null);
-	const titleField = useRef(titleRef);
+	const titleField = useRef(title);
 
 	const handleOpen = () => {
 		setOpen(true);
@@ -63,7 +64,7 @@ export default function AddQuestionModal({
 			// For radio options, set all other options incorrect
 			if (optionType === "radio" && checkBoxRef.current.checked)
 				tempArr.forEach((op) => (op.isCorrect = false));
-			
+
 			tempArr.push({
 				text: optionsRef.current.value,
 				isCorrect: checkBoxRef.current.checked,
@@ -122,9 +123,15 @@ export default function AddQuestionModal({
 	}, [open]);
 	return (
 		<div className={classes.root}>
-			<Button color="secondary" variant="contained" onClick={handleOpen}>
-				Add Question
-			</Button>
+			{type === "add" ? (
+				<Button color="secondary" variant="contained" onClick={handleOpen}>
+					Add Question
+				</Button>
+			) : (
+				<Icon color="secondary" variant="contained" onClick={handleOpen}>
+					<EditRounded />
+				</Icon>
+			)}
 			<Modal
 				aria-labelledby="transition-modal-title"
 				aria-describedby="transition-modal-description"

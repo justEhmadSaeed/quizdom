@@ -50,6 +50,12 @@
 	align-self: flex-end;
 	margin-right: 200px;
 }
+.controls{
+	width: 80%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 #add-btn:hover,
 #create-btn:hover {
 	background-color: var(--secondary);
@@ -81,6 +87,9 @@
 	.quiz-header {
 		margin-top: 30px;
 		width: 90%;
+	}
+	.controls{
+		width: 100%;
 	}
 	#add-btn {
 		margin-right: 30px;
