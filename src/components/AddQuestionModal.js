@@ -42,7 +42,7 @@ export default function AddQuestionModal({
 	const [optionType, setOptionType] = useState(opType);
 	const [optionsArray, setOptionsArray] = useState(opArray);
 	const [editedOption, setEditedOption] = useState(null);
-	const [index, setIndex] = useState(-1);
+	const [editOpIndex, setEditOpIndex] = useState(-1);
 
 	const optionsRef = useRef(null);
 	const checkBoxRef = useRef(null);
@@ -57,12 +57,16 @@ export default function AddQuestionModal({
 	};
 	const addQuestionCallBack = () => {
 		if (titleField.current.value.length === 0) return;
-		
+
 		const tempArr = [...optionsArray];
 		if (optionsRef.current.value.length !== 0) {
+			// For radio options, set all other options incorrect
+			if (optionType === "radio" && checkBoxRef.current.checked)
+				tempArr.forEach((op) => (op.isCorrect = false));
+			
 			tempArr.push({
 				text: optionsRef.current.value,
-				isCorrect: optionsRef.current.checked,
+				isCorrect: checkBoxRef.current.checked,
 			});
 		}
 		addQuestionHandle(titleField.current.value, optionType, tempArr);
@@ -73,11 +77,17 @@ export default function AddQuestionModal({
 		if (optionsRef.current.value.length === 0) return;
 
 		const arr = [...optionsArray];
+
+		// For radio options, set all other options incorrect
+		if (optionType === "radio" && checkBoxRef.current.checked)
+			arr.forEach((op) => (op.isCorrect = false));
+
 		arr.push({
 			text: optionsRef.current.value,
 			isCorrect: checkBoxRef.current.checked,
 		});
 		optionsRef.current.value = "";
+		checkBoxRef.current.checked = false;
 		setOptionsArray(arr);
 	};
 	const handleTypeChange = (e) => setOptionType(e.target.value);
@@ -86,24 +96,22 @@ export default function AddQuestionModal({
 		const temp = [...optionsArray];
 		temp.splice(ind, 1);
 		setOptionsArray(temp);
-		setIndex(-1);
+		setEditOpIndex(-1);
 	};
 
 	const handleEdit = (ind) => {
-		if (index === -1) {
-			setIndex(ind);
+		if (editOpIndex === -1) {
+			setEditOpIndex(ind);
 			setEditedOption(optionsArray[ind].text);
 		}
 	};
 
 	const saveEdited = () => {
 		const temp = [...optionsArray];
-		temp[index] = {
-			text: editedOption,
-			isCorrect: checkBoxRef.current.checked,
-		};
+		temp[editOpIndex].text = editedOption;
+		// isCorrect: checkBoxRef.current.checked,
 		setOptionsArray(temp);
-		setIndex(-1);
+		setEditOpIndex(-1);
 	};
 
 	useEffect(() => {
@@ -112,7 +120,6 @@ export default function AddQuestionModal({
 			setOptionType("radio");
 		}
 	}, [open]);
-
 	return (
 		<div className={classes.root}>
 			<Button color="secondary" variant="contained" onClick={handleOpen}>
@@ -153,13 +160,14 @@ export default function AddQuestionModal({
 								{optionsArray.map((option, ind) => (
 									<div className="option" key={ind}>
 										<input
-											disabled={index === -1 || index !== ind}
+											disabled={true}
+											ref={editedOption === ind ? checkBoxRef : null}
 											className="radio-in"
 											type={optionType === "radio" ? "radio" : "checkbox"}
 											name="option"
 											checked={option.isCorrect}
 										/>
-										{index === ind ? (
+										{editOpIndex === ind ? (
 											<input
 												value={editedOption}
 												onChange={(e) => setEditedOption(e.target.value)}
@@ -167,7 +175,7 @@ export default function AddQuestionModal({
 										) : (
 											<div className="add-op">{option.text}</div>
 										)}
-										{index === ind ? (
+										{editOpIndex === ind ? (
 											<Icon className="save-icon" onClick={() => saveEdited()}>
 												<SaveRounded />
 											</Icon>

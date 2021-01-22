@@ -12,7 +12,7 @@ const CreateQuiz = ({ user }) => {
 		arr.push({ title, opType, optionsArray })
 		setQuestionArray(arr)
 	}
-	console.log(questionArray)
+	console.table(questionArray)
 	return (
 		<div id="main-body">
 			<div className="appheader">
