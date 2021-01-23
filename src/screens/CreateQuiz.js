@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./CreateQuiz.css";
 import Appbar from "../components/Appbar";
 import AddQuestionModal from "../components/AddQuestionModal";
+import QuestionsTable from "../components/QuestionsTable";
 import { Button, Switch } from "@material-ui/core";
 
 const CreateQuiz = ({ user }) => {
@@ -10,9 +11,9 @@ const CreateQuiz = ({ user }) => {
 	const titleRef = useRef(null);
 	const [accesss, setAccesss] = useState(false);
 
-	const addQuestionHandle = (title, opType, optionsArray) => {
+	const addQuestionHandle = (title, opType, options) => {
 		let arr = [...questionArray];
-		arr.push({ title, opType, optionsArray });
+		arr.push({ title, opType, options });
 		setQuestionArray(arr);
 	};
 	console.table(questionArray);
@@ -42,16 +43,18 @@ const CreateQuiz = ({ user }) => {
 							color="secondary"
 							name="access"
 						/>
-						Access Control
+						<h4>Access Control</h4>
 					</div>
 				</div>
-				{questionArray.map((quest, key) => (
-					<div key={key}>{`${quest.title} ${quest.opType}`}</div>
-				))}
 			</div>
-
-			<Link to="/created-succesfully">
-				<input id="create-btn" type="submit" value="Create" />
+			<QuestionsTable
+				questionArray={questionArray}
+				setQuestionArray={setQuestionArray}
+			/>
+			<Link className="link" to="/created-succesfully">
+				<Button variant="contained" color="secondary">
+					Create Quiz
+				</Button>
 			</Link>
 		</div>
 	);

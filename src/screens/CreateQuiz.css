@@ -50,6 +50,11 @@
 	align-self: flex-end;
 	margin-right: 200px;
 }
+.switch{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 .controls{
 	width: 80%;
 	display: flex;
@@ -82,6 +87,10 @@
 	position: fixed;
 	bottom: 50px;
 	right: 50px;
+}
+.link{
+	text-decoration: none;
+	margin: 20px;
 }
 @media (max-width: 768px) {
 	.quiz-header {

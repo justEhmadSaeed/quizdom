@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Modal, Button, Icon } from "@material-ui/core";
+import { Modal, Button, Icon, IconButton } from "@material-ui/core";
 // import AddQuestionCard from "./AddQuestionCard"
 import "./AddQuestionCard.css";
 import { DeleteRounded, EditRounded, SaveRounded } from "@material-ui/icons";
@@ -128,9 +128,9 @@ export default function AddQuestionModal({
 					Add Question
 				</Button>
 			) : (
-				<Icon color="secondary" variant="contained" onClick={handleOpen}>
+				<IconButton color="secondary" variant="contained" onClick={handleOpen}>
 					<EditRounded />
-				</Icon>
+				</IconButton>
 			)}
 			<Modal
 				aria-labelledby="transition-modal-title"

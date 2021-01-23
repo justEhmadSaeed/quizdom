@@ -1,30 +1,26 @@
 @import "./components/colors.css";
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
 
 .App {
 	text-align: center;
 	align-items: center;
 	overflow: hidden;
 	color: var(--secondary);
-	font-family:'Nanum Gothic', sans-serif;
+	font-family: "Nanum Gothic", sans-serif;
 }
-button{
-
-}
-
-h1{
+h1 {
 	font-size: 3rem;
 }
-h2{
+h2 {
 	font-size: 2rem;
 }
-p{
+p {
 	font-size: 1rem;
 }
-label{
+label {
 	font-size: 1rem;
 }
-input[type=text]{
+input[type="text"] {
 	border: var(--secondary) 1px solid;
 	margin: 10px;
 	padding: 10px;
@@ -35,15 +31,21 @@ input[type=text]{
 	border-bottom: 2px solid var(--light-shadow);
 }
 
-input[type=text]:focus{
+input[type="text"]:focus {
 	transition: all 0.5s ease;
 	border-bottom: 2px solid var(--dark-shadow);
 }
-
-::-webkit-scrollbar {
-	width: 10px;
-}
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(#ffffff,var(--accent-mustard), var(--accent-pink), var(--secondary));
-  border-radius: 7px;
+@media (min-width: 800px) {
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+	::-webkit-scrollbar-thumb {
+		background: linear-gradient(
+			#ffffff,
+			var(--accent-mustard),
+			var(--accent-pink),
+			var(--secondary)
+		);
+		border-radius: 7px;
+	}
 }
