@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import Appbar from "../components/Appbar";
+<<<<<<< HEAD
+=======
+import { Link } from "react-router-dom";
+import "./AttemptQuiz.css";
+>>>>>>> 40a1f78550c1d1c5013f70647d098269b4985c05
 
 const AttemptQuiz = (props) => {
   const [attemptedQuestions, setAttemptedQuestions] = useState(() => {
@@ -72,7 +77,13 @@ const AttemptQuiz = (props) => {
             </div>
           </div>
         ))}
+<<<<<<< HEAD
         <button onClick={submitQuiz}>Submit</button>
+=======
+        <Link to="/quiz-attempted">
+          <button>Submit</button>
+        </Link>
+>>>>>>> 40a1f78550c1d1c5013f70647d098269b4985c05
       </div>
     </div>
   );

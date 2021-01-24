@@ -1,0 +1,44 @@
+.attempted_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.attemp_container{
+    display: flex;
+    height: 500px;
+    width: 700px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    background-color: var(--primary);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.att_h2{
+    font-weight: 300;
+    font-size: 40px;
+}
+button{
+    width: 200px;
+}
+.score_h2{
+    font-weight: 800;
+    margin-bottom: 30;
+    margin-top: 0;
+}
+
+@media (max-width: 768px){
+    .attemp_container{
+        width: 400px;
+        height: 480px;
+    }
+    
+    .att_h2{
+        font-size: 25px;
+    }
+    .score_h2{
+        font-size: 35px;
+    }
+}
