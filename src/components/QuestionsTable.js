@@ -15,10 +15,11 @@ import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Checkbox from "@material-ui/core/Checkbox";
 import IconButton from "@material-ui/core/IconButton";
-import { EditRounded, Delete } from "@material-ui/icons";
+import { Delete } from "@material-ui/icons";
+import AddQuestionModal from "./AddQuestionModal";
 
-function createData(name, options, choice) {
-	return { name, options, choice: choice === "radio" ? "Single" : "Multiple" };
+function createData(title, options, choice) {
+	return { title, options, choice };
 }
 
 function descendingComparator(a, b, orderBy) {
@@ -152,7 +153,7 @@ const EnhancedTableToolbar = (props) => {
 
 	const deleteRow = () => {
 		const temp = [...questionArray];
-		// Delete the selected rows from QuestionsArray	
+		// Delete the selected rows from QuestionsArray
 		selected.forEach((element) => {
 			const target = temp.findIndex((e) => e.title === element);
 			temp.splice(target, 1);
@@ -232,13 +233,19 @@ const useStyles = makeStyles((theme) => ({
 
 export default function QuestionsTable({ questionArray, setQuestionArray }) {
 	const rows = questionArray.map((question) =>
-		createData(question.title, question.options.length, question.opType)
+		createData(question.title, question.options, question.optionType)
 	);
 	const classes = useStyles();
 	const [order, setOrder] = React.useState("asc");
 	const [orderBy, setOrderBy] = React.useState("");
 	const [selected, setSelected] = React.useState([]);
 	const [page, setPage] = React.useState(0);
+
+	const editQuestionHandle = (title, optionType, options, index) => {
+		const temp = [...questionArray];
+		temp[index] = { title, optionType, options };
+		setQuestionArray(temp);
+	};
 
 	const rowsPerPage = 10;
 	const handleRequestSort = (event, property) => {
@@ -249,7 +256,7 @@ export default function QuestionsTable({ questionArray, setQuestionArray }) {
 
 	const handleSelectAllClick = (event) => {
 		if (event.target.checked) {
-			const newSelecteds = rows.map((n) => n.name);
+			const newSelecteds = rows.map((n) => n.title);
 			setSelected(newSelecteds);
 			return;
 		}
@@ -320,7 +327,7 @@ export default function QuestionsTable({ questionArray, setQuestionArray }) {
 							{stableSort(rows, getComparator(order, orderBy))
 								.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
 								.map((row, index) => {
-									const isItemSelected = isSelected(row.name);
+									const isItemSelected = isSelected(row.title);
 									const labelId = `enhanced-table-checkbox-${index}`;
 
 									return (
@@ -329,12 +336,12 @@ export default function QuestionsTable({ questionArray, setQuestionArray }) {
 											role="checkbox"
 											aria-checked={isItemSelected}
 											tabIndex={-1}
-											key={row.name}
+											key={row.title}
 											selected={isItemSelected}
 										>
 											<TableCell padding="checkbox">
 												<Checkbox
-													onClick={(event) => handleClick(event, row.name)}
+													onClick={(event) => handleClick(event, row.title)}
 													checked={isItemSelected}
 													inputProps={{ "aria-labelledby": labelId }}
 												/>
@@ -345,14 +352,22 @@ export default function QuestionsTable({ questionArray, setQuestionArray }) {
 												scope="row"
 												padding="none"
 											>
-												{row.name}
+												{row.title}
 											</TableCell>
-											<TableCell align="right">{row.options}</TableCell>
-											<TableCell align="right">{row.choice}</TableCell>
+											<TableCell align="right">{row.options.length}</TableCell>
 											<TableCell align="right">
-												<IconButton>
-													<EditRounded />
-												</IconButton>
+												{row.choice === "radio" ? "Single" : "Multiple"}
+											</TableCell>
+											<TableCell align="right">
+												<AddQuestionModal
+													key={index}
+													type="edit"
+													title={row.title}
+													opType={row.choice}
+													opArray={row.options}
+													index={index}
+													addQuestionHandle={editQuestionHandle}
+												/>
 											</TableCell>
 										</TableRow>
 									);

@@ -7,7 +7,7 @@ import { DeleteRounded, EditRounded, SaveRounded } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		margin: "10px",
+		// margin: "10px",
 	},
 	modal: {
 		display: "flex",
@@ -35,20 +35,31 @@ export default function AddQuestionModal({
 	type = "add",
 	title = "",
 	opType = "radio",
-	opArray = [],
+	opArray,
+	index = -1,
 	addQuestionHandle,
 }) {
 	const classes = useStyles();
 	const [open, setOpen] = React.useState(false);
-	const [optionType, setOptionType] = useState(opType);
-	const [optionsArray, setOptionsArray] = useState(opArray);
+	const [optionType, setOptionType] = useState("radio");
+	const [optionsArray, setOptionsArray] = useState([]);
 	const [editedOption, setEditedOption] = useState(null);
 	const [editOpIndex, setEditOpIndex] = useState(-1);
-
+	const [titleField, setTitleField] = useState("");
 	const optionsRef = useRef(null);
 	const checkBoxRef = useRef(null);
-	const titleField = useRef(title);
 
+	useEffect(() => {
+		if (open) {
+			setTitleField(title);
+			setOptionType(opType);
+			if (opArray) setOptionsArray(opArray);
+		} else {
+			setTitleField("");
+			setOptionsArray([]);
+			setOptionType("radio");
+		}
+	}, [open, title, opType, opArray]);
 	const handleOpen = () => {
 		setOpen(true);
 	};
@@ -57,7 +68,7 @@ export default function AddQuestionModal({
 		setOpen(false);
 	};
 	const addQuestionCallBack = () => {
-		if (titleField.current.value.length === 0) return;
+		// if (titleField.current.value.length === 0) return;
 
 		const tempArr = [...optionsArray];
 		if (optionsRef.current.value.length !== 0) {
@@ -70,7 +81,9 @@ export default function AddQuestionModal({
 				isCorrect: checkBoxRef.current.checked,
 			});
 		}
-		addQuestionHandle(titleField.current.value, optionType, tempArr);
+		if (index !== -1) addQuestionHandle(titleField, optionType, tempArr, index);
+		else addQuestionHandle(titleField, optionType, tempArr);
+
 		setOpen(false);
 	};
 
@@ -110,17 +123,10 @@ export default function AddQuestionModal({
 	const saveEdited = () => {
 		const temp = [...optionsArray];
 		temp[editOpIndex].text = editedOption;
-		// isCorrect: checkBoxRef.current.checked,
 		setOptionsArray(temp);
 		setEditOpIndex(-1);
 	};
 
-	useEffect(() => {
-		if (!open) {
-			setOptionsArray([]);
-			setOptionType("radio");
-		}
-	}, [open]);
 	return (
 		<div className={classes.root}>
 			{type === "add" ? (
@@ -128,7 +134,7 @@ export default function AddQuestionModal({
 					Add Question
 				</Button>
 			) : (
-				<IconButton color="secondary" variant="contained" onClick={handleOpen}>
+				<IconButton onClick={handleOpen}>
 					<EditRounded />
 				</IconButton>
 			)}
@@ -144,7 +150,8 @@ export default function AddQuestionModal({
 						<div id="title">Question:</div>
 						<input
 							autoFocus
-							ref={titleField}
+							value={titleField}
+							onChange={(e) => setTitleField(e.target.value)}
 							className="question"
 							type="text"
 							placeholder="Type Question Here"
@@ -168,7 +175,7 @@ export default function AddQuestionModal({
 									<div className="option" key={ind}>
 										<input
 											disabled={true}
-											ref={editedOption === ind ? checkBoxRef : null}
+											// ref={editedOption === ind ? checkBoxRef : null}
 											className="radio-in"
 											type={optionType === "radio" ? "radio" : "checkbox"}
 											name="option"
@@ -237,13 +244,14 @@ export default function AddQuestionModal({
 							Close
 						</Button>
 						<Button
-							disabled={!optionsArray.length}
+							disabled={!(optionsArray.length && titleField.length)}
 							className={classes.button}
 							color="secondary"
 							variant="contained"
 							onClick={addQuestionCallBack}
 						>
-							Add Question
+							{type === "add" ? "Add " : "Edit "}
+							Question
 						</Button>
 					</div>
 				</div>
