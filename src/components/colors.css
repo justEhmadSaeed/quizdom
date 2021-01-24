@@ -1,9 +1,21 @@
-:root{
+:root {
   --dark-shadow: #29455a;
-  --light-shadow:  #b5c2c2;
-  --primary: #FFFFFF;
-  --secondary:#23395B;
-  --accent-pink:#D81E5B;
-  --accent-mustard:#F7C550;
-  --gradient: linear-gradient(to right, var(--secondary) -10% ,var(--accent-pink)  30%, var(--accent-mustard)  100%);
+  --light-shadow: #b5c2c2;
+  --primary: #ffffff;
+  --secondary: #23395b;
+  --accent-pink: #d81e5b;
+  --accent-mustard: #f7c550;
+  --gradient: linear-gradient(
+    to right,
+    var(--secondary) -10%,
+    var(--accent-pink) 30%,
+    var(--accent-mustard) 100%
+  );
+  --glass-gradient: linear-gradient(
+    to right bottom,
+    /* rgba(257, 257, 257, 0.3), */
+    rgba(14, 22, 36, 0.2),
+    rgba(216, 30, 91, 0.2),
+    rgba(97, 77, 31, 0.2)
+  );
 }

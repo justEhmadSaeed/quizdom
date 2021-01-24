@@ -7,12 +7,13 @@
   overflow: hidden;
   color: var(--secondary);
   font-family: "Nanum Gothic", sans-serif;
+  /* background: var(--gradient); */
 }
-h1{
+h1 {
   font-size: 3rem;
   font-weight: lighter;
 }
-b{
+b {
   font-weight: bold;
 }
 h2 {
@@ -25,11 +26,21 @@ label {
   font-size: 1rem;
 }
 
-.white{
-	color: var(--primary);
+.white {
+  color: var(--primary);
 }
-.blue{
-	color: var(--secondary);
+.blue {
+  color: var(--secondary);
+}
+
+.wd-200 {
+  width: 200px;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -webkit-transform: scale(1.5);
 }
 
 input[type="text"] {
@@ -50,10 +61,11 @@ input[type="text"]:focus {
 
 input[type="submit"],
 button {
+  display: inline-block;
   margin: 10px;
   padding: 40px 70px;
   font-size: 20px;
-  width: 250px;
+  /* width: 250px; */
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
@@ -61,7 +73,12 @@ button {
   border: none;
   background-image: var(--gradient);
   color: var(--primary);
-  /* box-shadow: 0 0 20px #eee; */
+}
+
+button .outlined {
+  background-image: none;
+  border: 2px solid;
+  border-image: var(--gradient);
 }
 input[type="submit"],
 button:hover {
@@ -80,13 +97,16 @@ button:active {
   box-shadow: var(--dark-shadow) 2px 2px 3px;
 }
 
-div .questionCard {
+.questionCard {
+  width: 80%;
   padding: 20px;
   box-shadow: var(--light-shadow) 1px 1px 1px 1px;
   margin: 20px 0px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  /* background: var(--glass-gradient);
+  backdrop-filter: blur(2rem); */
 }
 
 @media (min-width: 800px) {
