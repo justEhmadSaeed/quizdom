@@ -1,8 +1,5 @@
 @import "../components/colors.css";
-#one-time-h1 {
-	color: white;
-	margin: 20px;
-}
+
 #dashboard-content {
 	height: 80vh;
 	width: 100%;
@@ -43,31 +40,10 @@
 	align-content: flex-end;
 }
 .one-time-button{
-	margin: 10px;
-	padding: 12px;
-	font-size: 20px;
 	width: 230px;
-	transition: 0.5s;
-	border-radius: 50px;
-	border: none;
-	color: var(--primary);
-	padding: 12px;
-	text-transform: uppercase;
-	background-size: 200% auto;
-	background-image: var(--gradient);
+	padding: 15px;
 }
-.one-time-button:hover {
-	background-position: right center; /* change the direction of the change here */
-	color: #fff;
-	cursor: pointer;
-	text-decoration: none;
-}
-.one-time-button:focus {
-	outline: none;
-}
-.one-time-button:active {
-	transform: translateY(4px);
-}
+
 .wlcm-msg {
 	color: var(--primary);
 	font-size: 35px;

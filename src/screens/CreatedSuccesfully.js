@@ -17,6 +17,7 @@ const CreatedSuccesfully = ({ user }) => {
 					id={Copy}
 					type="text"
 					value={Code}
+					disabled={true}
 					onChange={(e) => setCode(e.target.value)}
 				/>
 				<CopyToClipboard
@@ -25,12 +26,12 @@ const CreatedSuccesfully = ({ user }) => {
 						setCopy("copied")
 					}}
 				>
-					<button className="copy-btn">
+					<button >
 						{Copy === "copy" ? "Copy Code" : "Code Copied!"}
 					</button>
 				</CopyToClipboard>
 				<Link to={"/dashboard"}>
-					<button className="copy-btn">Dashboard</button>
+					<button >Dashboard</button>
 				</Link>
 			</div>
 		</div>

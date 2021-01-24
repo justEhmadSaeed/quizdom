@@ -1,0 +1,21 @@
+@import './colors.css';
+.logo{
+
+}
+
+.smallblue{
+    font-size: 3rem;
+    color: var(--secondary);
+}
+.smallwhite{
+    font-size: 3rem;
+    color: var (--primary);
+}
+.largeblue{
+    font-size: 10rem;
+    color: var(--secondary);
+}
+.largewhite{
+    font-size: 10rem;
+    color:var(--primary);
+}

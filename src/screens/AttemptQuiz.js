@@ -1,6 +1,6 @@
 import React from "react";
 import Appbar from "../components/Appbar";
-import "./AttemptQuiz.css";
+//import "./AttemptQuiz.css";
 
 const AttemptQuiz = (props) => {
   return (

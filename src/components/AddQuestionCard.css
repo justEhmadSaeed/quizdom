@@ -16,14 +16,7 @@
 	font-weight: 700;
 }
 .question {
-	border: var(--secondary) 1px solid;
-	margin: 10px;
-	padding: 10px;
-	font-size: 16px;
-	outline: none;
-	border-radius: none;
-	border: none;
-	border-bottom: 2px solid var(--light-shadow);
+	 
 }
 .question:focus {
 	transition: all 0.5s ease;

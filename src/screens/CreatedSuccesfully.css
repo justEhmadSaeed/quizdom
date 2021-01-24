@@ -21,41 +21,6 @@
 #message{
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-.copy-btn{
-  margin: 10px;
-  padding: 12px;
-  font-size: 20px;
-  width: 250px;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto;
-  border-radius: 50px;
-  border: none;
-  background-image: var(--gradient);
-  color:  var(--primary);
-  box-shadow: 0 0 20px #eee;
-}
-p{
-  font-size: 20px;
-  font-weight: 400;
-}
-b{
-  font-size: 50px;
-  font-weight: 600;
-}
-.copy-btn:hover{
-  background-position: right center; /* change the direction of the change here */
-  color: #fff;
-  cursor: pointer;
-  text-decoration: none;
-}
-.copy-btn:focus{
-  outline: none;
-}
-.copy-btn:active{
-  transform: translateY(4px);
-  box-shadow: var(--dark-shadow) 2px 2px 3px;
-}
 
 #copied{
   width: 400px;
