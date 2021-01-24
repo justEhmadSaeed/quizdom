@@ -8,12 +8,12 @@ import { Button, Switch } from "@material-ui/core";
 
 const CreateQuiz = ({ user }) => {
 	const [questionArray, setQuestionArray] = useState([]);
-	const titleRef = useRef(null);
+	const [title, setTitle] = useState("");
 	const [accesss, setAccesss] = useState(false);
 
-	const addQuestionHandle = (title, opType, options) => {
-		let arr = [...questionArray];
-		arr.push({ title, opType, options });
+	const addQuestionHandle = (title, optionType, options) => {
+		const arr = [...questionArray];
+		arr.push({ title, optionType, options });
 		setQuestionArray(arr);
 	};
 	console.table(questionArray);
@@ -25,7 +25,8 @@ const CreateQuiz = ({ user }) => {
 			<div id="create-quiz-body">
 				<div className="quiz-header">
 					<input
-						ref={titleRef}
+						value={title}
+						onChange={(e) => setTitle(e.target.value)}
 						id="quiz-title"
 						type="text"
 						placeholder="Untitled Quiz"
@@ -51,11 +52,21 @@ const CreateQuiz = ({ user }) => {
 				questionArray={questionArray}
 				setQuestionArray={setQuestionArray}
 			/>
-			<Link className="link" to="/created-succesfully">
-				<Button variant="contained" color="secondary">
+			{title.length && questionArray.length ? (
+				<Link className="link" to="/created-succesfully">
+					<Button
+						onClick={() => console.log({ title, accesss, questionArray })}
+						variant="contained"
+						color="secondary"
+					>
+						Create Quiz
+					</Button>
+				</Link>
+			) : (
+				<Button variant="contained" color="secondary" disabled>
 					Create Quiz
 				</Button>
-			</Link>
+			)}
 		</div>
 	);
 };
