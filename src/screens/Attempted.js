@@ -12,7 +12,7 @@ const Attempted = (props) => {
         <h2 className="att_h2">Quiz Attempted Successfully</h2>
         <h1 className="score_h2">Score: 100/100</h1>
         <Link to={"/dashboard"}>
-          <button id="dash_btn">Dashboard</button>
+          <button className="button">Dashboard</button>
         </Link>
       </div>
     </div>
