@@ -1,6 +1,7 @@
 import React from "react";
 import Appbar from "../components/Appbar";
-//import "./AttemptQuiz.css";
+import { Link } from "react-router-dom";
+import "./AttemptQuiz.css";
 
 const AttemptQuiz = (props) => {
   return (
@@ -29,7 +30,9 @@ const AttemptQuiz = (props) => {
             </div>
           </div>
         ))}
-        <button>Submit</button>
+        <Link to="/quiz-attempted">
+          <button>Submit</button>
+        </Link>
       </div>
     </div>
   );

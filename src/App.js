@@ -14,7 +14,7 @@ import UserDashboard from "./screens/UserDashboard";
 import CreatedSuccesfully from "./screens/CreatedSuccesfully";
 import NotFoundPage from "./screens/NotFoundPage";
 import AttemptQuiz from "./screens/AttemptQuiz";
-
+import Attempted from "./screens/Attempted";
 const data = require("./Data.json");
 
 const App = () => {
@@ -42,7 +42,14 @@ const App = () => {
             <JoinQuiz user={User} />
           </Route>
           <Route path="/attempt-quiz">
-            <AttemptQuiz questions={data.questions} user={User} quizTitle={data.title} />
+            <AttemptQuiz
+              questions={data.questions}
+              user={User}
+              quizTitle={data.title}
+            />
+          </Route>
+          <Route path="/quiz-attempted">
+            <Attempted user={User} />
           </Route>
           <Route component={NotFoundPage} />
         </Switch>
