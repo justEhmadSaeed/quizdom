@@ -1,22 +1,10 @@
 @import "./colors.css";
 
-.questionCard {
-	padding: 20px;
-	box-shadow: var(--light-shadow) 1px 1px 1px 1px;
-	margin: 20px 0px;
-	/* width: 90%; */
-	border-radius: 10px;
-	display: flex;
-	flex-direction: column;
-}
 #title {
 	margin: 10px;
 	text-align: left;
 	font-size: 1.5rem;
 	font-weight: 700;
-}
-.question {
-	 
 }
 .question:focus {
 	transition: all 0.5s ease;
@@ -112,16 +100,10 @@
 	font-size: 15px;
 }
 @media (max-width: 768px) {
-	/* .questionCard {
-		width: 400px;
-	} */
+	.add-op{
+		flex-direction: column;
+	}
 	#select {
 		width: 60%;
 	}
-	/* .question {
-		font-size: 14px;
-	} */
-	/* #title {
-		font-size: 1rem;
-	} */
 }

@@ -60,12 +60,11 @@ input[type="text"]:focus {
 }
 
 input[type="submit"],
-button {
+.button {
   display: inline-block;
   margin: 10px;
-  padding: 40px 70px;
-  font-size: 20px;
-  /* width: 250px; */
+  padding: 15px;
+  font-size: 15px;
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
@@ -75,43 +74,40 @@ button {
   color: var(--primary);
 }
 
-button .outlined {
+.button .outlined {
   background-image: none;
   border: 2px solid;
   border-image: var(--gradient);
 }
 input[type="submit"],
-button:hover {
+.button:hover {
   background-position: right center; /* change the direction of the change here */
   color: #fff;
   cursor: pointer;
   text-decoration: none;
 }
 input[type="submit"],
-button:focus {
+.button:focus {
   outline: none;
 }
 input[type="submit"],
-button:active {
+.button:active {
   transform: translateY(4px);
   box-shadow: var(--dark-shadow) 2px 2px 3px;
 }
 
 .questionCard {
-  width: 80%;
   padding: 20px;
   box-shadow: var(--light-shadow) 1px 1px 1px 1px;
   margin: 20px 0px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  /* background: var(--glass-gradient);
-  backdrop-filter: blur(2rem); */
+
 }
 
-@media (min-width: 800px) {
-  input[type="submit"],
-  button {
+@media (min-width: 768px) {
+  input[type="submit"] {
     width: 150px;
     padding: 10px;
   }

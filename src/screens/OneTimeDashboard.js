@@ -16,13 +16,13 @@ const OneTimeDashboard = ({ user }) => {
             <b>Quiz</b>dom
           </h1>
           <Link to="/dashboard">
-            <button className="one-time-button">Dashboard</button>
+            <button className="button one-time-button">Dashboard</button>
           </Link>
           <Link to="/create-quiz">
-            <button className="one-time-button">Create Quiz</button>
+            <button className="button one-time-button">Create Quiz</button>
           </Link>
           <Link to="/join-quiz">
-            <button className="one-time-button">Join Quiz</button>
+            <button className="button one-time-button">Join Quiz</button>
           </Link>
         </div>
         <div className="blob-svg">

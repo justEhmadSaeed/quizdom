@@ -72,7 +72,7 @@ const AttemptQuiz = (props) => {
             </div>
           </div>
         ))}
-        <button onClick={submitQuiz}>Submit</button>
+        <button className="button" onClick={submitQuiz}>Submit</button>
       </div>
     </div>
   );
