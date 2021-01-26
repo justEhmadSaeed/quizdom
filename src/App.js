@@ -35,8 +35,8 @@ const App = () => {
 								"Content-Type": "application/json",
 							},
 						})
+						console.log("posted");
 						const body = await result.json()
-						console.log(body)
 					} catch (error) {
 						console.log("User Creation Error: ", error)
 					}
