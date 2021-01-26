@@ -1,28 +1,24 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./CreateQuiz.css";
-import Appbar from "../components/Appbar";
-import AddQuestionModal from "../components/AddQuestionModal";
-import QuestionsTable from "../components/QuestionsTable";
-import { Button, Switch } from "@material-ui/core";
+import React, { useState } from "react"
+import { Link } from "react-router-dom"
+import "./CreateQuiz.css"
+import AddQuestionModal from "../components/AddQuestionModal"
+import QuestionsTable from "../components/QuestionsTable"
+import { Button, Switch } from "@material-ui/core"
 
 const CreateQuiz = ({ user }) => {
-	const [questionArray, setQuestionArray] = useState([]);
-	const [title, setTitle] = useState("");
-	const [accesss, setAccesss] = useState(false);
+	const [questionArray, setQuestionArray] = useState([])
+	const [title, setTitle] = useState("")
+	const [accesss, setAccesss] = useState(false)
 
 	const addQuestionHandle = (title, optionType, options) => {
-		const arr = [...questionArray];
-		arr.push({ title, optionType, options });
-		setQuestionArray(arr);
-	};
-	console.table(questionArray);
+		const arr = [...questionArray]
+		arr.push({ title, optionType, options })
+		setQuestionArray(arr)
+	}
+	console.table(questionArray)
 
 	return (
 		<div id="main-body">
-			<div className="appheader">
-				<Appbar user={user} />
-			</div>
 			<div id="create-quiz-body">
 				<div className="quiz-header">
 					<input
@@ -56,7 +52,7 @@ const CreateQuiz = ({ user }) => {
 			{title.length && questionArray.length ? (
 				<Link to="/created-succesfully">
 					<button
-						className="button"
+						className="button wd-200"
 						onClick={() => console.log({ title, accesss, questionArray })}
 					>
 						Create Quiz
@@ -64,11 +60,11 @@ const CreateQuiz = ({ user }) => {
 				</Link>
 			) : (
 				<div>
-					<button className="button">Create Quiz</button>
+					<button className="button wd-200">Create Quiz</button>
 				</div>
 			)}
 		</div>
-	);
-};
+	)
+}
 
-export default CreateQuiz;
+export default CreateQuiz

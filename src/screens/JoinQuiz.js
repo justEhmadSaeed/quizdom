@@ -1,14 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./JoinQuiz.css";
-import Appbar from "../components/Appbar";
 
 const JoinQuiz = ({ user }) => {
   return (
     <div id="join-quiz">
-      <div className="appheader">
-        <Appbar user={user} />
-      </div>
       <div id="join-quiz-div">
         <div id="logo-name">
           <b style={{ fontweight: 600 }}>Quiz</b>dom

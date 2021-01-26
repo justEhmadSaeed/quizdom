@@ -2,13 +2,13 @@
 
 #join-quiz{
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
 }
 #join-quiz-div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 175px;
+  padding: 100px;
 }
 label{
   font-size: xx-large;

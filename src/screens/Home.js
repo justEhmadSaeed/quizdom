@@ -21,9 +21,9 @@ const Home = ({ setUser }) => {
 		let isMounted = true
 		firebase.auth().onAuthStateChanged((user) => {
 			// setIsLoggedIn(!!user)
-			if (user) {
+			if (user && isMounted) {
 				setUser({
-					id: firebase.auth().currentUser.uid,
+					uid: firebase.auth().currentUser.uid,
 					name: firebase.auth().currentUser.displayName,
 				})
 				console.log("User Logged In")
@@ -31,6 +31,7 @@ const Home = ({ setUser }) => {
 				console.log("User Signed Out")
 				setUser({})
 			}
+			console.log("auth change")
 			if (isMounted) setLoading(false)
 		})
 		return () => (isMounted = false)

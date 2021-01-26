@@ -2,125 +2,122 @@
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
 
 .App {
-  text-align: center;
-  align-items: center;
-  overflow: hidden;
-  color: var(--secondary);
-  font-family: "Nanum Gothic", sans-serif;
-  /* background: var(--gradient); */
+	text-align: center;
+	align-items: center;
+	overflow: hidden;
+	color: var(--secondary);
+	font-family: "Nanum Gothic", sans-serif;
+	/* background: var(--gradient); */
 }
 h1 {
-  font-size: 3rem;
-  font-weight: lighter;
-}
-b {
-  font-weight: bold;
+	font-size: 3rem;
+	font-weight: lighter;
 }
 h2 {
-  font-size: 2rem;
+	font-size: 2rem;
 }
 p {
-  font-size: 1rem;
+	font-size: 1rem;
 }
 label {
-  font-size: 1rem;
+	font-size: 1rem;
 }
 
 .white {
-  color: var(--primary);
+	color: var(--primary);
 }
 .blue {
-  color: var(--secondary);
+	color: var(--secondary);
 }
 
 .wd-200 {
-  width: 200px;
+	width: 200px;
 }
 
-input[type="checkbox"], input[type="radio"] {
-  transform: scale(1.5);
-  -ms-transform: scale(1.5);
-  -webkit-transform: scale(1.5);
+input[type="checkbox"],
+input[type="radio"] {
+	transform: scale(1.5);
+	-ms-transform: scale(1.5);
+	-webkit-transform: scale(1.5);
 }
 
 input[type="text"] {
-  border: var(--secondary) 1px solid;
-  margin: 10px;
-  padding: 10px;
-  font-size: 16px;
-  outline: none;
-  border-radius: none;
-  border: none;
-  border-bottom: 2px solid var(--light-shadow);
+	border: var(--secondary) 1px solid;
+	margin: 10px;
+	padding: 10px;
+	font-size: 16px;
+	outline: none;
+	border-radius: none;
+	border: none;
+	border-bottom: 2px solid var(--light-shadow);
 }
 
 input[type="text"]:focus {
-  transition: all 0.5s ease;
-  border-bottom: 2px solid var(--dark-shadow);
+	transition: all 0.5s ease;
+	border-bottom: 2px solid var(--dark-shadow);
 }
 
 input[type="submit"],
 .button {
-  display: inline-block;
-  margin: 10px;
-  padding: 15px;
-  font-size: 15px;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto;
-  border-radius: 50px;
-  border: none;
-  background-image: var(--gradient);
-  color: var(--primary);
+	display: inline-block;
+	margin: 10px;
+	padding: 15px;
+	font-size: 15px;
+	text-transform: uppercase;
+	transition: 0.5s;
+	background-size: 200% auto;
+	border-radius: 50px;
+	border: none;
+	background-image: var(--gradient);
+	color: var(--primary);
 }
 
 .button .outlined {
-  background-image: none;
-  border: 2px solid;
-  border-image: var(--gradient);
+	background-image: none;
+	border: 2px solid;
+	border-image: var(--gradient);
 }
 input[type="submit"],
 .button:hover {
-  background-position: right center; /* change the direction of the change here */
-  color: #fff;
-  cursor: pointer;
-  text-decoration: none;
+	background-position: right center; /* change the direction of the change here */
+	color: #fff;
+	cursor: pointer;
+	text-decoration: none;
 }
 input[type="submit"],
 .button:focus {
-  outline: none;
+	outline: none;
 }
 input[type="submit"],
 .button:active {
-  transform: translateY(4px);
-  box-shadow: var(--dark-shadow) 2px 2px 3px;
+	transform: translateY(4px);
+	box-shadow: var(--dark-shadow) 2px 2px 3px;
 }
 
 .questionCard {
-  padding: 20px;
-  box-shadow: var(--light-shadow) 1px 1px 1px 1px;
-  margin: 20px 0px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-
+	padding: 20px;
+	box-shadow: var(--light-shadow) 1px 1px 1px 1px;
+	margin: 20px 0px;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
 }
-
 @media (min-width: 768px) {
-  input[type="submit"] {
-    width: 150px;
-    padding: 10px;
-  }
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(
-      #ffffff,
-      var(--accent-mustard),
-      var(--accent-pink),
-      var(--secondary)
-    );
-    border-radius: 7px;
-  }
+
+	input[type="submit"] {
+		width: 150px;
+		padding: 10px;
+	}
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+	::-webkit-scrollbar-thumb {
+		background: linear-gradient(
+			#ffffff,
+			var(--accent-mustard),
+			var(--accent-pink),
+			var(--secondary)
+		);
+		border-radius: 7px;
+	}
 }

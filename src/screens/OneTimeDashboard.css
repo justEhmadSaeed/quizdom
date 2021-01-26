@@ -9,14 +9,8 @@
 	justify-content: space-evenly;
 }
 .one-time-dashboard {
-	height: 100vh;
+	height: 89vh;
 	background-color: var(--secondary);
-}
-.vertical-line {
-	border-left: 3px solid var(--secondary);
-	border-image: linear-gradient(to bottom, var(--secondary), var(--accent-pink))
-		1 100%;
-	height: 200px;
 }
 .dash-btns {
 	flex: 1;
@@ -56,7 +50,8 @@
 		flex-flow: column;
 		justify-content: center;
 	}
-	.vertical-line {
-		display: none;
+	.one-time-dashboard{
+		height: 94vh;
 	}
+	
 }

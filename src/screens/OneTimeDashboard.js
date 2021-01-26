@@ -7,11 +7,6 @@ const OneTimeDashboard = ({ user }) => {
     <div className="one-time-dashboard">
       <div id="dashboard-content">
         <div className="dash-btns">
-          {/* <Typical className="wlcm-msg"
-           steps={['Welcome to Quizdom', 1000, 'Create Quiz', 1000, 'Join Quiz', 1000]}
-            loop={Infinity}
-            wrapper="p"
-          /> */}
           <h1 className="white">
             <b>Quiz</b>dom
           </h1>

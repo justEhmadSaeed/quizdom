@@ -10,7 +10,7 @@ const CreatedSuccesfully = ({ user }) => {
 		<div id="created-quiz">
 			<div id="created-quiz-div">
 				<div id="message">
-					<b>Quiz Created Succefully</b>
+					<h2 className="b">Quiz Created Successfully!</h2>
 					<p>Share the follwong code with your students</p>
 				</div>
 				<input
@@ -26,12 +26,12 @@ const CreatedSuccesfully = ({ user }) => {
 						setCopy("copied")
 					}}
 				>
-					<button >
+					<button className="button wd-200">
 						{Copy === "copy" ? "Copy Code" : "Code Copied!"}
 					</button>
 				</CopyToClipboard>
 				<Link to={"/dashboard"}>
-					<button >Dashboard</button>
+					<button className="button wd-200">Dashboard</button>
 				</Link>
 			</div>
 		</div>

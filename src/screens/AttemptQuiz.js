@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Appbar from "../components/Appbar";
 import { Link } from "react-router-dom";
 
 const AttemptQuiz = (props) => {
@@ -37,9 +36,6 @@ const AttemptQuiz = (props) => {
   };
   return (
     <div id="main-body">
-      <div className="appheader">
-        <Appbar user={props.user} />
-      </div>
       <div id="create-quiz-body">
         <div className="quiz-header">
           <h2>{props.quizTitle}</h2>

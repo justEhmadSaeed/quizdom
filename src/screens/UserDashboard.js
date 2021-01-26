@@ -7,9 +7,6 @@ import JoinedQuizCard from "../components/JoinedQuizCard"
 const UserDashboard = ({ user }) => {
 	return (
 		<div id="dashboard">
-			<div className="appheader">
-				<Appbar user={user} />
-			</div>
 			<div className="dash-body">
 				<div className="quizzes">
 					<div className="heading">
