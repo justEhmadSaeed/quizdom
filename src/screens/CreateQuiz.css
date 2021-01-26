@@ -1,116 +1,126 @@
 @import "../components/colors.css";
 
 #main-body {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10%;
 }
 #create-quiz-body {
-	/* margin-top: 20px; */
-	align-items: center;
-	display: flex;
-	flex-direction: column;
+  /* margin-top: 20px; */
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 .quiz-header {
-	padding: 20px;
-	margin-top: 50px;
-	border: none;
-	border-top: 25px solid var(--accent-pink);
-	box-shadow: var(--light-shadow) 1px 1px 2px 1px;
-	border-radius: 10px;
-	display: flex;
-	width: 80%;
-	flex-direction: column;
+  padding: 20px;
+  /* margin-top: 50px; */
+  margin : 30px 0px 10px 0px;
+  border: none;
+  border-top: 25px solid var(--accent-pink);
+  box-shadow: var(--light-shadow) 1px 1px 2px 1px;
+  border-radius: 10px;
+  display: flex;
+  width: 90%;
+  flex-direction: column;
 }
 #quiz-title {
-	border: var(--secondary) 1px solid;
-	margin: 10px;
-	padding: 10px;
-	font-size: 26px;
-	font-weight: bold;
-	color: var(--secondary);
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	outline: none;
-	border-radius: none;
-	border: none;
-	border-bottom: 2px solid var(--light-shadow);
+  border: var(--secondary) 1px solid;
+  margin: 10px;
+  padding: 10px;
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--secondary);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  outline: none;
+  border-radius: none;
+  border: none;
+  border-bottom: 2px solid var(--light-shadow);
 }
 #quiz-title:focus {
-	transition: all 0.5s ease;
-	border-bottom: 2px solid var(--dark-shadow);
+  transition: all 0.5s ease;
+  border-bottom: 2px solid var(--dark-shadow);
 }
 
 #add-btn {
-	background-color: var(--accent-pink);
-	color: var(--primary);
-	font-size: 3rem;
-	width: 60px;
-	border-radius: 50px;
-	border: none;
-	box-shadow: var(--light-shadow) 2px 3px 5px;
-	align-self: flex-end;
-	margin-right: 200px;
+  background-color: var(--accent-pink);
+  color: var(--primary);
+  font-size: 3rem;
+  width: 60px;
+  border-radius: 50px;
+  border: none;
+  box-shadow: var(--light-shadow) 2px 3px 5px;
+  align-self: flex-end;
+  margin-right: 200px;
 }
-.switch{
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.controls{
-	width: 80%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+.controls {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 20%; */
+}
+.questionTable {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* padding: 0 0%; */
 }
 #add-btn:hover,
 #create-btn:hover {
-	background-color: var(--secondary);
-	cursor: pointer;
+  background-color: var(--secondary);
+  cursor: pointer;
 }
 #add-btn:focus,
 #create-btn:focus {
-	outline: none;
+  outline: none;
 }
 #add-btn:active,
 #create-btn:active {
-	transform: translateY(4px);
+  transform: translateY(4px);
 }
 
 #create-btn {
-	background-color: var(--accent-pink);
-	font-size: 1.5rem;
-	padding: 10px 20px;
-	color: var(--primary);
-	border-radius: 50px;
-	border: none;
-	box-shadow: var(--light-shadow) 2px 3px 5px;
+  background-color: var(--accent-pink);
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  color: var(--primary);
+  border-radius: 50px;
+  border: none;
+  box-shadow: var(--light-shadow) 2px 3px 5px;
 
-	position: fixed;
-	bottom: 50px;
-	right: 50px;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
 }
-.link{
-	text-decoration: none;
-	margin: 20px;
+.link {
+  text-decoration: none;
+  margin: 20px;
 }
 @media (max-width: 768px) {
-	.quiz-header {
-		margin-top: 30px;
-		width: 90%;
-	}
-	.controls{
-		width: 100%;
-	}
-	#add-btn {
-		margin-right: 30px;
-	}
-	#create-btn {
-		right: 20px;
-	}
-	#quiz-title {
-		font-size: 20px;
-	}
-	#add-btn {
-		width: 50px;
-		font-size: 2rem;
-	}
+  .quiz-header {
+    margin-top: 30px;
+    width: 90%;
+  }
+  .controls {
+    width: 100%;
+  }
+  #add-btn {
+    margin-right: 30px;
+  }
+  #create-btn {
+    right: 20px;
+  }
+  #quiz-title {
+    font-size: 20px;
+  }
+  #add-btn {
+    width: 50px;
+    font-size: 2rem;
+  }
 }

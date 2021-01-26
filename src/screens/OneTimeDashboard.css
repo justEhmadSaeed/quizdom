@@ -43,7 +43,6 @@
 	font-size: 35px;
 	font-weight: 500;
 	margin: 40px 0px;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 @media (max-width: 768px) {
 	#dashboard-content {

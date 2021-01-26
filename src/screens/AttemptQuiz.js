@@ -41,7 +41,7 @@ const AttemptQuiz = (props) => {
           <h2>{props.quizTitle}</h2>
         </div>
         {props.questions.map((question, index) => (
-          <div className="questionCard" key={index}>
+          <div className="attempQuestionCard" key={index}>
             <div id="title">{question.title}</div>
             <div className="option-div">
               {question.options.map((option, ind) => (
@@ -63,7 +63,7 @@ const AttemptQuiz = (props) => {
                       }
                     />
                   )}
-                  <label>{option.text}</label>
+                  <label style={{padding:"0px 5px"}}>{option.text}</label>
                 </div>
               ))}
             </div>

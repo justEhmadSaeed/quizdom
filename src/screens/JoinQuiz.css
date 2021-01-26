@@ -10,10 +10,10 @@
   align-items: center;
   padding: 100px;
 }
-label{
+/* label{
   font-size: xx-large;
   color: #404A5E;
-}
+} */
 #q-code {
   width: 400px;
   margin: 10px;
