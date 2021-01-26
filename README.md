@@ -24,3 +24,6 @@ Take a look at the live <a href="https://quizdom-quiz.netlify.app/" target="_bla
   - The student should be able to Sign up/Sign in.
   - The student should be able to attempt a quiz by using the quiz code.
   - The student should be able to see his/ her score in the attempted quizzes.
+
+## Scripts:
+ - npm start : starts client and backend concurrently
