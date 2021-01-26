@@ -1,4 +1,3 @@
-import Appbar from "../components/Appbar"
 import React from "react"
 import { Link } from "react-router-dom"
 import "../screens/Attempted.css"
@@ -9,7 +8,7 @@ const Attempted = (props) => {
 				<h2 className="att_h2">Quiz Attempted Successfully</h2>
 				<h1 className="score_h2">Score: 100/100</h1>
 				<Link to={"/dashboard"}>
-					<button className="button">Dashboard</button>
+					<button className="button wd-200">Dashboard</button>
 				</Link>
 			</div>
 		</div>

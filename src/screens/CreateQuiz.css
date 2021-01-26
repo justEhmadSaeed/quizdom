@@ -6,10 +6,10 @@
   padding: 0 10%;
 }
 #create-quiz-body {
-  /* margin-top: 20px; */
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+	margin-top: 30px;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
 }
 .quiz-header {
   padding: 20px;

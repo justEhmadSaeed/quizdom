@@ -1,12 +1,16 @@
+@import "./colors.css";
+
 .appbar {
-  z-index: 9;
-  display: flex;
-  color: white;
-  padding: 0px 5px;
-  padding-right: 15px;
-  justify-content: space-between;
-  background-color: var(--secondary);
-  position: sticky;
+	z-index: 9;
+	position: fixed;
+	width: 100%;
+	display: flex;
+	color: white;
+	padding: 0px 5px;
+	padding-right: 15px;
+	justify-content: space-between;
+	background-color: var(--secondary);
+	box-shadow: black 0px 1px 6px;
 }
 .slider {
   z-index: 9;
@@ -33,10 +37,11 @@
   color: var(--accent-mustard);
 }
 .appbar-user {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 5px;
+	margin: 0 10px;
 }
 .appbar-user p {
   font-size: 40;
