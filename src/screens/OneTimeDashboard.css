@@ -1,7 +1,7 @@
 @import "../components/colors.css";
 
 #dashboard-content {
-	height: 80vh;
+	height: 100vh;
 	width: 100%;
 	background-color: var(--gradient);
 	display: flex;
@@ -9,7 +9,7 @@
 	justify-content: space-evenly;
 }
 .one-time-dashboard {
-	height: 89vh;
+	height: 100vh;
 	background-color: var(--secondary);
 }
 .dash-btns {
@@ -50,8 +50,4 @@
 		flex-flow: column;
 		justify-content: center;
 	}
-	.one-time-dashboard{
-		height: 94vh;
-	}
-	
 }

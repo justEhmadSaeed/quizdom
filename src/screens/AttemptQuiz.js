@@ -70,7 +70,7 @@ const AttemptQuiz = (props) => {
           </div>
         ))}
         <Link to="quiz-attempted">
-          <button className="button" onClick={submitQuiz}>
+          <button className="button wd-200" onClick={submitQuiz}>
             Submit
           </button>
         </Link>
