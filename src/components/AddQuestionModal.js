@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Modal, Button, Icon, IconButton } from "@material-ui/core";
+import React, { useState, useRef, useEffect } from "react"
+import { makeStyles } from "@material-ui/core/styles"
+import { Modal, Icon, IconButton } from "@material-ui/core"
 // import AddQuestionCard from "./AddQuestionCard"
-import "./AddQuestionCard.css";
-import { DeleteRounded, EditRounded, SaveRounded } from "@material-ui/icons";
+import "./AddQuestionCard.css"
+import { DeleteRounded, EditRounded, SaveRounded } from "@material-ui/icons"
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 		display: "flex",
 		justifyContent: "flex-end",
 	},
-}));
+}))
 
 export default function AddQuestionModal({
 	type = "add",
@@ -36,93 +36,93 @@ export default function AddQuestionModal({
 	index = -1,
 	addQuestionHandle,
 }) {
-	const classes = useStyles();
-	const [open, setOpen] = React.useState(false);
-	const [optionType, setOptionType] = useState("radio");
-	const [optionsArray, setOptionsArray] = useState([]);
-	const [editedOption, setEditedOption] = useState(null);
-	const [editOpIndex, setEditOpIndex] = useState(-1);
-	const [titleField, setTitleField] = useState("");
-	const optionsRef = useRef(null);
-	const checkBoxRef = useRef(null);
+	const classes = useStyles()
+	const [open, setOpen] = React.useState(false)
+	const [optionType, setOptionType] = useState("radio")
+	const [optionsArray, setOptionsArray] = useState([])
+	const [editedOption, setEditedOption] = useState(null)
+	const [editOpIndex, setEditOpIndex] = useState(-1)
+	const [titleField, setTitleField] = useState("")
+	const optionsRef = useRef(null)
+	const checkBoxRef = useRef(null)
 
 	useEffect(() => {
 		if (open) {
-			setTitleField(title);
-			setOptionType(opType);
-			if (opArray) setOptionsArray(opArray);
+			setTitleField(title)
+			setOptionType(opType)
+			if (opArray) setOptionsArray(opArray)
 		} else {
-			setTitleField("");
-			setOptionsArray([]);
-			setOptionType("radio");
+			setTitleField("")
+			setOptionsArray([])
+			setOptionType("radio")
 		}
-	}, [open, title, opType, opArray]);
+	}, [open, title, opType, opArray])
 	const handleOpen = () => {
-		setOpen(true);
-	};
+		setOpen(true)
+	}
 
 	const handleClose = () => {
-		setOpen(false);
-	};
+		setOpen(false)
+	}
 	const addQuestionCallBack = () => {
 		// if (titleField.current.value.length === 0) return;
 
-		const tempArr = [...optionsArray];
+		const tempArr = [...optionsArray]
 		if (optionsRef.current.value.length !== 0) {
 			// For radio options, set all other options incorrect
 			if (optionType === "radio" && checkBoxRef.current.checked)
-				tempArr.forEach((op) => (op.isCorrect = false));
+				tempArr.forEach((op) => (op.isCorrect = false))
 
 			tempArr.push({
 				text: optionsRef.current.value,
 				isCorrect: checkBoxRef.current.checked,
-			});
+			})
 		}
-		if (index !== -1) addQuestionHandle(titleField, optionType, tempArr, index);
-		else addQuestionHandle(titleField, optionType, tempArr);
+		if (index !== -1) addQuestionHandle(titleField, optionType, tempArr, index)
+		else addQuestionHandle(titleField, optionType, tempArr)
 
-		setOpen(false);
-	};
+		setOpen(false)
+	}
 
 	const addOption = () => {
-		if (optionsRef.current.value.length === 0) return;
+		if (optionsRef.current.value.length === 0) return
 
-		const arr = [...optionsArray];
+		const arr = [...optionsArray]
 
 		// For radio options, set all other options incorrect
 		if (optionType === "radio" && checkBoxRef.current.checked)
-			arr.forEach((op) => (op.isCorrect = false));
+			arr.forEach((op) => (op.isCorrect = false))
 
 		arr.push({
 			text: optionsRef.current.value,
 			isCorrect: checkBoxRef.current.checked,
-		});
-		optionsRef.current.value = "";
-		checkBoxRef.current.checked = false;
-		setOptionsArray(arr);
-	};
-	const handleTypeChange = (e) => setOptionType(e.target.value);
+		})
+		optionsRef.current.value = ""
+		checkBoxRef.current.checked = false
+		setOptionsArray(arr)
+	}
+	const handleTypeChange = (e) => setOptionType(e.target.value)
 
 	const deleteHandler = (ind) => {
-		const temp = [...optionsArray];
-		temp.splice(ind, 1);
-		setOptionsArray(temp);
-		setEditOpIndex(-1);
-	};
+		const temp = [...optionsArray]
+		temp.splice(ind, 1)
+		setOptionsArray(temp)
+		setEditOpIndex(-1)
+	}
 
 	const handleEdit = (ind) => {
 		if (editOpIndex === -1) {
-			setEditOpIndex(ind);
-			setEditedOption(optionsArray[ind].text);
+			setEditOpIndex(ind)
+			setEditedOption(optionsArray[ind].text)
 		}
-	};
+	}
 
 	const saveEdited = () => {
-		const temp = [...optionsArray];
-		temp[editOpIndex].text = editedOption;
-		setOptionsArray(temp);
-		setEditOpIndex(-1);
-	};
+		const temp = [...optionsArray]
+		temp[editOpIndex].text = editedOption
+		setOptionsArray(temp)
+		setEditOpIndex(-1)
+	}
 
 	return (
 		<div className={classes.root}>
@@ -200,7 +200,7 @@ export default function AddQuestionModal({
 										<Icon
 											className="delete-icon"
 											onClick={() => {
-												deleteHandler(ind);
+												deleteHandler(ind)
 											}}
 										>
 											<DeleteRounded />
@@ -255,5 +255,5 @@ export default function AddQuestionModal({
 				</div>
 			</Modal>
 		</div>
-	);
+	)
 }

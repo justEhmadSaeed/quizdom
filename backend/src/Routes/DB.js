@@ -1,7 +1,7 @@
 const MongoClient = require("mongodb")
 
 const withDB = async (operations, res) => {
-	// try {
+	try {
 		const client = await MongoClient.connect(
 			"mongodb://quizdom:quizdom-mongodb@cluster0-shard-00-00.lecax.mongodb.net:27017,cluster0-shard-00-01.lecax.mongodb.net:27017,cluster0-shard-00-02.lecax.mongodb.net:27017/quizdom-project?ssl=true&replicaSet=atlas-hmlbn7-shard-0&authSource=admin&retryWrites=true&w=majority",
 			{
@@ -13,9 +13,9 @@ const withDB = async (operations, res) => {
 		const db = client.db("quizdom-project")
 		await operations(db)
 		client.close()
-	// } catch (error) {
-	// 	res.status(500).json({ message: "Error Connecting to db ", error })
-	// }
+	} catch (error) {
+		res.status(500).json({ message: "Error Connecting to db ", error })
+	}
 }
 
 const createUser = async (uid, name, res) => {
@@ -38,6 +38,7 @@ const createUser = async (uid, name, res) => {
 createQuiz = async (quiz, res) => {
 	try {
 		await withDB(async (db) => {
+			quiz["responses"] = []
 			const result = await db.collection("quizzes").insertOne(quiz)
 			res.status(200).json({
 				message: "Quiz created successfully",

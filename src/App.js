@@ -28,15 +28,14 @@ const App = () => {
 					firebase.auth().currentUser.metadata.creationTime
 				) {
 					try {
-						const result = await fetch("/API/users/create", {
+						await fetch("/API/users/create", {
 							method: "POST",
 							body: JSON.stringify({ uid: User.uid, name: User.name }),
 							headers: {
 								"Content-Type": "application/json",
 							},
 						})
-						console.log("posted");
-						const body = await result.json()
+						console.log("posted")
 					} catch (error) {
 						console.log("User Creation Error: ", error)
 					}
@@ -64,9 +63,12 @@ const App = () => {
 						<Route path="/create-quiz">
 							<CreateQuiz user={User} />
 						</Route>
-						<Route path="/created-succesfully">
-							<CreatedSuccesfully user={User} />
-						</Route>
+						<Route
+							path="/created-succesfully/:quizCode"
+							component={CreatedSuccesfully}
+						/>
+						{/* <CreatedSuccesfully /> */}
+						{/* </Route> */}
 						<Route path="/join-quiz">
 							<JoinQuiz user={User} />
 						</Route>

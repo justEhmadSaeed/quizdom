@@ -3,8 +3,7 @@ import { Link } from "react-router-dom"
 import "./CreatedSuccesfully.css"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 
-const CreatedSuccesfully = ({ user }) => {
-	const [Code, setCode] = useState("AsdqweRfgZ")
+const CreatedSuccesfully = ({ match }) => {
 	const [Copy, setCopy] = useState("copy")
 	return (
 		<div id="created-quiz">
@@ -16,12 +15,12 @@ const CreatedSuccesfully = ({ user }) => {
 				<input
 					id={Copy}
 					type="text"
-					value={Code}
+					value={match.params.quizCode}
 					disabled={true}
-					onChange={(e) => setCode(e.target.value)}
+					// onChange={(e) => {}}
 				/>
 				<CopyToClipboard
-					text={Code}
+					text={match.params.quizCode}
 					onCopy={() => {
 						setCopy("copied")
 					}}

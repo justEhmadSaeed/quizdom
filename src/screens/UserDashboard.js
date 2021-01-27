@@ -1,6 +1,5 @@
 import React from "react"
 import "./UserDashBoard.css"
-import Appbar from "../components/Appbar"
 import CreatedQuizCard from "../components/CreatedQuizCard"
 import JoinedQuizCard from "../components/JoinedQuizCard"
 
