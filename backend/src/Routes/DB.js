@@ -37,6 +37,18 @@ async function createUser(uid, name, res) {
   });
 }
 
+createQuiz = async (quiz, res) => {
+  try {
+    await withDB(async (db) => {
+      const result = await db.collection("quizzes").insertOne(quiz);
+      res.status(200).json({ message: "Quiz created successfully" });
+    });
+  } catch (e) {
+  res.status(200).json({ message: "Error creating quiz", error : e });
+  console.log("Error : ", e);
+  }
+};
+
 module.exports.withDB = withDB;
 module.exports.createUser = createUser;
-// module.exports.helloWorld = helloWorld;
+module.exports.createQuiz = createQuiz;

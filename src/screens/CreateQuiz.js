@@ -17,6 +17,24 @@ const CreateQuiz = ({ user }) => {
   };
   console.table(questionArray);
 
+
+  const createQuiz = async () => {
+    try{
+      const result = await fetch ("/API/quizzes/create", {
+        method : "POST", 
+        body: JSON.stringify(questionArray),
+				headers: {
+						"Content-Type": "application/json",
+				},
+      })
+      console.log("Quiz posted ! ");
+      const body = await result.json();
+      console.log("body : ", body);
+    }catch(e){
+      console.log("Quiz creation error : ", e)
+    }
+  }
+
   return (
     <div id="main-body">
       <div id="create-quiz-body">
@@ -63,7 +81,7 @@ const CreateQuiz = ({ user }) => {
         </Link>
       ) : (
         <div>
-          <button className="button wd-200">Create Quiz</button>
+          <button className="button wd-200" onClick={createQuiz}>Create Quiz</button>
         </div>
       )}
     </div>
