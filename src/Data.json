@@ -5,7 +5,7 @@
     "questions":[
         {
             "title":"question no 01",
-            "optionType":"mulOP",
+            "optionType":"check",
             "options":[
                 {
                     "text":"option 01",
@@ -27,7 +27,7 @@
         },
         {
             "title":"question no 02",
-            "optionType":"oneOp",
+            "optionType":"radio",
             "options":[
                 {
                     "text":"option 01",
@@ -48,7 +48,7 @@
             ]
         },{
             "title":"question no 03",
-            "optionType":"mulOP",
+            "optionType":"check",
             "options":[
                 {
                     "text":"option 01",

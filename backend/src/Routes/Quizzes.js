@@ -2,6 +2,7 @@ const express = require("express");
 const Router = express.Router();
 const DB = require("./DB");
 const ObjectId = require("mongodb").ObjectId;
+const Evaluate = require("../Algorithms/EvaluateQuiz");
 
 // Get Quiz Data
 Router.get("/join/:quizId", (req, res) => {
@@ -27,21 +28,11 @@ Router.get("/join/:quizId", (req, res) => {
   }, res);
 });
 
-// Submit teh quiz
+// Submit the quiz
 Router.post("/submit/", (req, res) => {
-  // const quizID = req.params.quizID
   const request = req.body;
-  DB.withDB(async (db) => {
-    try {
-      console.log("in the submit try: ", request.quizId);
-      const quiz = await db
-        .collection("quizzes")
-        .findOne({ _id: new ObjectId("6011e9fedc4a163c9ced63ed") });
-      console.log("retrieved quiz : ",quiz);
-    } catch (e) {
-      console.log("Error", e);
-    }
-  });
+  request.quizId = "6011e9fedc4a163c9ced63ed";
+  submitQuiz(request, res);
 });
 
 // Create Quiz
