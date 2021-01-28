@@ -4,19 +4,23 @@ const DB = require("./DB")
 const ObjectId = require("mongodb").ObjectId
 
 // Get Quiz Data
-Router.get("/:quizId", (req, res) => {
+Router.get("/join/:quizId", (req, res) => {
 	const quizId = req.params.quizId
 	DB.withDB(async (db) => {
 		try {
-			const quizData = await db
+			const cursor = db
 				.collection("quizzes")
-				.findOne({ _id: new ObjectId(quizId) })
-			delete quizData.responses
-			quizData.questions.forEach((question) =>
-				question.options.forEach((op) => delete op.isCorrect)
-			)
+				.find({ _id: new ObjectId(quizId) })
+				.project({
+					// Excluded Fields
+					responses: 0,
+					"questions.options.isCorrect": 0,
+				})
+
+			const quizData = await cursor.toArray()
 			console.log(quizData)
-			res.status(200).json(quizData)
+			if (quizData[0].isOpen) res.status(200).json(quizData[0])
+			else res.status(500).json({ message: "Quiz is not Accessible" })
 		} catch (error) {
 			res.status(500).json({ error: "Quiz Not Found." })
 		}
