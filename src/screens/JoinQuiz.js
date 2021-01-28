@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 import "./JoinQuiz.css";
 
 const JoinQuiz = ({ user }) => {
+
+  const handleJoinQuiz = async() =>{
+    
+  }
+
   return (
     <div id="join-quiz">
       <div id="join-quiz-div">
@@ -11,7 +16,7 @@ const JoinQuiz = ({ user }) => {
         </div>
         <input id="q-code" type="text" placeholder="Enter Quiz Code" />
         <Link to="/attempt-quiz">
-          <button className="join-button">Join Quiz</button>
+          <button className="join-button" onClick={handleJoinQuiz}>Join Quiz</button>
         </Link>
       </div>
     </div>

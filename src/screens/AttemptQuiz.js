@@ -19,20 +19,35 @@ const AttemptQuiz = (props) => {
     const options = temp[index].selectedOptions;
 
     if (!options.includes(option) && e.target.checked) {
-      options.push(option);
+      if (props.questions[index].optionType === "oneOp") options[0] = option;
+      else options.push(option);
     }
     if (options.includes(option) && !e.target.checked) {
       const i = options.indexOf(option);
       options.splice(i, 1);
     }
-
     temp[index].selectedOptions = options;
     setAttemptedQuestions(temp);
   };
 
   console.log("selected options : ", attemptedQuestions);
-  const submitQuiz = () => {
+  const submitQuiz = async () => {
     // send attemped Questions to backend
+    try {
+      await fetch("/API/quizzes/submit", {
+        method: "POST",
+        body: JSON.stringify({
+          uid: props.user.uid,
+          quizId: props.quizId,
+          questions: attemptedQuestions,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    } catch (e) {
+      console.log("Error Submitting quiz", e);
+    }
   };
   return (
     <div id="main-body">
@@ -63,7 +78,7 @@ const AttemptQuiz = (props) => {
                       }
                     />
                   )}
-                  <label style={{padding:"0px 5px"}}>{option.text}</label>
+                  <label style={{ padding: "0px 5px" }}>{option.text}</label>
                 </div>
               ))}
             </div>

@@ -58,6 +58,19 @@ createQuiz = async (quiz, res) => {
 	}
 }
 
+
+submitQuiz = async (quiz, res) => {
+  try {
+    await withDB (async (db) => {
+      
+    })
+  }catch(error){
+    res.status(200).json({message:"Error submitting quiz", error})
+    console.log("Error submitting the quiz : ", error);
+  }
+}
+
 module.exports.withDB = withDB
 module.exports.createUser = createUser
 module.exports.createQuiz = createQuiz
+module.exports.submitQuiz = submitQuiz
