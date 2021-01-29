@@ -17,7 +17,6 @@ const CreateQuiz = ({ user }) => {
 		arr.push({ title, optionType, options })
 		setQuestionArray(arr)
 	}
-	console.table(questionArray)
 
 	const createQuiz = async () => {
 		console.log("Quiz Creation Starts...")
@@ -44,8 +43,6 @@ const CreateQuiz = ({ user }) => {
 			setLoading("error")
 		}
 	}
-  console.log("Quiz:" + quizCode)
-  
 	if (quizCode)
     return <Redirect to={`/created-succesfully/${quizCode}`} />
   

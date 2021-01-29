@@ -6,7 +6,7 @@ const EvaluateQuiz = (quizQuestions, attemptedQuestions) => {
   attemptedQuestions.forEach((question) => {
     const realQues = quizQuestions.find((x) => x.id === question.id);
     const correctOptions = realQues.options.filter((op) => op.isCorrect);
-    const attemptedOptions = question.optiond.filter((op) => op.isCorrect);
+    const attemptedOptions = question.options.filter((op) => op.isCorrect);
     if (realQues.optionType === "check") {
       const weightage = 1 / correctOptions.length;
       attemptedOptions.forEach((selectedOp) => {
