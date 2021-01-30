@@ -13,10 +13,11 @@ Router.get("/:uid", (req, res) => {
 	const uid = req.params.uid
 	console.log(uid)
 	DB.withDB(async (db) => {
-		const userInfo = await db
-			.collection("users")
-			.findOne({ name: "Ehmad Saeed" })
-		res.status(200).json(userInfo)
+		// const userInfo = await db.collection("users").findOne({ uid })
+		const cursor = db.collection("quizzes").find({ uid })
+		const createdQuiz = await cursor.toArray()
+		console.log(createdQuiz)
+		res.status(200).json({ createdQuiz })
 	}, res)
 })
 

@@ -54,7 +54,7 @@ createQuiz = async (quiz, res) => {
 			console.log("quiz ID", result.insertedId)
 			const query = { uid: quiz.uid }
 			const addQuiz = {
-				$push: { createdQuiz: { quizId: result.insertedId } },
+				$push: { createdQuiz: result.insertedId },
 			}
 			await db.collection("users").updateOne(query, addQuiz)
 			console.log("Quiz Added to Creator Document: ", result.insertedId)
@@ -88,7 +88,7 @@ submitQuiz = async (submittedQuiz, res) => {
 				{ uid: submittedQuiz.uid },
 				{
 					$push: {
-						attempedQuiz: { quizId: submittedQuiz.quizId },
+						attempedQuiz: submittedQuiz.quizId,
 					},
 				}
 			)

@@ -3,6 +3,7 @@
 .quiz-card{
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     background-color: var(--primary);
     color: var(--secondary);
     box-shadow: var(--dark-shadow) 2px 3px 4px 1px;
@@ -10,7 +11,8 @@
     margin: 20px;
     border-radius: 20px;
     padding: 20px;
-    padding-top: 70px;
+    height: 250px;
+    /* padding-top: 70px; */
     padding-bottom: 10px;
 }
 .quiz-card:hover{
@@ -19,7 +21,7 @@
     transform: scale(1.02);
 }
 #created-quiz-title{
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
     padding: 5px;
 }

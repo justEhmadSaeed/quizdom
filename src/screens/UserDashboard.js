@@ -1,9 +1,20 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import "./UserDashBoard.css"
 import CreatedQuizCard from "../components/CreatedQuizCard"
 import JoinedQuizCard from "../components/JoinedQuizCard"
 
 const UserDashboard = ({ user }) => {
+	const [createdQuizzes, setCreatedQuizzes] = useState([])
+	useEffect(() => {
+		const fetchQuizData = async () => {
+			const results = await fetch(`/API/users/${user.uid}`)
+			const quizData = await results.json()
+			console.log(quizData)
+			if (quizData.createdQuiz) setCreatedQuizzes(quizData.createdQuiz)
+		}
+		fetchQuizData()
+	}, [user])
+
 	return (
 		<div id="dashboard">
 			<div className="dash-body">
@@ -14,42 +25,15 @@ const UserDashboard = ({ user }) => {
 						<div className="line" />
 					</div>
 					<div className="card-holder">
-						<CreatedQuizCard
-							title="Quiz 1"
-							responses="23"
-							questions="50"
-							isOpen={true}
-						/>
-						<CreatedQuizCard
-							title="Quiz 2"
-							responses="23"
-							questions="50"
-							isOpen={false}
-						/>
-						<CreatedQuizCard
-							title="Quiz 3"
-							responses="23"
-							questions="50"
-							isOpen={true}
-						/>
-						<CreatedQuizCard
-							title="Quiz 4"
-							responses="23"
-							questions="50"
-							isOpen={false}
-						/>
-						<CreatedQuizCard
-							title="Quiz 5"
-							responses="23"
-							questions="50"
-							isOpen={true}
-						/>
-						<CreatedQuizCard
-							title="Quiz 6"
-							responses="23"
-							questions="50"
-							isOpen={false}
-						/>
+						{createdQuizzes.map((quiz, key) => (
+							<CreatedQuizCard
+								key={key}
+								title={quiz.title}
+								responses={quiz.responses.length}
+								questions={quiz.questions.length}
+								isOpen={quiz.isOpen}
+							/>
+						))}
 					</div>
 				</div>
 				<div className="quizzes">
