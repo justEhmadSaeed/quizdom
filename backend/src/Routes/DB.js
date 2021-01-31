@@ -1,6 +1,7 @@
 const MongoClient = require("mongodb");
 const Evaluate = require("../Algorithms/EvaluateQuiz");
 const ObjectId = require("mongodb").ObjectId;
+const express = require("express");
 
 let db;
 const DBStart = async () => {
@@ -77,21 +78,25 @@ submitQuiz = async (submittedQuiz, res) => {
 
       const cursor2 = db.collection("users").find({
         $and: [
-          { _id: submittedQuiz.uid },
-          { attemped: { $in: submittedQuiz.quizId } },
+          { uid: submittedQuiz.uid },
+          { attemptedQuiz: { $elemMatch: { quizId: submittedQuiz.quizId } } },
         ],
       });
+
       const quiz2 = await cursor2.toArray();
-      if (quiz2.length > 1) {
-        res.status(200).json({ score: "ERR:QUIZ_ALREADY_ATTEMPTED" });
+      console.log("quiz 2 : ", quiz2);
+      if (quiz2[0]) {
+        console.log("in quiz already attempted");
+        res.status(200).json({ error: "ERR:QUIZ_ALREADY_ATTEMPTED" });
       } else {
+        console.log("in quiz store");
         const score = Evaluate(quiz[0].questions, submittedQuiz.questions);
         console.log("score : ", score);
         res.status(200).json({ score });
 
         // Update in quizzes responses
         await db.collection("quizzes").updateOne(
-          { _id: submittedQuiz.quizId },
+          { _id: new ObjectId(submittedQuiz.quizId) },
           {
             $push: {
               responses: { uid: submittedQuiz.uid, score: score },
@@ -103,7 +108,7 @@ submitQuiz = async (submittedQuiz, res) => {
           { uid: submittedQuiz.uid },
           {
             $push: {
-              attemptedQuiz: submittedQuiz.quizId,
+              attemptedQuiz: { quizId: submittedQuiz.quizId, score },
             },
           }
         );
@@ -113,6 +118,7 @@ submitQuiz = async (submittedQuiz, res) => {
     }
   });
 };
+
 
 module.exports.withDB = withDB;
 module.exports.createUser = createUser;

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import firebase from "../firebase/firebase";
 import LoadingScreen from "./LoadingScreen";
+import AttemptedModal from "./AttemptedModal";
 
 const AttemptQuiz = ({ match }) => {
   const quizCode = match.params.quizCode;
@@ -9,11 +10,13 @@ const AttemptQuiz = ({ match }) => {
   const [attemptedQuestions, setAttemptedQuestions] = useState([]);
   const [quizTitle, setQuizTitle] = useState("");
   const [loading, setLoading] = useState(true);
+  const [result, setResult] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     const fetchQuiz = async () => {
-      const result = await fetch(`/API/quizzes/join/${quizCode}`);
-      const quizData = await result.json();
+      const res = await fetch(`/API/quizzes/join/${quizCode}`);
+      const quizData = await res.json();
       setLoading(false);
       if (quizData.error) setQuizTitle(quizData.error);
       else {
@@ -52,7 +55,7 @@ const AttemptQuiz = ({ match }) => {
   const submitQuiz = async () => {
     // send attemped Questions to backend
     try {
-      await fetch("/API/quizzes/submit", {
+      const result = await fetch("/API/quizzes/submit", {
         method: "POST",
         body: JSON.stringify({
           uid: firebase.auth().currentUser.uid,
@@ -63,11 +66,15 @@ const AttemptQuiz = ({ match }) => {
           "Content-Type": "application/json",
         },
       });
+      const body = await result.json();
+      setResult(body);
+      setShowModal(true)
+      console.log("res body : ", body);
     } catch (e) {
       console.log("Error Submitting quiz", e);
     }
   };
-  console.log(attemptedQuestions);
+  console.log("result : ", result);
 
   if (loading) return <LoadingScreen />;
   // For Quiz not Found
@@ -115,7 +122,7 @@ const AttemptQuiz = ({ match }) => {
                     {question.optionType === "radio" ? (
                       <input
                         type="radio"
-                        name="option"
+                        name={"option" + ind}
                         onChange={(e) =>
                           handleOptionSelect(e, option.text, index)
                         }
@@ -135,9 +142,12 @@ const AttemptQuiz = ({ match }) => {
               </div>
             </div>
           ))}
+          {/* <Link to={`/quiz-attempted/${quizCode}`}> */}
           <button className="button wd-200" onClick={submitQuiz}>
             Submit
           </button>
+          <AttemptedModal result={result} open={showModal}/>
+          {/* </Link> */}
         </div>
       </div>
     );

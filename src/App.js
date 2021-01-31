@@ -72,9 +72,9 @@ const App = () => {
 						</Route>
 						<Route path="/attempt-quiz/:quizCode" component={AttemptQuiz} />
 
-						<Route path="/quiz-attempted">
+						{/* <Route path="/quiz-attempted">
 							<Attempted user={user} />
-						</Route>
+						</Route> */}
 						<Route component={NotFoundPage} />
 					</Switch>
 				</>
