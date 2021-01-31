@@ -14,9 +14,7 @@ import UserDashboard from "./screens/UserDashboard"
 import CreatedSuccesfully from "./screens/CreatedSuccesfully"
 import NotFoundPage from "./screens/NotFoundPage"
 import AttemptQuiz from "./screens/AttemptQuiz"
-import Attempted from "./screens/Attempted"
 import Appbar from "./components/Appbar"
-// const data = require("./Data.json")
 
 const App = () => {
 	const [user, setUser] = useState({})
@@ -72,9 +70,6 @@ const App = () => {
 						</Route>
 						<Route path="/attempt-quiz/:quizCode" component={AttemptQuiz} />
 
-						{/* <Route path="/quiz-attempted">
-							<Attempted user={user} />
-						</Route> */}
 						<Route component={NotFoundPage} />
 					</Switch>
 				</>
