@@ -1,7 +1,6 @@
 const MongoClient = require("mongodb")
 const Evaluate = require("../Algorithms/EvaluateQuiz")
 const ObjectId = require("mongodb").ObjectId
-const express = require("express")
 
 let db
 const DBStart = async () => {
@@ -95,7 +94,7 @@ submitQuiz = async (submittedQuiz, res) => {
 				{ uid: submittedQuiz.uid },
 				{
 					$push: {
-						attemptedQuiz: { quizId: submittedQuiz.quizId },
+						attemptedQuiz: ObjectId(submittedQuiz.quizId),
 					},
 				}
 			)
