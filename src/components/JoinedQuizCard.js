@@ -10,6 +10,7 @@ const JoinedQuizCard = ({ title, score, questions }) => {
 				<div id="responses">Score : {score}</div>
 				<div id="questions">Questions : {questions}</div>
 			</div>
+			<div id="open"></div>
 		</div>
 	)
 }

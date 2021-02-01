@@ -24,6 +24,13 @@
     font-size: 2rem;
     font-weight: bold;
     padding: 5px;
+    margin-bottom: 0;
+    text-align: justify;
+}
+.card-code{
+    /* text-align: left; */
+    font-weight: bold;
+    /* margin-bottom: 0; */
 }
 #horizontal-line{
     width: 300px;
@@ -46,13 +53,13 @@
 }
 #open{
     align-self: flex-end;
-    padding: 10px;
+    padding-right: 10px;
     font-style: italic;
     color: green;
 }
 #closed{
     align-self: flex-end;
-    padding: 10px;
+    padding-right: 10px;
     font-style: italic;
     color: var(--accent-pink);
 }

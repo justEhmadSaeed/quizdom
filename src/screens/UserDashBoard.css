@@ -6,43 +6,46 @@
 	align-items: center;
 	margin-top: 80px;
 }
-.line-left{
-	height: 1px;
-	background-color: var(--light-shadow);
+.heading {
 	margin: 10px;
-	width: 50px;
-}
-.heading{
-	margin: 10px 80px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	align-items: center;
 }
-.line{
+.line-left {
 	height: 1px;
 	background-color: var(--light-shadow);
-	flex-grow: 3;
+	margin: 10px;
+	flex-grow: 1;
+	/* width: 50px; */
+}
+.line {
+	height: 1px;
+	background-color: var(--light-shadow);
+	flex-grow: 10;
 	margin: 10px;
 }
-.quizzes{
-	margin: 20px;
+.quizzes {
+	width: 90%;
+	/* margin: 20px; */
 }
-.card-holder{
+.card-holder {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: flex-start;
 }
 
 @media (max-width: 768px) {
-	.dash-body{
+	.dash-body {
 		margin-top: 50px;
 	}
 	#dashboard-content {
 		flex-flow: column;
 		justify-content: center;
 	}
-	.vertical-line {
-		display: none;
+	.quizzes {
+		width: 100%;
 	}
 }
