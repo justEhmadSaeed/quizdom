@@ -52,15 +52,20 @@
     font-size: 1rem;
 }
 #open{
-    align-self: flex-end;
+    /* align-self: flex-end; */
     padding-right: 10px;
     font-style: italic;
     color: green;
 }
 #closed{
-    align-self: flex-end;
+    /* align-self: flex-end; */
     padding-right: 10px;
     font-style: italic;
     color: var(--accent-pink);
+}
+.bottom-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 

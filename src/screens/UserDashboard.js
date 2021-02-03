@@ -3,11 +3,13 @@ import "./UserDashBoard.css"
 import CreatedQuizCard from "../components/CreatedQuizCard"
 import JoinedQuizCard from "../components/JoinedQuizCard"
 import LoadingScreen from "./LoadingScreen"
+import CreateQuiz from "./CreateQuiz"
 
 const UserDashboard = ({ user }) => {
 	const [createdQuizzes, setCreatedQuizzes] = useState([])
 	const [attemptedQuizzes, setAttemptedQuizzes] = useState([])
 	const [loading, setLoading] = useState(true)
+	const [editQuiz, setEditQuiz] = useState([])
 	useEffect(() => {
 		const fetchQuizData = async () => {
 			const results = await fetch(`/API/users/${user.uid}`)
@@ -18,8 +20,24 @@ const UserDashboard = ({ user }) => {
 		}
 		if (user) fetchQuizData()
 	}, [user])
+
+	const editQuizHandle = (title, questions, isOpen) => {
+		if (!title) setEditQuiz([])
+	}
+
 	if (loading) return <LoadingScreen />
 
+	if (editQuiz.length)
+		return (
+			<CreateQuiz
+				user={user}
+				quizTitle={createdQuizzes[editQuiz].title}
+				questions={createdQuizzes[editQuiz].questions}
+				responses={createdQuizzes[editQuiz].responses}
+				isOpen={createdQuizzes[editQuiz].isOpen}
+				editQuizHandle={editQuizHandle}
+			/>
+		)
 	return (
 		<div className="dash-body">
 			<div className="quizzes">
@@ -32,6 +50,8 @@ const UserDashboard = ({ user }) => {
 					{createdQuizzes.map((quiz, key) => (
 						<CreatedQuizCard
 							key={key}
+							index={key}
+							setEditQuiz={setEditQuiz}
 							title={quiz.title}
 							code={quiz._id}
 							responses={quiz.responses.length}
