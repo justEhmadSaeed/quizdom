@@ -16,7 +16,7 @@ const CreateQuiz = ({
 }) => {
 	const [questionArray, setQuestionArray] = useState([])
 	const [title, setTitle] = useState("")
-	const [accesss, setAccesss] = useState(true)
+	const [access, setAccesss] = useState(true)
 	const [loading, setLoading] = useState("stop")
 	const [quizCode, setQuizCode] = useState(null)
 	const [quizResponses, setQuizResponses] = useState([])
@@ -44,7 +44,7 @@ const CreateQuiz = ({
 					title,
 					uid: user.uid,
 					questions: questionArray,
-					isOpen: accesss,
+					isOpen: access,
 				}),
 				headers: {
 					"Content-Type": "application/json",
@@ -82,12 +82,12 @@ const CreateQuiz = ({
 					</Button>
 					<div className="switch">
 						<Switch
-							checked={accesss}
+							checked={access}
 							onChange={(e) => setAccesss(e.target.checked)}
 							color="secondary"
 							name="access"
 						/>
-						<h4>{accesss ? "Public" : "Private"}</h4>
+						<h4>{access ? "Public" : "Private"}</h4>
 					</div>
 				</div>
 			</div>
@@ -107,7 +107,7 @@ const CreateQuiz = ({
 					disabled={!(title.length && questionArray.length)}
 					className="button wd-200"
 					onClick={() => {
-						if (quizTitle) editQuizHandle(title, questionArray, isOpen)
+						if (quizTitle) editQuizHandle(title, questionArray, access)
 						else createQuiz()
 					}}
 				>
