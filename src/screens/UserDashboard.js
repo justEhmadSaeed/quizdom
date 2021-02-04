@@ -21,8 +21,40 @@ const UserDashboard = ({ user }) => {
 		if (user) fetchQuizData()
 	}, [user])
 
-	const editQuizHandle = (title, questions, isOpen) => {
+	const editQuizHandle = async (title, questions, isOpen) => {
 		if (!title) setEditQuiz([])
+		else {
+			setLoading(true)
+			console.dir({
+				quizId: createdQuizzes[editQuiz]._id,
+				uid: user.uid,
+				title,
+				questions,
+				isOpen,
+			})
+			const results = await fetch("/API/quizzes/edit", {
+				method: "POST",
+				body: JSON.stringify({
+					quizId: createdQuizzes[editQuiz]._id,
+					uid: user.uid,
+					title,
+					questions,
+					isOpen,
+				}),
+				headers: {
+					"Content-Type": "application/json",
+				},
+			})
+			const submitData = await results.json()
+			console.dir(submitData)
+			const temp = [...createdQuizzes]
+			temp[editQuiz[0]].title = title
+			temp[editQuiz[0]].questions = questions
+			temp[editQuiz[0]].isOpen = isOpen
+			setCreatedQuizzes(temp)
+			setEditQuiz([])
+			setLoading(false)
+		}
 	}
 
 	if (loading) return <LoadingScreen />

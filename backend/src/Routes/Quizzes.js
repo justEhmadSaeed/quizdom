@@ -6,6 +6,9 @@ const ObjectId = require("mongodb").ObjectId
 // Get Quiz Data
 Router.post("/join", (req, res) => {
 	const { quizId, uid } = req.body
+	if (!quizId || !uid)
+		return res.status(500).json({ error: "Incomplete Parameters" })
+
 	DB.withDB(async (db) => {
 		try {
 			const cursor = db
@@ -42,17 +45,45 @@ Router.post("/join", (req, res) => {
 // Submit the quiz
 Router.post("/submit", (req, res) => {
 	const quiz = req.body
-	// quiz.quizId = "6011e9fedc4a163c9ced63ed"
+	if (!quiz) return res.status(500).json({ error: "Incomplete Parameters" })
 	DB.submitQuiz(quiz, res)
 })
 
 // Create Quiz
 Router.post("/create", (req, res) => {
 	const quiz = req.body
+	if (!quiz) return res.status(500).json({ error: "Incomplete Parameters" })
+
 	quiz.questions.forEach((question, i) => {
 		question["id"] = i + 1
 	})
 	DB.createQuiz(quiz, res)
 })
 
+Router.post("/edit", (req, res) => {
+	const { quizId, uid, title, questions, isOpen } = req.body
+
+	DB.withDB(async (db) => {
+		try {
+			await db.collection("quizzes").updateOne(
+				{
+					$and: [{ uid }, { _id: ObjectId(quizId) }],
+				},
+				{
+					$set: {
+						title,
+						questions,
+						isOpen,
+					},
+				},
+				(err, result) => {
+					if (err) throw err
+					res.status(200).json({ message: "Quiz Updated Successfully." })
+				}
+			)
+		} catch (error) {
+			res.status(500).json({ error })
+		}
+	})
+})
 module.exports = Router

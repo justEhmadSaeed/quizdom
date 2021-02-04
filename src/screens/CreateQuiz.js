@@ -106,7 +106,10 @@ const CreateQuiz = ({
 				<button
 					disabled={!(title.length && questionArray.length)}
 					className="button wd-200"
-					onClick={() => createQuiz()}
+					onClick={() => {
+						if (quizTitle) editQuizHandle(title, questionArray, isOpen)
+						else createQuiz()
+					}}
 				>
 					{quizTitle ? "Save " : "Create "}
 					Quiz
