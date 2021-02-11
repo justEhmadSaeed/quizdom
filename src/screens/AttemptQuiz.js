@@ -140,7 +140,7 @@ const AttemptQuiz = ({ match }) => {
 										{question.optionType === "radio" ? (
 											<input
 												type="radio"
-												name={"option" + ind}
+												name={`option${index}`}
 												onChange={(e) =>
 													handleOptionSelect(e, option.text, index)
 												}
