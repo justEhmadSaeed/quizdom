@@ -13,9 +13,7 @@ const EvaluateQuiz = (quizQuestions, attemptedQuestions) => {
                 qScore -=
                     (question.selectedOptions.length - correctOptions.length) *
                     weightage
-                console.log("extra options : score : " , qScore);
             }
-            // else weightage = 1 / correctOptions.length
             question.selectedOptions.forEach((selectedOp) => {
                 const correct = correctOptions.find(
                     (op) => op.text === selectedOp
