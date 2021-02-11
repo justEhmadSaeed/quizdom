@@ -234,11 +234,7 @@ export default function AddQuestionModal({
 						</div>
 					</div>
 					<div className={classes.buttons}>
-						<button
-							className="add-btn"
-							// variant="contained"
-							onClick={handleClose}
-						>
+						<button className="add-btn" onClick={handleClose}>
 							Close
 						</button>
 						<button
