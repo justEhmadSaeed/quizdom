@@ -23,6 +23,7 @@
   "scripts": {
     "start": "concurrently \"react-scripts start\" \"cd backend && npm start\"",
     "frontend":"react-scripts start",
+    "backend":"cd backend && npm start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
