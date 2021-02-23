@@ -16,7 +16,6 @@
 	padding-bottom: 10px;
 }
 .quiz-card:hover {
-	cursor: pointer;
 	background-color: rgb(234, 236, 240);
 	transform: scale(1.02);
 }
