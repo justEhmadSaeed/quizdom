@@ -26,13 +26,14 @@ const withDB = async (operations, res) => {
     }
 }
 
-const createUser = async (uid, name, res) => {
+const createUser = async (uid, name, email, res) => {
     await withDB(async (db) => {
         const user = await db.collection('users').findOne({ uid: uid })
         if (!user) {
             const result = await db.collection('users').insertOne({
                 uid,
                 name,
+                email,
                 createdQuiz: [],
                 attemptedQuiz: []
             })

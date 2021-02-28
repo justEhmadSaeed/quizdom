@@ -10,6 +10,7 @@ const UserDashboard = ({ user }) => {
 	const [attemptedQuizzes, setAttemptedQuizzes] = useState([])
 	const [loading, setLoading] = useState(true)
 	const [editQuiz, setEditQuiz] = useState([])
+	// Fetch Data from the API
 	useEffect(() => {
 		const fetchQuizData = async () => {
 			const results = await fetch(`/API/users/${user.uid}`)
@@ -65,7 +66,6 @@ const UserDashboard = ({ user }) => {
 				user={user}
 				quizTitle={createdQuizzes[editQuiz].title}
 				questions={createdQuizzes[editQuiz].questions}
-				responses={createdQuizzes[editQuiz].responses}
 				isOpen={createdQuizzes[editQuiz].isOpen}
 				editQuizHandle={editQuizHandle}
 			/>
@@ -86,7 +86,7 @@ const UserDashboard = ({ user }) => {
 							setEditQuiz={setEditQuiz}
 							title={quiz.title}
 							code={quiz._id}
-							responses={quiz.responses.length}
+							responses={quiz.responses}
 							questions={quiz.questions.length}
 							isOpen={quiz.isOpen}
 						/>

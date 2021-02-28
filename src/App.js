@@ -31,7 +31,8 @@ const App = () => {
                             method: 'POST',
                             body: JSON.stringify({
                                 uid: user.uid,
-                                name: user.name
+                                name: user.name,
+                                email: user.email
                             }),
                             headers: {
                                 'Content-Type': 'application/json'

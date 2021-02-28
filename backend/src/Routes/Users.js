@@ -1,37 +1,47 @@
-const express = require("express")
-const ObjectId = require("mongodb").ObjectId
+const express = require('express')
+const ObjectId = require('mongodb').ObjectId
 const Router = express.Router()
-const DB = require("./DB")
+const DB = require('./DB')
 
 // Create User in DB
-Router.post("/create", (req, res) => {
-	const { uid, name } = req.body
-	if (!uid) return res.status(500).json({ error: "Incomplete Parameters" })
+Router.post('/create', (req, res) => {
+	const { uid, name, email } = req.body
+	if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
 
-	DB.createUser(uid, name, res)
+	DB.createUser(uid, name, email, res)
 })
 
 // Get user Data
-Router.get("/:uid", (req, res) => {
+Router.get('/:uid', (req, res) => {
 	const uid = req.params.uid
-	if (!uid) return res.status(500).json({ error: "Incomplete Parameters" })
+	if (!uid) return res.status(500).json({ error: 'Incomplete Parameters' })
 
 	DB.withDB(async (db) => {
-		const createdCursor = db.collection("quizzes").find({ uid })
+		const createdCursor = db
+			.collection('quizzes')
+			.find({ uid })
+			.project({
+				isOpen: 1,
+				title: 1,
+				questions: 1,
+				responses: {
+					$size: '$responses',
+				},
+			})
 		const createdQuiz = await createdCursor.toArray()
 		console.log(createdQuiz)
-		const userCursor = await db.collection("users").find({ uid }).project({
+		const userCursor = await db.collection('users').find({ uid }).project({
 			attemptedQuiz: 1,
 		})
 		const userInfo = await userCursor.toArray()
 
 		const attemptedCursor = db
-			.collection("quizzes")
+			.collection('quizzes')
 			.find({ _id: { $in: userInfo[0].attemptedQuiz } })
 			.project({
 				title: 1,
 				totalQuestions: {
-					$size: "$questions",
+					$size: '$questions',
 				},
 				responses: { $elemMatch: { uid } },
 			})
