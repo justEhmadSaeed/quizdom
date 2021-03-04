@@ -34,6 +34,16 @@ const CreateQuiz = ({
 	}, [quizTitle, questions, isOpen])
 
 	const createQuiz = async () => {
+		if (!(title.length || questionArray.length)) {
+			alert('Please add title and questions.')
+			return
+		} else if (!title.length) {
+			alert('Please add Quiz title.')
+			return
+		} else if (!questionArray.length) {
+			alert('Please add any questions.')
+			return
+		}
 		console.log('Quiz Creation Starts...')
 		setLoading('start')
 		try {
@@ -100,7 +110,7 @@ const CreateQuiz = ({
 					</button>
 				)}
 				<button
-					disabled={!(title.length && questionArray.length)}
+					// disabled={!(title.length && questionArray.length)}
 					className='button wd-200'
 					onClick={() => {
 						if (quizTitle) editQuizHandle(title, questionArray, access)

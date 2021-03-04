@@ -1,48 +1,47 @@
-import React, { useState, useRef, useEffect } from "react"
-import { makeStyles } from "@material-ui/core/styles"
-import { Modal, Icon, IconButton } from "@material-ui/core"
-// import AddQuestionCard from "./AddQuestionCard"
-import "./AddQuestionCard.css"
-import { DeleteRounded, EditRounded, SaveRounded } from "@material-ui/icons"
+import React, { useState, useRef, useEffect } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import { Modal, Icon, IconButton } from '@material-ui/core'
+import './AddQuestionModal.css'
+import { DeleteRounded, EditRounded, SaveRounded } from '@material-ui/icons'
 
 const useStyles = makeStyles((theme) => ({
 	root: {
 		// margin: "10px",
 	},
 	modal: {
-		display: "flex",
-		alignItems: "center",
-		justifyContent: "center",
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
 	paper: {
 		backgroundColor: theme.palette.background.paper,
 		boxShadow: theme.shadows[5],
 		padding: theme.spacing(2, 4, 3),
 		outline: 0,
-		width: "90%",
-		borderRadius: "10px",
+		width: '90%',
+		borderRadius: '10px',
 	},
 	buttons: {
-		display: "flex",
-		justifyContent: "flex-end",
+		display: 'flex',
+		justifyContent: 'flex-end',
 	},
 }))
 
 export default function AddQuestionModal({
-	type = "add",
-	title = "",
-	opType = "radio",
+	type = 'add',
+	title = '',
+	opType = 'radio',
 	opArray,
 	index = -1,
 	addQuestionHandle,
 }) {
 	const classes = useStyles()
 	const [open, setOpen] = React.useState(false)
-	const [optionType, setOptionType] = useState("radio")
+	const [optionType, setOptionType] = useState('radio')
 	const [optionsArray, setOptionsArray] = useState([])
 	const [editedOption, setEditedOption] = useState(null)
 	const [editOpIndex, setEditOpIndex] = useState(-1)
-	const [titleField, setTitleField] = useState("")
+	const [titleField, setTitleField] = useState('')
 	const optionsRef = useRef(null)
 	const checkBoxRef = useRef(null)
 
@@ -52,9 +51,9 @@ export default function AddQuestionModal({
 			setOptionType(opType)
 			if (opArray) setOptionsArray(opArray)
 		} else {
-			setTitleField("")
+			setTitleField('')
 			setOptionsArray([])
-			setOptionType("radio")
+			setOptionType('radio')
 		}
 	}, [open, title, opType, opArray])
 	const handleOpen = () => {
@@ -70,13 +69,29 @@ export default function AddQuestionModal({
 		const tempArr = [...optionsArray]
 		if (optionsRef.current.value.length !== 0) {
 			// For radio options, set all other options incorrect
-			if (optionType === "radio" && checkBoxRef.current.checked)
+			if (optionType === 'radio' && checkBoxRef.current.checked)
 				tempArr.forEach((op) => (op.isCorrect = false))
 
 			tempArr.push({
 				text: optionsRef.current.value,
 				isCorrect: checkBoxRef.current.checked,
 			})
+		}
+		// Error Handling
+		if (!titleField.length && optionsArray.length < 2) {
+			alert('Please add Question and atleast 2 options.')
+			return
+		} else if (!titleField.length) {
+			alert('Please add Question.')
+			return
+		} else if (optionsArray.length < 2) {
+			alert('Number of Options must be greater than 1.')
+			return
+		}
+		const correctOp = optionsArray.filter((op) => op.isCorrect)
+		if (correctOp.length < 1) {
+			alert('No correct option was selected.')
+			return
 		}
 		if (index !== -1) addQuestionHandle(titleField, optionType, tempArr, index)
 		else addQuestionHandle(titleField, optionType, tempArr)
@@ -88,16 +103,22 @@ export default function AddQuestionModal({
 		if (optionsRef.current.value.length === 0) return
 
 		const arr = [...optionsArray]
-
-		// For radio options, set all other options incorrect
-		if (optionType === "radio" && checkBoxRef.current.checked)
+		if (
+			optionsArray.findIndex((op) => op.text === optionsRef.current.value) !==
+			-1
+		) {
+			alert('Option already exists.')
+			return
+		}
+		if (optionType === 'radio' && checkBoxRef.current.checked)
+			// For radio options, set all other options incorrect
 			arr.forEach((op) => (op.isCorrect = false))
 
 		arr.push({
 			text: optionsRef.current.value,
 			isCorrect: checkBoxRef.current.checked,
 		})
-		optionsRef.current.value = ""
+		optionsRef.current.value = ''
 		checkBoxRef.current.checked = false
 		setOptionsArray(arr)
 	}
@@ -126,8 +147,8 @@ export default function AddQuestionModal({
 
 	return (
 		<div className={classes.root}>
-			{type === "add" ? (
-				<button className="button" onClick={handleOpen}>
+			{type === 'add' ? (
+				<button className='button' onClick={handleOpen}>
 					Add Question
 				</button>
 			) : (
@@ -136,45 +157,45 @@ export default function AddQuestionModal({
 				</IconButton>
 			)}
 			<Modal
-				aria-labelledby="transition-modal-title"
-				aria-describedby="transition-modal-description"
+				aria-labelledby='transition-modal-title'
+				aria-describedby='transition-modal-description'
 				className={classes.modal}
 				open={open}
 				disableEnforceFocus={true}
 			>
 				<div className={classes.paper}>
-					<div className="questionCard">
-						<div id="title">Question:</div>
+					<div className='questionCard'>
+						<div id='title'>Question:</div>
 						<input
 							autoFocus
 							value={titleField}
 							onChange={(e) => setTitleField(e.target.value)}
-							className="question"
-							type="text"
-							placeholder="Type Question Here"
+							className='question'
+							type='text'
+							placeholder='Type Question Here'
 						/>
 						<select
-							id="select"
-							placeholder="Select"
+							id='select'
+							placeholder='Select'
 							onChange={handleTypeChange}
 						>
-							<option className="selectOp" value="radio">
+							<option className='selectOp' value='radio'>
 								Single Choice
 							</option>
-							<option className="selectOp" value="check">
+							<option className='selectOp' value='check'>
 								Multiple choices
 							</option>
 						</select>
 
-						<div className="option-div">
-							<div className="options" id="one-op">
+						<div className='option-div'>
+							<div className='options' id='one-op'>
 								{optionsArray.map((option, ind) => (
-									<div className="option" key={ind}>
+									<div className='option' key={ind}>
 										<input
 											disabled={true}
-											className="radio-in"
-											type={optionType === "radio" ? "radio" : "checkbox"}
-											name="option"
+											className='radio-in'
+											type={optionType === 'radio' ? 'radio' : 'checkbox'}
+											name='option'
 											checked={option.isCorrect}
 										/>
 										{editOpIndex === ind ? (
@@ -183,22 +204,22 @@ export default function AddQuestionModal({
 												onChange={(e) => setEditedOption(e.target.value)}
 											/>
 										) : (
-											<div className="add-op">{option.text}</div>
+											<div className='add-op'>{option.text}</div>
 										)}
 										{editOpIndex === ind ? (
-											<Icon className="save-icon" onClick={() => saveEdited()}>
+											<Icon className='save-icon' onClick={() => saveEdited()}>
 												<SaveRounded />
 											</Icon>
 										) : (
 											<Icon
-												className="edit-icon"
+												className='edit-icon'
 												onClick={() => handleEdit(ind)}
 											>
 												<EditRounded />
 											</Icon>
 										)}
 										<Icon
-											className="delete-icon"
+											className='delete-icon'
 											onClick={() => {
 												deleteHandler(ind)
 											}}
@@ -210,41 +231,41 @@ export default function AddQuestionModal({
 							</div>
 						</div>
 
-						<div className="add-op">
+						<div className='add-op'>
 							<div>
 								<input
 									ref={checkBoxRef}
-									className="radio-in"
-									type={optionType === "radio" ? "radio" : "checkbox"}
-									name="option"
+									className='radio-in'
+									type={optionType === 'radio' ? 'radio' : 'checkbox'}
+									name='option'
 								/>
 								<input
 									ref={optionsRef}
-									className="op-text"
-									type="text"
+									className='op-text'
+									type='text'
 									placeholder={`Option ${optionsArray.length + 1}`}
 								/>
 							</div>
 							<input
-								type="submit"
-								className="add-btn"
-								value="+ Add"
+								type='submit'
+								className='add-btn'
+								value='+ Add'
 								onClick={addOption}
 							/>
 						</div>
 					</div>
 					<div className={classes.buttons}>
-						<button className="add-btn" onClick={handleClose}>
+						<button className='add-btn' onClick={handleClose}>
 							Close
 						</button>
 						<button
-							disabled={!(optionsArray.length && titleField.length)}
-							className="button"
-							color="secondary"
-							variant="contained"
+							// disabled={!(optionsArray.length && titleField.length)}
+							className='button'
+							color='secondary'
+							variant='contained'
 							onClick={addQuestionCallBack}
 						>
-							{type === "add" ? "Add " : "Edit "}
+							{type === 'add' ? 'Add ' : 'Edit '}
 							Question
 						</button>
 					</div>

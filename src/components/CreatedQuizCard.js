@@ -22,7 +22,7 @@ const CreatedQuizCard = ({
 			<div id='horizontal-line'></div>
 			<div id='row'>
 				<div id='responses'>
-					<Link to={`/responses/${code}`} style={{ textDecoration: 'none' }}>
+					<Link to={`/responses/${code}`} style={{ fontWeight: 'bold' }}>
 						Responses : {responses}
 					</Link>
 				</div>
