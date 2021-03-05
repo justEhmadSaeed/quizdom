@@ -12,6 +12,10 @@ const UserDashboard = ({ user }) => {
 	const [editQuiz, setEditQuiz] = useState([])
 	// Fetch Data from the API
 	useEffect(() => {
+		if (!user.uid) {
+			setLoading(false)
+			return
+		}
 		const fetchQuizData = async () => {
 			const results = await fetch(`/API/users/${user.uid}`)
 			const quizData = await results.json()

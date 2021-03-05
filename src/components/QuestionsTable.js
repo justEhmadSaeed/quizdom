@@ -247,7 +247,7 @@ export default function QuestionsTable({ questionArray, setQuestionArray }) {
     setQuestionArray(temp);
   };
 
-  const rowsPerPage = 10;
+  const rowsPerPage = 5;
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -381,7 +381,7 @@ export default function QuestionsTable({ questionArray, setQuestionArray }) {
           </Table>
         </TableContainer>
         <TablePagination
-          rowsPerPageOptions={[10]}
+          rowsPerPageOptions={[5]}
           component="div"
           count={rows.length}
           rowsPerPage={rowsPerPage}
