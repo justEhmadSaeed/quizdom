@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import LoadingScreen from './LoadingScreen'
 import firebase from '../firebase/firebase'
+import ResponsesTable from '../components/ResponsesTable'
 
 const Responses = ({ match }) => {
 	const quizId = match.params.quizCode
@@ -28,26 +29,9 @@ const Responses = ({ match }) => {
 	if (loading) return <LoadingScreen />
 	else
 		return (
-			<div className="margin-top">
+			<div className='margin-top'>
 				<h2>Responses</h2>
-				<table className="response-table">
-					<thead>
-						<tr>
-							<th>Name</th>
-							<th>Email Address</th>
-							<th>Score</th>
-						</tr>
-					</thead>
-					<tbody>
-						{responses.map((resp, key) => (
-							<tr key={key}>
-								<td>{resp.name}</td>
-								<td>{resp.email}</td>
-								<td>{resp.score}</td>
-							</tr>
-						))}
-					</tbody>
-				</table>
+				<ResponsesTable responses={responses} />
 			</div>
 		)
 }
