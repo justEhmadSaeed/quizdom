@@ -20,18 +20,11 @@
 	font-weight: 500;
 	color: var(--secondary);
 }
-#select:focus {
+/* #select:focus {
 	outline: none;
-}
+} */
 #select-styled {
 	padding: 80px 15px;
-}
-.selectOp {
-	padding: 100px;
-	margin: 10px;
-}
-.selectOp:hover {
-	background-color: var(--gradient);
 }
 .check-in,
 .radio-in {

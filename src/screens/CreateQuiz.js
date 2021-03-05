@@ -82,6 +82,7 @@ const CreateQuiz = ({
 						id='quiz-title'
 						type='text'
 						placeholder='Untitled Quiz'
+						autoFocus
 					/>
 				</div>
 				<div className='controls'>

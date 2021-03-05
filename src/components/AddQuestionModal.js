@@ -64,7 +64,6 @@ export default function AddQuestionModal({
 		setOpen(false)
 	}
 	const addQuestionCallBack = () => {
-		// if (titleField.current.value.length === 0) return;
 
 		const tempArr = [...optionsArray]
 		if (optionsRef.current.value.length !== 0) {

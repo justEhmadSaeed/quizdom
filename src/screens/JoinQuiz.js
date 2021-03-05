@@ -23,6 +23,7 @@ const JoinQuiz = ({ user }) => {
 					id="q-code"
 					type="text"
 					placeholder="Enter Quiz Code"
+					autoFocus
 				/>
 				<button className="join-button" onClick={handleJoinQuiz}>
 					Join Quiz
