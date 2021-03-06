@@ -68,7 +68,7 @@ const CreateQuiz = ({
 			setLoading('error')
 		}
 	}
-	if (quizCode) return <Redirect to={`/created-succesfully/${quizCode}`} />
+	if (quizCode) return <Redirect push to={`/created-succesfully/${quizCode}`} />
 
 	if (loading === 'start') return <LoadingScreen />
 
