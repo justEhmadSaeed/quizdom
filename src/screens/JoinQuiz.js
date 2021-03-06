@@ -2,14 +2,19 @@ import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 import './JoinQuiz.css'
 
-const JoinQuiz = ({ user }) => {
-	const [valid, setValid] = useState(false)
+const JoinQuiz = () => {
+	const [valid, setValid] = useState('false')
 	const [code, setCode] = useState('')
 
 	const handleJoinQuiz = () => {
-		if (code.length) setValid(true)
+		if (code.length) setValid('join')
 	}
-	if (valid) return <Redirect to={`/attempt-quiz/${code}`} />
+	const handleJoinBlindQuiz = () => {
+		if (code.length) setValid('join-blind')
+	}
+	if (valid === 'join') return <Redirect to={`/attempt-quiz/${code}`} />
+	if (valid === 'join-blind')
+		return <Redirect to={`attempt-blind-quiz/${code}`} />
 
 	return (
 		<div id='join-quiz'>
@@ -30,6 +35,9 @@ const JoinQuiz = ({ user }) => {
 				/>
 				<button className='join-button' onClick={handleJoinQuiz}>
 					Join Quiz
+				</button>
+				<button className='join-button' onClick={handleJoinBlindQuiz}>
+					Join As a Blind
 				</button>
 			</div>
 		</div>

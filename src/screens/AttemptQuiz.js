@@ -80,7 +80,6 @@ const AttemptQuiz = ({ match }) => {
 			console.log("Error Submitting quiz", e)
 		}
 	}
-	console.log("result : ", result)
 
 	if (loading) return <LoadingScreen />
 	// For Quiz not Found

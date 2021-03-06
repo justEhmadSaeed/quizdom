@@ -18,12 +18,13 @@
     "react-loader-spinner": "^3.1.14",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
+    "react-speech-recognition": "^3.7.0",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
     "start": "concurrently \"react-scripts start\" \"cd backend && npm start\"",
-    "frontend":"react-scripts start",
-    "backend":"cd backend && npm start",
+    "frontend": "react-scripts start",
+    "backend": "cd backend && npm start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
