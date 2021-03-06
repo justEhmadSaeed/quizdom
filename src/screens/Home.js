@@ -55,16 +55,14 @@ const Home = ({ setUser }) => {
 					</div>
 
 					<div id='login-card'>
-						<label>
+						<label className='login-label'>
 							<b>Q</b>
 						</label>
-						<div className='Home'>
-							<StyledFirebaseAuth
-								borderRadius='40px'
-								uiConfig={uiConfig}
-								firebaseAuth={firebase.auth()}
-							/>
-						</div>
+						<StyledFirebaseAuth
+							borderRadius='40px'
+							uiConfig={uiConfig}
+							firebaseAuth={firebase.auth()}
+						/>
 					</div>
 				</div>
 			)}

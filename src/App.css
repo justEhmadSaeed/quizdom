@@ -19,7 +19,7 @@ h2 {
 p {
 	font-size: 1rem;
 }
-label {
+.label {
 	font-size: 1rem;
 	/* padding:5px; */
 }
@@ -42,7 +42,8 @@ input[type='radio'] {
 	-webkit-transform: scale(1.5);
 }
 
-input[type='text'] {
+/* input[type='text']  */
+.input-text {
 	border: var(--secondary) 1px solid;
 	margin: 10px;
 	padding: 10px;
@@ -53,7 +54,8 @@ input[type='text'] {
 	border-bottom: 2px solid var(--light-shadow);
 }
 
-input[type='text']:focus {
+/* input[type='text']  */
+.input-text:focus {
 	transition: all 0.5s ease;
 	border-bottom: 2px solid var(--dark-shadow);
 }
@@ -73,11 +75,6 @@ input[type='submit'],
 	color: var(--primary);
 }
 
-.button .outlined {
-	background-image: none;
-	border: 2px solid;
-	border-image: var(--gradient);
-}
 input[type='submit'],
 .button:hover {
 	background-position: right center; /* change the direction of the change here */
@@ -85,14 +82,19 @@ input[type='submit'],
 	cursor: pointer;
 	text-decoration: none;
 }
-input[type='submit'],
+/* input[type='submit'],
 .button:focus {
 	outline: none;
-}
+} */
 input[type='submit'],
 .button:active {
 	transform: translateY(4px);
 	box-shadow: var(--dark-shadow) 2px 2px 3px;
+}
+.button .outlined {
+	background-image: none;
+	border: 2px solid;
+	border-image: var(--gradient);
 }
 
 .questionCard {

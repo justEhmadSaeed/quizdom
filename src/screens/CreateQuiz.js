@@ -77,10 +77,11 @@ const CreateQuiz = ({
 			<div id='create-quiz-body'>
 				<div className='quiz-header'>
 					<input
+						type='text'
+						className='input-text'
 						value={title}
 						onChange={(e) => setTitle(e.target.value)}
 						id='quiz-title'
-						type='text'
 						placeholder='Untitled Quiz'
 						autoFocus
 					/>

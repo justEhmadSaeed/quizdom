@@ -64,7 +64,6 @@ export default function AddQuestionModal({
 		setOpen(false)
 	}
 	const addQuestionCallBack = () => {
-
 		const tempArr = [...optionsArray]
 		if (optionsRef.current.value.length !== 0) {
 			// For radio options, set all other options incorrect
@@ -166,11 +165,11 @@ export default function AddQuestionModal({
 					<div className='questionCard'>
 						<div id='title'>Question:</div>
 						<input
+							type='text'
 							autoFocus
 							value={titleField}
 							onChange={(e) => setTitleField(e.target.value)}
-							className='question'
-							type='text'
+							className='input-text question'
 							placeholder='Type Question Here'
 						/>
 						<select
@@ -191,9 +190,9 @@ export default function AddQuestionModal({
 								{optionsArray.map((option, ind) => (
 									<div className='option' key={ind}>
 										<input
+											type={optionType === 'radio' ? 'radio' : 'checkbox'}
 											disabled={true}
 											className='radio-in'
-											type={optionType === 'radio' ? 'radio' : 'checkbox'}
 											name='option'
 											checked={option.isCorrect}
 										/>
@@ -233,15 +232,15 @@ export default function AddQuestionModal({
 						<div className='add-op'>
 							<div>
 								<input
+									type={optionType === 'radio' ? 'radio' : 'checkbox'}
 									ref={checkBoxRef}
 									className='radio-in'
-									type={optionType === 'radio' ? 'radio' : 'checkbox'}
 									name='option'
 								/>
 								<input
-									ref={optionsRef}
-									className='op-text'
 									type='text'
+									ref={optionsRef}
+									className='input-text op-text'
 									placeholder={`Option ${optionsArray.length + 1}`}
 								/>
 							</div>

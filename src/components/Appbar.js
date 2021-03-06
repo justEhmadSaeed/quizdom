@@ -1,19 +1,19 @@
-import React from "react"
-import Sidebar from "./Sidebar"
-import "./Appbar.css"
-import { Link } from "react-router-dom"
-import { Icon } from "@material-ui/core"
-import { AccountCircle } from "@material-ui/icons"
+import React from 'react'
+import Sidebar from './Sidebar'
+import './Appbar.css'
+import { Link } from 'react-router-dom'
+import { Icon } from '@material-ui/core'
+import { AccountCircle } from '@material-ui/icons'
 const Appbar = ({ user, setUser }) => {
 	return (
-		<div className="appbar">
-			<div className="slider">
-				<Sidebar setUser={setUser} />
-				<Link to="/" className="home">
+		<div className='appbar'>
+			<div className='slider'>
+				<Sidebar />
+				<Link to='/' className='home'>
 					<b>Quiz</b>dom
 				</Link>
 			</div>
-			<div className="appbar-user">
+			<div className='appbar-user'>
 				<Icon>
 					<AccountCircle />
 				</Icon>
