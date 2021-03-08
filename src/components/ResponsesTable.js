@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper'
 
 const StyledTableCell = withStyles((theme) => ({
 	head: {
-		backgroundColor: theme.palette.common.black,
+		backgroundColor: '#d81e5b',
 		color: theme.palette.common.white,
 	},
 	body: {
@@ -34,13 +34,16 @@ const useStyles = makeStyles({
 	table: {
 		minWidth: 500,
 	},
+	paper: {
+		borderRadius: 15,
+	},
 })
 
 export default function ResponsesTable({ responses }) {
 	const classes = useStyles()
 	const rows = responses.map((resp) => createData(resp))
 	return (
-		<TableContainer component={Paper}>
+		<TableContainer className={classes.paper} component={Paper}>
 			<Table className={classes.table} aria-label='customized table'>
 				<TableHead>
 					<TableRow>

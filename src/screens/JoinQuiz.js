@@ -7,14 +7,14 @@ const JoinQuiz = () => {
 	const [code, setCode] = useState('')
 
 	const handleJoinQuiz = () => {
-		if (code.length) setValid('join')
+		if (code.length) setValid('attempt-quiz')
 	}
 	const handleJoinBlindQuiz = () => {
-		if (code.length) setValid('join-blind')
+		if (code.length) setValid('attempt-blind-quiz')
 	}
-	if (valid === 'join') return <Redirect to={`/attempt-quiz/${code}`} />
-	if (valid === 'join-blind')
-		return <Redirect to={`attempt-blind-quiz/${code}`} />
+	if (valid !== 'false') return <Redirect push to={`/${valid}/${code}`} />
+	// if (valid === 'join-blind')
+	// 	return <Redirect push to={`attempt-blind-quiz/${code}`} />
 
 	return (
 		<div id='join-quiz'>

@@ -178,10 +178,10 @@ export default function AddQuestionModal({
 							onChange={handleTypeChange}
 						>
 							<option className='selectOp' value='radio'>
-								Single Choice
+								Single Answer
 							</option>
 							<option className='selectOp' value='check'>
-								Multiple choices
+								Multiple Answers
 							</option>
 						</select>
 

@@ -9,55 +9,11 @@ import SpeechRecognition, {
 } from 'react-speech-recognition'
 
 const AttemptBlindQuiz = ({ match }) => {
-	const commands = [
-		{
-			command: 'Hello',
-			callback: () => {
-				console.log('You just said hi!')
-				synthRef.current.speak(
-					new SpeechSynthesisUtterance('You just said hy.')
-				)
-				resetTranscript()
-			},
-			matchInterim: true,
-		},
-		{
-			command: 'order *',
-			callback: (food) => {
-				console.log(`Your order is for: ${food}`)
-				speak(`Your order is for: ${food}`)
-				resetTranscript()
-			},
-			matchInterim: true,
-		},
-		{
-			command: 'reset',
-			callback: () => {
-				resetTranscript()
-			},
-		},
-		{
-			command: 'stop listening',
-			callback: () => {
-				SpeechRecognition.stopListening()
-				speak('Listening Stopped. Press Spacebar to turn your microphone on.')
-				resetTranscript()
-			},
-		},
-		{
-			command: 'Quiz Title',
-			callback: () => {
-				speak(quizTitle)
-				resetTranscript()
-			},
-			matchInterim: true,
-			// isFuzzyMatch: true,
-			// fuzzyMatchingThreshold: 0.1,
-		},
-	]
+	const [commands, setCommands] = useState([])
 	const speak = (string) =>
 		synthRef.current.speak(new SpeechSynthesisUtterance(string))
-
+	// Quiz Data Model
+	const [currentIndex, setCurrentIndex] = useState(0)
 	const quizCode = match.params.quizCode
 	const [questions, setQuestions] = useState([])
 	const [attemptedQuestions, setAttemptedQuestions] = useState([])
@@ -66,12 +22,16 @@ const AttemptBlindQuiz = ({ match }) => {
 	const [result, setResult] = useState({})
 	const [showModal, setShowModal] = useState(false)
 	const uid = firebase.auth().currentUser.uid
+
 	// Using Speech Recognition Transcript
 	const { transcript, resetTranscript } = useSpeechRecognition({
 		commands,
 	})
 	const synthRef = React.useRef(window.speechSynthesis)
-
+	console.log('transcript:' + transcript)
+	// console.log('commands:' + commands)
+	// console.log('final:' + finalTranscript)
+	// console.log('interim:' + interimTranscript)
 	const spaceFunction = React.useCallback(
 		(event) => {
 			if (event.keyCode === 32) {
@@ -96,8 +56,6 @@ const AttemptBlindQuiz = ({ match }) => {
 			SpeechRecognition.abortListening()
 		}
 	}, [spaceFunction])
-	console.log(transcript)
-
 	// Fetch Quiz Data useEffect
 	useEffect(() => {
 		const fetchQuiz = async () => {
@@ -116,6 +74,7 @@ const AttemptBlindQuiz = ({ match }) => {
 			} else {
 				setQuizTitle(quizData.title)
 				setQuestions(quizData.questions)
+
 				const temp = quizData.questions.map((question) => {
 					return {
 						id: question.id,
@@ -129,24 +88,7 @@ const AttemptBlindQuiz = ({ match }) => {
 		}
 		fetchQuiz()
 	}, [quizCode, uid])
-
-	const handleOptionSelect = (e, option, index) => {
-		const temp = [...attemptedQuestions]
-		const options = temp[index].selectedOptions
-		console.log('index:' + index)
-		if (!options.includes(option) && e.target.checked) {
-			if (attemptedQuestions[index].optionType === 'radio') options[0] = option
-			else options.push(option)
-		}
-		if (options.includes(option) && !e.target.checked) {
-			const i = options.indexOf(option)
-			options.splice(i, 1)
-		}
-		temp[index].selectedOptions = options
-		setAttemptedQuestions(temp)
-	}
-
-	const submitQuiz = async () => {
+	const submitQuiz = React.useCallback(async () => {
 		// send attemped Questions to backend
 		try {
 			const res = await fetch('/API/quizzes/submit', {
@@ -163,10 +105,126 @@ const AttemptBlindQuiz = ({ match }) => {
 			const body = await res.json()
 			setResult(body)
 			setShowModal(true)
+			speak(
+				'Your score is ' + body.score + ' out of ' + attemptedQuestions.length
+			)
 			console.log('res body : ', body)
 		} catch (e) {
 			console.log('Error Submitting quiz', e)
 		}
+	}, [quizCode, attemptedQuestions, uid])
+
+	// Commands UseEffect
+	useEffect(() => {
+		const selectOption = (option) => {
+			const temp = [...attemptedQuestions]
+			const options = temp[currentIndex].selectedOptions
+			if (!options.includes(option)) {
+				if (attemptedQuestions[currentIndex].optionType === 'radio')
+					options[0] = option
+				else options.push(option)
+				temp[currentIndex].selectedOptions = options
+				setAttemptedQuestions(temp)
+			}
+		}
+		const speakQuestion = (index) => {
+			speak('Question number ' + (index + 1))
+			speak(questions[index].title)
+			let choice =
+				questions[index].optionType === 'radio'
+					? ' only 1 option.'
+					: ' multiple options.'
+
+			speak('You can choose ' + choice)
+			questions[index].options.forEach((op, i) => {
+				speak('Option:' + (i + 1) + op.text)
+			})
+		}
+		const temp = [
+			{
+				command: 'reset',
+				callback: () => {
+					resetTranscript()
+				},
+			},
+			{
+				command: ['(*) title', '(*) start (*)'],
+				callback: () => {
+					speak(quizTitle)
+					speakQuestion(currentIndex)
+					resetTranscript()
+				},
+				matchInterim: true,
+			},
+			{
+				command: ['(*) option :option'],
+				callback: (dummy, option) => {
+					console.log('option' + option)
+					if (
+						(option > 0 && option <= questions[currentIndex].options.length) ||
+						['for', 'to'].some((op) => op === option)
+					) {
+						if (option === 'for') option = 4
+						else if (option === 'to') option = 2
+						speak(
+							'You chose option ' +
+								option +
+								questions[currentIndex].options[option - 1].text
+						)
+						// const doc = document.querySelectorAll('.option')
+						// console.log(doc);
+						selectOption(questions[currentIndex].options[option - 1].text)
+					} else if (Number.isInteger(option))
+						speak('No such option as ' + option)
+					// speakQuestion(currentIndex)
+					resetTranscript()
+				},
+				matchInterim: true,
+			},
+			{
+				command: '(*) next question',
+				callback: () => {
+					if (currentIndex < questions.length - 1) {
+						setCurrentIndex(currentIndex + 1)
+						speakQuestion(currentIndex + 1)
+						resetTranscript()
+					}
+				},
+				matchInterim: true,
+			},
+			{
+				command: 'submit quiz',
+				callback: () => {
+					if (Object.keys(result).length > 0) submitQuiz()
+				},
+				matchInterim: true,
+			},
+		]
+		setCommands(temp)
+	}, [
+		quizTitle,
+		resetTranscript,
+		questions,
+		currentIndex,
+		attemptedQuestions,
+		submitQuiz,
+		result,
+	])
+	// console.log(questions)
+	const handleOptionSelect = (e, option, index) => {
+		const temp = [...attemptedQuestions]
+		const options = temp[index].selectedOptions
+		console.log('index:' + index)
+		if (!options.includes(option) && e.target.checked) {
+			if (attemptedQuestions[index].optionType === 'radio') options[0] = option
+			else options.push(option)
+		}
+		if (options.includes(option) && !e.target.checked) {
+			const i = options.indexOf(option)
+			options.splice(i, 1)
+		}
+		temp[index].selectedOptions = options
+		setAttemptedQuestions(temp)
 	}
 
 	if (loading) return <LoadingScreen />
@@ -228,6 +286,13 @@ const AttemptBlindQuiz = ({ match }) => {
 											<input
 												type='radio'
 												name={`option${index}`}
+												checked={
+													attemptedQuestions.length
+														? attemptedQuestions[
+																index
+														  ].selectedOptions.includes(option.text)
+														: false
+												}
 												onChange={(e) =>
 													handleOptionSelect(e, option.text, index)
 												}
@@ -236,6 +301,13 @@ const AttemptBlindQuiz = ({ match }) => {
 											<input
 												type='checkbox'
 												name='option'
+												checked={
+													attemptedQuestions.length
+														? attemptedQuestions[
+																index
+														  ].selectedOptions.includes(option.text)
+														: false
+												}
 												onChange={(e) =>
 													handleOptionSelect(e, option.text, index)
 												}

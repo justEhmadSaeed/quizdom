@@ -82,10 +82,10 @@ input[type='submit'],
 	cursor: pointer;
 	text-decoration: none;
 }
-/* input[type='submit'],
+input[type='submit'],
 .button:focus {
 	outline: none;
-} */
+}
 input[type='submit'],
 .button:active {
 	transform: translateY(4px);
