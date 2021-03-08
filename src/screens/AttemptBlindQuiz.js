@@ -5,7 +5,7 @@ import LoadingScreen from './LoadingScreen'
 import AttemptedModal from './AttemptedModal'
 // Speech Recognition Imports
 import SpeechRecognition, {
-	useSpeechRecognition,
+	useSpeechRecognition
 } from 'react-speech-recognition'
 
 const AttemptBlindQuiz = ({ match }) => {
@@ -25,13 +25,10 @@ const AttemptBlindQuiz = ({ match }) => {
 
 	// Using Speech Recognition Transcript
 	const { transcript, resetTranscript } = useSpeechRecognition({
-		commands,
+		commands
 	})
 	const synthRef = React.useRef(window.speechSynthesis)
 	console.log('transcript:' + transcript)
-	// console.log('commands:' + commands)
-	// console.log('final:' + finalTranscript)
-	// console.log('interim:' + interimTranscript)
 	const spaceFunction = React.useCallback(
 		(event) => {
 			if (event.keyCode === 32) {
@@ -56,6 +53,7 @@ const AttemptBlindQuiz = ({ match }) => {
 			SpeechRecognition.abortListening()
 		}
 	}, [spaceFunction])
+
 	// Fetch Quiz Data useEffect
 	useEffect(() => {
 		const fetchQuiz = async () => {
@@ -63,8 +61,8 @@ const AttemptBlindQuiz = ({ match }) => {
 				method: 'POST',
 				body: JSON.stringify({ quizId: quizCode, uid }),
 				headers: {
-					'Content-Type': 'application/json',
-				},
+					'Content-Type': 'application/json'
+				}
 			})
 			const quizData = await res.json()
 			setLoading(false)
@@ -80,7 +78,7 @@ const AttemptBlindQuiz = ({ match }) => {
 						id: question.id,
 						title: question.title,
 						optionType: question.optionType,
-						selectedOptions: [],
+						selectedOptions: []
 					}
 				})
 				setAttemptedQuestions(temp)
@@ -96,17 +94,20 @@ const AttemptBlindQuiz = ({ match }) => {
 				body: JSON.stringify({
 					uid,
 					quizId: quizCode,
-					questions: attemptedQuestions,
+					questions: attemptedQuestions
 				}),
 				headers: {
-					'Content-Type': 'application/json',
-				},
+					'Content-Type': 'application/json'
+				}
 			})
 			const body = await res.json()
 			setResult(body)
 			setShowModal(true)
 			speak(
-				'Your score is ' + body.score + ' out of ' + attemptedQuestions.length
+				'Your score is ' +
+					body.score +
+					' out of ' +
+					attemptedQuestions.length
 			)
 			console.log('res body : ', body)
 		} catch (e) {
@@ -128,7 +129,7 @@ const AttemptBlindQuiz = ({ match }) => {
 			}
 		}
 		const speakQuestion = (index) => {
-			speak('Question number ' + (index + 1))
+			speak('Question number ' + (index + 1) + ':')
 			speak(questions[index].title)
 			let choice =
 				questions[index].optionType === 'radio'
@@ -137,7 +138,7 @@ const AttemptBlindQuiz = ({ match }) => {
 
 			speak('You can choose ' + choice)
 			questions[index].options.forEach((op, i) => {
-				speak('Option:' + (i + 1) + op.text)
+				speak(`Option ${i + 1} : ${op.text}`)
 			})
 		}
 		const temp = [
@@ -145,7 +146,7 @@ const AttemptBlindQuiz = ({ match }) => {
 				command: 'reset',
 				callback: () => {
 					resetTranscript()
-				},
+				}
 			},
 			{
 				command: ['(*) title', '(*) start (*)'],
@@ -154,32 +155,31 @@ const AttemptBlindQuiz = ({ match }) => {
 					speakQuestion(currentIndex)
 					resetTranscript()
 				},
-				matchInterim: true,
+				matchInterim: true
 			},
 			{
 				command: ['(*) option :option'],
 				callback: (dummy, option) => {
-					console.log('option' + option)
 					if (
-						(option > 0 && option <= questions[currentIndex].options.length) ||
+						(option > 0 &&
+							option <= questions[currentIndex].options.length) ||
 						['for', 'to'].some((op) => op === option)
 					) {
 						if (option === 'for') option = 4
 						else if (option === 'to') option = 2
 						speak(
-							'You chose option ' +
-								option +
+							`You chose option ${option} : ${
 								questions[currentIndex].options[option - 1].text
+							}`
 						)
-						// const doc = document.querySelectorAll('.option')
-						// console.log(doc);
-						selectOption(questions[currentIndex].options[option - 1].text)
+						selectOption(
+							questions[currentIndex].options[option - 1].text
+						)
 					} else if (Number.isInteger(option))
 						speak('No such option as ' + option)
-					// speakQuestion(currentIndex)
 					resetTranscript()
 				},
-				matchInterim: true,
+				matchInterim: true
 			},
 			{
 				command: '(*) next question',
@@ -190,15 +190,31 @@ const AttemptBlindQuiz = ({ match }) => {
 						resetTranscript()
 					}
 				},
-				matchInterim: true,
+				matchInterim: true
 			},
 			{
 				command: 'submit quiz',
 				callback: () => {
-					if (Object.keys(result).length > 0) submitQuiz()
+					if (Object.keys(result).length <= 0) submitQuiz()
 				},
-				matchInterim: true,
+				matchInterim: true
 			},
+			{
+				command: ['(*) repeat question :number'],
+				callback: (dummy, number) => {
+					if (number > 0 && number <= questions.length) {
+						if (number === 'for') number = 4
+						else if (number === 'to') number = 2
+						setCurrentIndex(number - 1)
+						speakQuestion(number - 1)
+						resetTranscript()
+					} else
+						speak(
+							'Question Number not recognized. Kindly repeat it'
+						)
+				},
+				matchInterim: true
+			}
 		]
 		setCommands(temp)
 	}, [
@@ -208,15 +224,16 @@ const AttemptBlindQuiz = ({ match }) => {
 		currentIndex,
 		attemptedQuestions,
 		submitQuiz,
-		result,
+		result
 	])
-	// console.log(questions)
+
 	const handleOptionSelect = (e, option, index) => {
 		const temp = [...attemptedQuestions]
 		const options = temp[index].selectedOptions
 		console.log('index:' + index)
 		if (!options.includes(option) && e.target.checked) {
-			if (attemptedQuestions[index].optionType === 'radio') options[0] = option
+			if (attemptedQuestions[index].optionType === 'radio')
+				options[0] = option
 			else options.push(option)
 		}
 		if (options.includes(option) && !e.target.checked) {
@@ -228,98 +245,118 @@ const AttemptBlindQuiz = ({ match }) => {
 	}
 
 	if (loading) return <LoadingScreen />
+
 	// For Quiz not Found
-	if (quizTitle === 'ERR:QUIZ_NOT_FOUND')
+	if (quizTitle === 'ERR:QUIZ_NOT_FOUND') {
+		speak('The quiz you requested was not found. Press space to go back')
+		// resetTranscript()
 		return (
-			<div className='loading'>
+			<div className="loading">
 				<h1>404 Quiz Not Found!</h1>
-				<div id='logo-name'>
+				<div id="logo-name">
 					<b>Quiz</b>dom
 				</div>
 				<h3>
-					Go back to <Link to='/join-quiz'>Join Quiz </Link>Page.
+					Go back to <Link to="/join-quiz">Join Quiz </Link>Page.
 				</h3>
 			</div>
 		)
+	}
 	// For Quiz not accessible
-	else if (quizTitle === 'ERR:QUIZ_ACCESS_DENIED')
+	else if (quizTitle === 'ERR:QUIZ_ACCESS_DENIED') {
+		speak('Access is not granted by the creator. Press space to go back')
 		return (
-			<div className='loading'>
+			<div className="loading">
 				<h2>
-					Quiz Access is Not Granted by the Creator. Please contact Quiz
-					Creator.
+					Quiz Access is Not Granted by the Creator. Please contact
+					Quiz Creator.
 				</h2>
-				<div id='logo-name'>
+				<div id="logo-name">
 					<b>Quiz</b>dom
 				</div>
 				<h3>
-					Go back to <Link to='/join-quiz'>Join Quiz </Link>Page.
+					Go back to <Link to="/join-quiz">Join Quiz </Link>Page.
 				</h3>
 			</div>
 		)
-	else if (quizTitle === 'ERR:QUIZ_ALREADY_ATTEMPTED')
+	} else if (quizTitle === 'ERR:QUIZ_ALREADY_ATTEMPTED') {
+		speak('You have already attempted this quiz. Press space to go back')
 		return (
-			<div className='loading'>
+			<div className="loading">
 				<h2>You have already taken the Quiz.</h2>
-				<div id='logo-name'>
+				<div id="logo-name">
 					<b>Quiz</b>dom
 				</div>
 				<h3>
-					Go back to <Link to='/join-quiz'>Join Quiz </Link>Page.
+					Go back to <Link to="/join-quiz">Join Quiz </Link>Page.
 				</h3>
 			</div>
 		)
-	else
+	} else
 		return (
-			<div id='main-body'>
-				<div id='create-quiz-body'>
-					<div className='quiz-header'>
+			<div id="main-body">
+				<div id="create-quiz-body">
+					<div className="quiz-header">
 						<h2>{quizTitle}</h2>
 					</div>
 					{questions.map((question, index) => (
-						<div className='attempQuestionCard' key={index}>
-							<div id='title'>{question.title}</div>
-							<div className='option-div'>
+						<div className="attempQuestionCard" key={index}>
+							<div id="title">{question.title}</div>
+							<div className="option-div">
 								{question.options.map((option, ind) => (
-									<div className='option' key={ind}>
+									<div className="option" key={ind}>
 										{question.optionType === 'radio' ? (
 											<input
-												type='radio'
+												type="radio"
 												name={`option${index}`}
 												checked={
 													attemptedQuestions.length
 														? attemptedQuestions[
 																index
-														  ].selectedOptions.includes(option.text)
+														  ].selectedOptions.includes(
+																option.text
+														  )
 														: false
 												}
 												onChange={(e) =>
-													handleOptionSelect(e, option.text, index)
+													handleOptionSelect(
+														e,
+														option.text,
+														index
+													)
 												}
 											/>
 										) : (
 											<input
-												type='checkbox'
-												name='option'
+												type="checkbox"
+												name="option"
 												checked={
 													attemptedQuestions.length
 														? attemptedQuestions[
 																index
-														  ].selectedOptions.includes(option.text)
+														  ].selectedOptions.includes(
+																option.text
+														  )
 														: false
 												}
 												onChange={(e) =>
-													handleOptionSelect(e, option.text, index)
+													handleOptionSelect(
+														e,
+														option.text,
+														index
+													)
 												}
 											/>
 										)}
-										<label style={{ padding: '0px 5px' }}>{option.text}</label>
+										<label style={{ padding: '0px 5px' }}>
+											{option.text}
+										</label>
 									</div>
 								))}
 							</div>
 						</div>
 					))}
-					<button className='button wd-200' onClick={submitQuiz}>
+					<button className="button wd-200" onClick={submitQuiz}>
 						Submit
 					</button>
 					<AttemptedModal
