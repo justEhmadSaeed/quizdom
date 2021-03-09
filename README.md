@@ -8,7 +8,7 @@ QUIZDOM is a web application for all kinds of users. Users can simply log in to 
 
 ## 💡Live Preview
 
-Take a look at the live <a href="https://quizdom-quiz.netlify.app/" target="_blank">Preview of the app.</a>.
+Take a look at the live <a href="https://quizdom-app.herokuapp.com/" target="_blank">Preview of the app.</a>.
 
 ## ✨Functional Requirements
 
@@ -25,5 +25,16 @@ Take a look at the live <a href="https://quizdom-quiz.netlify.app/" target="_bla
   - The student should be able to attempt a quiz by using the quiz code.
   - The student should be able to see his/ her score in the attempted quizzes.
 
-## Scripts:
- - `npm start` : starts client and backend concurrently
+## 🚀 Configuration Guidlelines
+
+- Create an account on firebase.google.com and add the API key in the src/firebase/firebase.js file.
+- Add the MongoDB API key (either local server key or from the Atlas MongoDB remote server) in backend/src/server.js.
+- Install MongoDB Server if you want to use the database locally.
+  Install Node.js to use npm and node services.
+- Open a terminal with the path set to the root directory of the project and run `npm install` command to install the required packages.
+- Open a new terminal with the path set to the backend directory of the project and run `npm install` command to install the required packages.
+- After successful installation of all packages, run command `npm start` in the terminal with the path set to the root directory and wait for the project to initiate.
+
+## Supported Environments
+
+- Windows/ macOS/ Linux operating systems are supported for the development of the respective project.
