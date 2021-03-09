@@ -9,7 +9,7 @@ const DBStart = async () => {
 		'mongodb://quizdom:quizdom-mongodb@cluster0-shard-00-00.lecax.mongodb.net:27017,cluster0-shard-00-01.lecax.mongodb.net:27017,cluster0-shard-00-02.lecax.mongodb.net:27017/quizdom-project?ssl=true&replicaSet=atlas-hmlbn7-shard-0&authSource=admin&retryWrites=true&w=majority',
 		{
 			useNewUrlParser: true,
-			useUnifiedTopology: true,
+			useUnifiedTopology: true
 		}
 	)
 	console.log('DB Connected Successfully.')
@@ -35,7 +35,7 @@ const createUser = async (uid, name, email, res) => {
 				name,
 				email,
 				createdQuiz: [],
-				attemptedQuiz: [],
+				attemptedQuiz: []
 			})
 			res.status(200).json({ message: 'User Created successfully.' })
 		} else {
@@ -51,12 +51,12 @@ createQuiz = async (quiz, res) => {
 			const result = await db.collection('quizzes').insertOne(quiz)
 			res.status(200).json({
 				message: 'Quiz created successfully',
-				quizId: result.insertedId,
+				quizId: result.insertedId
 			})
 			console.log('quiz ID', result.insertedId)
 			const query = { uid: quiz.uid }
 			const addQuiz = {
-				$push: { createdQuiz: result.insertedId },
+				$push: { createdQuiz: result.insertedId }
 			}
 			await db.collection('users').updateOne(query, addQuiz)
 			console.log('Quiz Added to Creator Document: ', result.insertedId)
@@ -70,6 +70,24 @@ createQuiz = async (quiz, res) => {
 submitQuiz = async (submittedQuiz, res) => {
 	withDB(async (db) => {
 		try {
+			// Check whether the user has already submitted the Quiz
+			const validationCursor = db.collection('users').find({
+				$and: [
+					{ uid: submittedQuiz.uid },
+					{ attemptedQuiz: ObjectId(submittedQuiz.quizId) }
+				]
+			})
+
+			const quizData = await validationCursor.toArray()
+
+			console.log({ quizData })
+			// If the quiz is already submitted, DONOT submit it.
+			if (quizData[0]) {
+				console.log('in quiz already attempted')
+				return res.status(200).json({
+					error: 'ERR:QUIZ_ALREADY_ATTEMPTED'
+				})
+			}
 			const cursor = db
 				.collection('quizzes')
 				.find({ _id: new ObjectId(submittedQuiz.quizId) })
@@ -87,8 +105,8 @@ submitQuiz = async (submittedQuiz, res) => {
 				{ _id: new ObjectId(submittedQuiz.quizId) },
 				{
 					$push: {
-						responses: { uid: submittedQuiz.uid, score: score },
-					},
+						responses: { uid: submittedQuiz.uid, score: score }
+					}
 				}
 			)
 			// Update user's attempted quizzes
@@ -96,8 +114,8 @@ submitQuiz = async (submittedQuiz, res) => {
 				{ uid: submittedQuiz.uid },
 				{
 					$push: {
-						attemptedQuiz: ObjectId(submittedQuiz.quizId),
-					},
+						attemptedQuiz: ObjectId(submittedQuiz.quizId)
+					}
 				}
 			)
 		} catch (error) {
@@ -129,7 +147,7 @@ const getResponses = (obj, res) => {
 			finalResponse.push({
 				name: data.name,
 				email: data.email,
-				score: responses[index].score,
+				score: responses[index].score
 			})
 		})
 		res.status(200).json({ finalResponse })
