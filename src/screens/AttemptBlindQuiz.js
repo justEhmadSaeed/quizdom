@@ -78,12 +78,12 @@ const AttemptBlindQuiz = ({ match }) => {
 			if (quizData.error) {
 				// SpeechRecognition.stopListening()
 				setQuizTitle(quizData.error)
-				if (quizTitle === 'ERR:QUIZ_NOT_FOUND')
+				if (quizData.error === 'ERR:QUIZ_NOT_FOUND')
 					speak('The quiz you requested was not found.')
 				// For Quiz not accessible
-				else if (quizTitle === 'ERR:QUIZ_ACCESS_DENIED')
+				else if (quizData.error === 'ERR:QUIZ_ACCESS_DENIED')
 					speak('Access is not granted by the creator.')
-				else if (quizTitle === 'ERR:QUIZ_ALREADY_ATTEMPTED')
+				else if (quizData.error === 'ERR:QUIZ_ALREADY_ATTEMPTED')
 					speak('You have already attempted this quiz.')
 			} else {
 				setQuizTitle(quizData.title)
