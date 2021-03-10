@@ -12,7 +12,7 @@ const CreateQuiz = ({
 	questions,
 
 	isOpen,
-	editQuizHandle,
+	editQuizHandle
 }) => {
 	const [questionArray, setQuestionArray] = useState([])
 	const [title, setTitle] = useState('')
@@ -53,11 +53,11 @@ const CreateQuiz = ({
 					title,
 					uid: user.uid,
 					questions: questionArray,
-					isOpen: access,
+					isOpen: access
 				}),
 				headers: {
-					'Content-Type': 'application/json',
-				},
+					'Content-Type': 'application/json'
+				}
 			})
 			console.log('Quiz posted ! ')
 			const body = await result.json()
@@ -84,6 +84,7 @@ const CreateQuiz = ({
 						id='quiz-title'
 						placeholder='Untitled Quiz'
 						autoFocus
+						autocomplete='off'
 					/>
 				</div>
 				<div className='controls'>
