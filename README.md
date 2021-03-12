@@ -14,16 +14,30 @@ Take a look at the live <a href="https://quizdom-app.herokuapp.com/" target="_bl
 
 - ### Teacher
 
-  - The teacher should be able to Sign up/Sign in.
   - The teacher should be able to create quizzes.
-  - The teacher should be able to control access to quizzes.
+  - The teacher should be able to control the access to quizzes.
   - The teacher should be able to copy and share the quiz - code.
   - The teacher should be able to view/ delete the responses.
 
 - ### Student
-  - The student should be able to Sign up/Sign in.
+
   - The student should be able to attempt a quiz by using the quiz code.
-  - The student should be able to see his/ her score in the attempted quizzes.
+  - The student should be able to attempt the quiz using voice recognition.
+  - The student should be able to see their scores in the attempted quizzes.
+
+## Blind Quiz Commands
+
+- The Blind Quiz Module works with the limited Speech Commands to interact with the App.
+- Press `space` to turn the microphone on.
+- Voice Commands:
+  - `Instructions`: To listen to all the possible commands.
+  - `start Quiz` or `title`: To listen the Quiz title and first Question.
+  - `Select Option [Number]` or `Choose Option [Number]`: To mark the option of the current Question.
+  - `next question`: to increment the question index and move to the next question and listen it.
+  - `previous question`: to decrement the question index and move to the previous question and listen it
+  - `Repeat Question [Number]`: To listen a specific Question.
+  - `Repeat Current Question`: To repeat the current Question.
+  - `submit quiz`: to submit the quiz.
 
 ## 🚀 Configuration Guidlelines
 
