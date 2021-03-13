@@ -10,6 +10,9 @@ QUIZDOM is a web application for all kinds of users. Users can simply log in to 
 
 Take a look at the live <a href="https://quizdom-app.herokuapp.com/" target="_blank">Preview of the app.</a>.
 
+![Quizdom Demo](https://user-images.githubusercontent.com/46846821/113098567-12f45080-9212-11eb-84f4-a4e9092453e1.gif)
+
+
 ## ✨Functional Requirements
 
 - ### Teacher
