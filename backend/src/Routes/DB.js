@@ -1,17 +1,14 @@
 const MongoClient = require('mongodb')
 const Evaluate = require('../Algorithms/EvaluateQuiz')
 const ObjectId = require('mongodb').ObjectId
-
+const API_KEY = require('../db-config').database
 let db
 const DBStart = async () => {
 	console.log('DB server connecting...')
-	const client = await MongoClient.connect(
-		'mongodb://quizdom:quizdom-mongodb@cluster0-shard-00-00.lecax.mongodb.net:27017,cluster0-shard-00-01.lecax.mongodb.net:27017,cluster0-shard-00-02.lecax.mongodb.net:27017/quizdom-project?ssl=true&replicaSet=atlas-hmlbn7-shard-0&authSource=admin&retryWrites=true&w=majority',
-		{
-			useNewUrlParser: true,
-			useUnifiedTopology: true
-		}
-	)
+	const client = await MongoClient.connect(API_KEY, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true
+	})
 	console.log('DB Connected Successfully.')
 	db = client.db('quizdom-project')
 }
