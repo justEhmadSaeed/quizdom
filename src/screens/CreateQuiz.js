@@ -84,7 +84,7 @@ const CreateQuiz = ({
 						id='quiz-title'
 						placeholder='Untitled Quiz'
 						autoFocus
-						autocomplete='off'
+						autoComplete='off'
 					/>
 				</div>
 				<div className='controls'>
