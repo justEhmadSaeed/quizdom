@@ -1,14 +1,13 @@
 import firebase from 'firebase';
 
-var firebaseConfig = {
-    apiKey: "AIzaSyANZi6Xc7B1_14-RfEJ7KV9b9nkcZL2DqY",
-    authDomain: "quizdom-70da5.firebaseapp.com",
-    projectId: "quizdom-70da5",
-    storageBucket: "quizdom-70da5.appspot.com",
-    messagingSenderId: "706147557425",
-    appId: "1:706147557425:web:40f7062e5aee9a84743510",
-    measurementId: "G-RE88729T4B"
-  };
+const firebaseConfig = {
+	apiKey: process.env.REACT_APP_API_KEY,
+	authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+	projectId: process.env.REACT_APP_PROJECT_ID,
+	storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+	messagingSenderId: process.env.REACT_APP_SENDER_ID,
+	appId: process.env.REACT_APP_APP_ID
+};
   
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
