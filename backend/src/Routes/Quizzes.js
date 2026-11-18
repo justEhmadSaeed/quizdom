@@ -17,6 +17,7 @@ Router.post('/join', (req, res) => {
 				.project({
 					// Excluded Fields
 					responses: 0,
+					uid: 0,
 					'questions.options.isCorrect': 0,
 				})
 
